@@ -1,4 +1,6 @@
 import React from 'react';
+import ProductImage from './ProductImage';
+import Meter from './Meter';
 
 let product = {
   id: '572y4hgqafj',
@@ -42,7 +44,7 @@ let product = {
       rate: 6
     }
   ],
-  tags: ['vegan', 'cruelty free', 'paraben free', 'sustainable', 'non-gmo'],
+  tags: ['vegan', 'cruelty_free', 'paraben_free', 'sustainable', 'non_gmo'],
   description:
     'Floral with bold notes of lavender and subtle accents of rose and geranium.',
   image:
@@ -57,15 +59,13 @@ const Product = () => {
     <div id="product">
       <h3>{product.title}</h3>
       <p>{product.description}</p>
-      <div className="productImage">
-        <img src={product.image} width={'300px'} />
-        <img
-          className="verified"
-          src={require(`../images/${
-            product.verified ? 'verified.png' : 'not_verified.png'
-          }`)}
-        />
+      <ProductImage image={product.image} verified={product.verified} />
+      <div className="tags">
+        {product.tags.map((tag, index) => {
+          return <img key={index} src={require(`../images/verified.png`)} />;
+        })}
       </div>
+      <Meter ingredients={product.ingredients} />
     </div>
   );
 };
