@@ -1,28 +1,32 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
-import ContextDemo from './components/ContextDemo';
-
 import './App.css';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './components/Home';
+import Blog from './components/Blog';
+import OurStory from './components/OurStory';
+import Categories from './components/Categories';
+import Product from './components/Product';
 
 const App = () => {
-  const [serverMessage, setServerMessage] = useState('');
-
-  const fetchDemoData = () => {
-    fetch('/api/demo')
-      .then((response) => response.json())
-      .then((data) => setServerMessage(data.message));
-  };
-
-  useEffect(fetchDemoData, []);
-
   return (
-    <AppContextProvider>
-      <div id="demo">
-        <h3>Hello from client/src/App.js</h3>
-        <ContextDemo />
-        <h3>{serverMessage}</h3>
-      </div>
-    </AppContextProvider>
+    // <AppContextProvider>
+
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/categories" component={Categories} />
+        <Route exact path="/blog" component={Blog} />
+        <Route exact path="/ourStory" component={OurStory} />
+        <Route exact path="/product" component={Product} />
+      </Switch>
+      <Footer />
+    </BrowserRouter>
+
+    // </AppContextProvider>
   );
 };
 
