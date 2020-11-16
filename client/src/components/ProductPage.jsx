@@ -1,6 +1,8 @@
 import React from 'react';
 import ProductImage from './ProductImage';
 import Meter from './Meter';
+import Ingredients from './Ingredients';
+import Reviews from './Reviews';
 
 let product = {
   id: '572y4hgqafj',
@@ -54,7 +56,7 @@ let product = {
   subcategory: 'Moisturizers'
 };
 
-const Product = () => {
+const ProductPage = () => {
   return (
     <div id="product">
       <h3>{product.title}</h3>
@@ -66,8 +68,14 @@ const Product = () => {
         })}
       </div>
       <Meter ingredients={product.ingredients} />
+      <div className="tabs">
+        <button className="active">Ingredients</button>
+        <button>Reviews</button>
+      </div>
+      <Ingredients ingredients={product.ingredients} />
+      <Reviews />
     </div>
   );
 };
 
-export default Product;
+export default ProductPage;

@@ -16,11 +16,13 @@ const Meter = ({ ingredients }) => {
     return html;
   }
 
+  let meterNumber = ingredients ? meter(ingredients) : '70';
+
   return (
     <div className="meter">
       <div className="meterBar">
-        <div style={{ width: `${meter(ingredients)}%` }}>
-          <p>{meter(ingredients)}</p>
+        <div style={{ width: `${meterNumber}%` }}>
+          <p>{meterNumber}</p>
         </div>
         {lines(10)}
       </div>
