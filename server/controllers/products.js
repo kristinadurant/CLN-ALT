@@ -20,8 +20,6 @@ exports.createProduct = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-const Product = require('../db/models/product'),
-  mongoose = require('mongoose');
 
 //ANCHOR GET A SPECIFIC PRODUCT .GETSPECIFICPRODUCT
 exports.getSpecificProduct = async (req, res) => {
