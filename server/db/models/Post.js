@@ -1,19 +1,26 @@
 const mongoose = require('mongoose');
 
-const postSchema = new mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true
+const postSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
+    },
+    image: {
+      type: String,
+      trim: true
+    },
+    text: {
+      type: String,
+      required: true
+    }
   },
-  image: {
-    type: String
-  },
-  text: {
-    type: String,
-    required: true
+  {
+    timestamp: true
   }
-});
+);
 
 const Post = mongoose.model('Post', postSchema);
 
