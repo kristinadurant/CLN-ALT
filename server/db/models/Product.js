@@ -1,5 +1,27 @@
 const mongoose = require('mongoose');
-
+let categories = {
+  skincare: ['moisturizers', 'cleansers', 'masks', 'eyecare'],
+  haircare: [
+    'shampoo',
+    'conditioner',
+    'hairmask',
+    'hair oils/serums',
+    'hair spray',
+    'hair dye'
+  ],
+  'body care': [
+    'sunscreen',
+    'sun tanners',
+    'sun oils',
+    'bodywash',
+    'body lotion',
+    'hand soap',
+    'hand sanitizer'
+  ],
+  fragrance: ['perfume', 'cologne'],
+  'oral care': ['toothpaste', 'mouthwash', 'teeth whitening', 'lip balm'],
+  'baby care': ['baby wipes', 'baby cleaners', 'baby creams', 'baby powder']
+};
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -19,6 +41,7 @@ const productSchema = new mongoose.Schema(
       default: false,
       required: true
     },
+    // ingredients: [IngredientSchema],
     tags: [
       {
         type: String,
@@ -33,12 +56,22 @@ const productSchema = new mongoose.Schema(
     ],
     category: {
       type: String,
-      enum: ['skincare', 'haircare', 'fragrance', 'bodycare', 'oralcare'],
-      required: true
+      enum: Object.keys(categories),
+      required: true,
+      trim: true,
+      lowercase: true
     },
     subcategory: {
       type: String,
-      required: true
+      required: true,
+      trim: true,
+      lowercase: true,
+      validate: {
+        validator: function (v) {
+          return categories[this.category].includes(v);
+        },
+        message: 'Pick an existing subcategory'
+      }
     },
     ingredients: [
       {
@@ -48,11 +81,7 @@ const productSchema = new mongoose.Schema(
       }
     ]
   },
-  {
-    timestamp: true
-  }
+  { timestamps: true }
 );
-
 const Product = mongoose.model('Product', productSchema);
-
 module.exports = Product;
