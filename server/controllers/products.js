@@ -4,16 +4,7 @@ const Product = require('../db/models/product'),
 //ANCHOR CREATE PRODUCT  .CREATEPRODUCT
 exports.createProduct = async (req, res) => {
   try {
-    const post = await new Product({
-      title,
-      description,
-      image,
-      verified,
-      ingredients,
-      tags,
-      category,
-      subcategory
-    });
+    const product = await new Product(req.body);
     await product.save();
     res.status(200).send(product);
   } catch (error) {
@@ -45,10 +36,14 @@ exports.getSpecificProduct = async (req, res) => {
 };
 
 //ANCHOR GET ALL PRODUCTS .getAllProducts///////////
-exports.getAllProducts = (req, res) => {
-  Product.find()
-    .then((products) => res.json(products))
-    .catch((err) => res.status(400).json('Error: ' + err));
+
+exports.getAllProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.json(products);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
 
 //ANCHOR UPDATE A SPECIFIC PRODUCT /////
@@ -72,8 +67,7 @@ exports.updateProduct = async (req, res) => {
 exports.deleteProduct = async (req, res) => {
   try {
     const product = await Product.findByIdAndDelete({
-      _id: req.params.id,
-      owner: req.user._id
+      _id: req.params.id
     });
     if (!product)
       return res.status(404).json({ message: 'Uh Oh! :( Product Not Found' });

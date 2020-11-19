@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 let categories = {
   skincare: ['moisturizers', 'cleansers', 'masks', 'eyecare'],
   haircare: [
@@ -22,6 +23,7 @@ let categories = {
   'oral care': ['toothpaste', 'mouthwash', 'teeth whitening', 'lip balm'],
   'baby care': ['baby wipes', 'baby cleaners', 'baby creams', 'baby powder']
 };
+
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -41,7 +43,6 @@ const productSchema = new mongoose.Schema(
       default: false,
       required: true
     },
-    // ingredients: [IngredientSchema],
     tags: [
       {
         type: String,
@@ -83,5 +84,6 @@ const productSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;
