@@ -28,8 +28,8 @@ const productSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
-      unique: true
+      required: true
+      // unique: true
     },
     description: {
       type: String
@@ -64,7 +64,7 @@ const productSchema = new mongoose.Schema(
     },
     subcategory: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
       lowercase: true,
       validate: {
@@ -77,8 +77,8 @@ const productSchema = new mongoose.Schema(
     ingredients: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Ingredient',
-        required: true
+        ref: 'Ingredient'
+        // required: true
       }
     ]
   },
