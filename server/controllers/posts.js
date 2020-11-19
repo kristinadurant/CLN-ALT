@@ -34,7 +34,7 @@ exports.getSpecificPost = async (req, res) => {
 
 // ***********************************************//
 // Get all posts
-// ***********************************************//
+******************************//
 exports.getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find();
@@ -69,6 +69,7 @@ exports.updatePost = async (req, res) => {
 // ***********************************************//
 exports.deletePost = async (req, res) => {
   try {
+
     const post = await Post.findOneAndDelete({ _id: req.params.id });
     if (!post) return res.status(404).json({ message: 'post not found' });
     res.status(200).json({ message: 'post has been deleted' });

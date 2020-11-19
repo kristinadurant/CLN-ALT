@@ -36,6 +36,7 @@ exports.getSpecificProduct = async (req, res) => {
 };
 
 //ANCHOR GET ALL PRODUCTS .getAllProducts///////////
+
 exports.getAllProducts = async (req, res) => {
   try {
     const products = await Product.find();
