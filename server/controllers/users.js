@@ -15,11 +15,7 @@ exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
 
   try {
-    const user = new User({
-      name,
-      email,
-      password
-    });
+    const user = new User(req.body);
     sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.cookie('jwt', token, {
