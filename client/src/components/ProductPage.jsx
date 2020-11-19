@@ -3,6 +3,7 @@ import ProductImage from './ProductImage';
 import Meter from './Meter';
 import Ingredients from './Ingredients';
 import Reviews from './Reviews';
+import Ingredient from './Ingredients';
 
 let product = {
   id: '572y4hgqafj',
@@ -12,37 +13,37 @@ let product = {
     {
       name: 'CHAMOMILLA RECUTITA (MATRICARIA) FLOWER EXTRACT',
       source: 'Chamomile flower',
-      function: 'calming',
+      note: 'calming',
       rate: 3
     },
     {
       name: 'ISONONYL ISONONANOATE',
       source: 'chemical',
-      function: 'toxic',
+      note: 'toxic',
       rate: 2
     },
     {
       name: 'GLYCERYL BEHENATE',
       source: 'chemical',
-      function: 'toxic',
+      note: 'toxic',
       rate: 9
     },
     {
       name: 'CI 77499',
       source: 'chemical',
-      function: 'toxic',
+      note: 'toxic',
       rate: 5
     },
     {
       name: 'COCO-CAPRYLATE/ CAPRATE',
       source: 'chemical',
-      function: 'toxic',
+      note: 'toxic',
       rate: 7
     },
     {
       name: 'ALGAE EXTRACT',
       source: 'chemical',
-      function: 'toxic',
+      note: 'toxic',
       rate: 6
     }
   ],
@@ -72,7 +73,11 @@ const ProductPage = () => {
         <button className="active">Ingredients</button>
         <button>Reviews</button>
       </div>
-      <Ingredients ingredients={product.ingredients} />
+      <div>
+        {product.ingredients.map((ingredient) => (
+          <Ingredients key={ingredient._id} ingredient={ingredient} />
+        ))}
+      </div>
       <Reviews />
     </div>
   );

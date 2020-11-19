@@ -149,3 +149,26 @@ footer ul {
 .tabs button.active {
   background-color: #777;
 }
+
+/*=======================
+    INGREDIENTS ACCORDION
+========================*/
+li.ingredient {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+li.ingredient button {
+  background-color: transparent;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+}
+li.ingredient.closed div p:nth-of-type(n + 2) {
+  height: 0rem;
+}
+li.ingredient p {
+  height: 2rem;
+  overflow: hidden;
+  transition: height 0.5s;
+}

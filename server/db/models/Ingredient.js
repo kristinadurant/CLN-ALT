@@ -9,10 +9,7 @@ const ingredientSchema = new mongoose.Schema(
       trim: true
     },
     source: {
-      type: String
-    },
-    function: {
-      type: String
+      type: String,
       enum: ['natural', 'chemical'],
       required: true
     },
