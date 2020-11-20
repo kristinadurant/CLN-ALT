@@ -4,11 +4,14 @@ const ingredientSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      unique: true,
+      // unique: true,
       required: true,
       trim: true
     },
     source: {
+      type: String
+    },
+    function: {
       type: String,
       enum: ['natural', 'chemical'],
       required: true
@@ -18,7 +21,7 @@ const ingredientSchema = new mongoose.Schema(
       min: 1,
       max: 10
     },
-    concern: [
+    concerns: [
       {
         type: String,
         enum: [

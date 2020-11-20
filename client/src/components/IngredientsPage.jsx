@@ -1,25 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Ingredients from './Ingredients';
 
 const IngredientsPage = () => {
-  // fetch all bad ingredients instead of defining array ingredients
-  let ingredients = [
-    {
-      name: 'ing1',
-      source: 'func',
-      concern: ['alergy', 'cancer']
-    },
-    {
-      name: 'ing1',
-      source: 'func',
-      concern: ['alergy']
-    },
-    {
-      name: 'ing1',
-      source: 'func',
-      note: "Doctor's note"
-    }
-  ];
+  const [ingredients, setIngredients] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get('/api/ingredients/?banned=true')
+      .then((response) => {
+        setIngredients(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <div>

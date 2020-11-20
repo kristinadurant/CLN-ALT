@@ -25,7 +25,7 @@ const App = () => {
           <Route exact path="/bannedIngredients" component={IngredientsPage} />
           <Route exact path="/ourStory" component={OurStory} />
           <Route exact path="/blog" component={Blog} />
-          <Route exact path="/product" component={ProductPage} />
+          <Route exact path="/products/:id" component={ProductPage} />
           <Route
             exact
             path="/termsAndConditions"

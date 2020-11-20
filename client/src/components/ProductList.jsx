@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import ProductImage from './ProductImage';
@@ -8,7 +9,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get('/api/products', { withCredentials: true })
+      .get('/api/products')
       .then((response) => {
         setProducts(response.data);
       })
@@ -25,9 +26,11 @@ const ProductList = () => {
     <div>
       {filteredProducts.map((product) => (
         <li>
-          <ProductImage image={product.image} verified={product.verified} />
-          <h4>{product.title}</h4>
-          <p>{product.description}</p>
+          <Link to={`/products/${product._id}`}>
+            <ProductImage image={product.image} verified={product.verified} />
+            <h4>{product.title}</h4>
+            <p>{product.description}</p>
+          </Link>
         </li>
       ))}
     </div>

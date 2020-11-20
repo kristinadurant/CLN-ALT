@@ -4,7 +4,7 @@ const Meter = ({ ingredients }) => {
   function meter(ingredients) {
     let meter = 0;
     for (let i = 0; i < ingredients.length; i++) {
-      meter += ingredients[i].rate;
+      meter += ingredients[i].score;
     }
     return meter;
   }

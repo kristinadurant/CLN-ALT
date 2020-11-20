@@ -23,6 +23,7 @@ exports.getSpecificProduct = async (req, res) => {
     const product = await Product.findOne({
       _id
     });
+    await product.populate('ingredients').execPopulate();
     if (!product)
       return res.status(400).json({
         message: 'Uh Oh! Product not Found, double check your spelling!'
