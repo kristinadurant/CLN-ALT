@@ -1,7 +1,12 @@
 import React from 'react';
+import ProductList from './ProductList';
 
 const Categories = () => {
-  return <div></div>;
+  return (
+    <div>
+      <ProductList />
+    </div>
+  );
 };
 
 export default Categories;

@@ -41,7 +41,8 @@ const productSchema = new mongoose.Schema(
     verified: {
       type: Boolean,
       default: false,
-      required: true
+      required: true,
+      timestamps: true
     },
     tags: [
       {

@@ -1,14 +1,27 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
+  const { setSearch } = useContext(AppContext);
+  const history = useHistory();
+  const location = useLocation();
+  console.log(location);
+  const handleSearch = (e) => {
+    if (location.pathname !== '/categories') {
+      console.log('i was run');
+      history.push('/categories');
+    }
+    setSearch(e.target.value);
+  };
+
   return (
     <header>
       <nav>
         <Link to="/">logo</Link>
         <ul>
           <li>
-            <Link to="#">Categories</Link>
+            <Link to="/categories">Categories</Link>
           </li>
           <li>
             <Link to="/userGuide">User Guide</Link>
@@ -24,7 +37,11 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <input type="search" />
+      <input
+        onChange={handleSearch}
+        type="text"
+        placeholder="Search personal care products..."
+      />
       <a href="#">login</a>
     </header>
   );

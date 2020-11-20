@@ -35,7 +35,8 @@ exports.getSpecificIngredient = async (req, res) => {
 
 // ***********************************************//
 // Get all Ingredients
-// {source: chemical}
+//api/ingredients?banned=true --> filter: {source: chemical}
+//
 // ***********************************************//
 exports.getAllIngredients = async (req, res) => {
   let filter = {};
