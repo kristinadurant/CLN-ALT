@@ -41,9 +41,7 @@ exports.getSpecificProduct = async (req, res) => {
 exports.getAllProducts = async (req, res) => {
   let limit = parseInt(req.query.limit);
   try {
-    const products = await Product.find(req.query)
-      .limit(10)
-      .sort({ createdAt: -1 });
+    const products = await Product.find(req.query).sort({ createdAt: -1 });
     res.json(products);
   } catch (error) {
     res.status(400).json({ error: error.message });

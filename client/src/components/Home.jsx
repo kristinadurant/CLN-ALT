@@ -69,6 +69,7 @@ const Home = () => {
       </section>
 
       <section id="categories" className="inner">
+        <h5>Browse by Category</h5>
         <ul>
           {categories?.map((category) => (
             <li key={category._id}>
@@ -80,6 +81,7 @@ const Home = () => {
       </section>
 
       <section id="justVerified">
+        <h5>Just Verified</h5>
         <ul>
           {verified?.map((product) => (
             <li key={product._id}>
@@ -88,6 +90,43 @@ const Home = () => {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section id="doctors">
+        <h5>Doctor Review Board</h5>
+        <p>
+          We're serious about personal care honestly, so we asked 20 of the most
+          trusted experts from doctors...
+        </p>
+        <a>Read more</a>
+        <div>
+          <div>
+            <img />
+            <p className="name">Dr. Mia Chenna</p>
+            <p className="title">Dermatologist</p>
+          </div>
+          <div>
+            <img />
+            <p className="name">Dr. Wendy Lee</p>
+            <p className="title">Doctor</p>
+          </div>
+          <div>
+            <img />
+            <p className="name">Dr. Dara Chenna</p>
+            <p className="title">Cosmetologist</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="social">
+        <h5>FOLLOW @CLNALT ON IG</h5>
+        <div></div>
+        <p>We're toxic-free but our emails are intoxicating.</p>
+        <p>Sign up for updates and all things natural.</p>
+        <form>
+          <input type="email" />
+          <input type="submit" />
+        </form>
       </section>
     </div>
   );
