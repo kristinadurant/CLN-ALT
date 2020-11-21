@@ -28,8 +28,8 @@ const productSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
-      unique: true
+      required: true
+      // unique: true
     },
     description: {
       type: String
@@ -41,7 +41,8 @@ const productSchema = new mongoose.Schema(
     verified: {
       type: Boolean,
       default: false,
-      required: true
+      required: true,
+      timestamps: true
     },
     tags: [
       {
@@ -50,39 +51,39 @@ const productSchema = new mongoose.Schema(
           'vegan',
           'paraben_free',
           'cruelty_free',
-          'sustainable',
-          'non_gmo'
+          'sulfate_free',
+          'gmo_free',
+          'phthalate_free'
         ]
       }
     ],
     category: {
-      type: String,
-      enum: Object.keys(categories),
-      required: true,
-      trim: true,
-      lowercase: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
     },
     subcategory: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
-      lowercase: true,
-      validate: {
-        validator: function (v) {
-          return categories[this.category].includes(v);
-        },
-        message: 'Pick an existing subcategory'
-      }
+      lowercase: true
+      // validate: {
+      //   validator: function (v) {
+      //     return categories[this.category].includes(v);
+      //   },
+      //   message: 'Pick an existing subcategory'
+      // }
     },
     ingredients: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Ingredient',
-        required: true
+        ref: 'Ingredient'
+        // required: true
       }
     ]
   },
-  { timestamps: true }
+  {
+    timestamps: true
+  }
 );
 
 const Product = mongoose.model('Product', productSchema);

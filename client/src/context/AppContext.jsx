@@ -1,22 +1,43 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
+import { set } from 'mongoose';
 
-export const AppContext = createContext();
+const AppContext = createContext();
 
-export const AppContextProvider = ({ children }) => {
-  const [contextMessage, setContextMessage] = useState('');
+const AppContextProvider = ({ children }) => {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [search, setSearch] = useState('');
+  const [products, setProducts] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [cat, setCat] = useState({});
 
-  const contextMethod = () => {
-    setContextMessage('Hello from client/src/context/AppContext.jsx');
-  };
+  useEffect(() => {
+    axios
+      .get('/api/categories')
+      .then((response) => {
+        setCategories(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <AppContext.Provider
       value={{
-        contextMessage,
-        contextMethod
+        currentUser,
+        setCurrentUser,
+        search,
+        setSearch,
+        products,
+        setProducts,
+        categories,
+        setCategories
       }}
     >
       {children}
     </AppContext.Provider>
   );
 };
+
+export { AppContext, AppContextProvider };

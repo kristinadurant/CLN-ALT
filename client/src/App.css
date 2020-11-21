@@ -122,6 +122,7 @@ footer ul {
   position: absolute;
   animation: 1s ease-out 0s 1 slideInFromLeft;
   background-color: rgb(212, 35, 35);
+  max-width: 100%;
 }
 .meterBar div p {
   text-align: center;
@@ -148,4 +149,49 @@ footer ul {
 }
 .tabs button.active {
   background-color: #777;
+}
+
+/*=======================
+    INGREDIENTS ACCORDION
+========================*/
+li.ingredient {
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+li.ingredient button {
+  background-color: transparent;
+  border: none;
+  height: 2rem;
+  width: 2rem;
+}
+li.ingredient.closed div p:nth-of-type(n + 2) {
+  height: 0rem;
+}
+li.ingredient p {
+  height: 2rem;
+  overflow: hidden;
+  transition: height 0.5s;
+}
+/*=======================
+    Nav bar
+========================*/
+
+.navbar {
+  height: 70.69969177246094px;
+  width: 1440px;
+  left: -0.4638671875px;
+  top: -0.1904296875px;
+  border-radius: 0px;
+  fill: Solid #ffffff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.searchbar {
 }

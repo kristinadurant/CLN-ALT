@@ -48,7 +48,6 @@ const userSchema = new mongoose.Schema(
         }
       }
     ],
-
     avatar: {
       type: String
     }
@@ -74,15 +73,21 @@ userSchema.methods.generateAuthToken = async function () {
       name: user.name
     },
     process.env.JWT_SECRET,
-    { expiresIn: '24h' }
+    {
+      expiresIn: '24h'
+    }
   );
-  user.tokens = user.tokens.concat({ token });
+  user.tokens = user.tokens.concat({
+    token
+  });
   await user.save();
   return token;
 };
 
 userSchema.statics.findByCredentials = async (email, password) => {
-  const user = await User.findOne({ email });
+  const user = await User.findOne({
+    email
+  });
   if (!user) throw new Error('User not found');
   const isMatch = await bcrypt.compare(password, user.password);
   if (!isMatch) throw new Error('Invalid password, try again.');

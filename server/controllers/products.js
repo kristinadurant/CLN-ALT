@@ -17,7 +17,7 @@ exports.getSpecificProduct = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(400).json({
-      message: 'Uh Oh, Not a valid product'
+      message: 'Uh Oh, Not a valid id'
     });
   try {
     const product = await Product.findOne({
@@ -27,6 +27,7 @@ exports.getSpecificProduct = async (req, res) => {
       return res.status(400).json({
         message: 'Uh Oh! Product not Found, double check your spelling!'
       });
+    await product.populate('ingredients').execPopulate();
     res.status(200).json(product);
   } catch (error) {
     res.status(400).json({
@@ -38,8 +39,13 @@ exports.getSpecificProduct = async (req, res) => {
 //ANCHOR GET ALL PRODUCTS .getAllProducts///////////
 
 exports.getAllProducts = async (req, res) => {
+  let limit = parseInt(req.query.limit);
+  let match = req.query;
+  if (req.query.verified) match.verified = req.query.verified === true;
   try {
-    const products = await Product.find();
+    const products = await Product.find(match)
+      .limit(limit)
+      .sort({ createdAt: -1 });
     res.json(products);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -57,7 +63,7 @@ exports.updateProduct = async (req, res) => {
       return res.status(404).json({ message: 'Uh Oh! :( Product Not Found' });
     updates.forEach((update) => (product[update] = req.body[update]));
     await product.save();
-    res.status(201).json(post);
+    res.status(201).json(product);
   } catch (error) {
     res.status(400).json('Error: ' + err);
   }

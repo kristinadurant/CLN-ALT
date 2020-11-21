@@ -35,10 +35,14 @@ exports.getSpecificIngredient = async (req, res) => {
 
 // ***********************************************//
 // Get all Ingredients
+//api/ingredients?banned=true --> filter: {source: chemical}
+//
 // ***********************************************//
 exports.getAllIngredients = async (req, res) => {
+  let filter = {};
+  if (req.query.banned) filter.verified = false;
   try {
-    const ingredients = await Ingredient.find();
+    const ingredients = await Ingredient.find(filter);
     res.json(ingredients);
   } catch (error) {
     res.status(400).json({ error: error.message });
