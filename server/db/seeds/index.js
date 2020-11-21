@@ -115,9 +115,7 @@ const dbReset = async () => {
       verified: Boolean(Math.round(Math.random())),
       tags: tags,
       category: Object.keys(cat)[Math.floor(Math.random() * 6)],
-      ingredients: ingredientIdArray.splice(
-        Math.floor(Math.random() * ingredientIdArray.length)
-      )
+      ingredients: ingredientIdArray.slice(5)
     });
     await product.save();
     productIdArray.push(product._id);

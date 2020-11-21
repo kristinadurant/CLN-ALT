@@ -27,6 +27,7 @@ exports.getSpecificCategory = async (req, res) => {
       return res.status(400).json({
         message: 'Uh Oh! Category not Found, double check your spelling!'
       });
+    await category.populate('subcategories').execPopulate();
     res.status(200).json(category);
   } catch (error) {
     res.status(400).json({

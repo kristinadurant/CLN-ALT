@@ -41,8 +41,7 @@ const productSchema = new mongoose.Schema(
     verified: {
       type: Boolean,
       default: false,
-      required: true,
-      timestamps: true
+      required: true
     },
     tags: [
       {
@@ -62,22 +61,13 @@ const productSchema = new mongoose.Schema(
       ref: 'Category'
     },
     subcategory: {
-      type: String,
-      // required: true,
-      trim: true,
-      lowercase: true
-      // validate: {
-      //   validator: function (v) {
-      //     return categories[this.category].includes(v);
-      //   },
-      //   message: 'Pick an existing subcategory'
-      // }
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'SubCategory'
     },
     ingredients: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Ingredient'
-        // required: true
       }
     ]
   },
