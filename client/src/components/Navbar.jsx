@@ -8,16 +8,16 @@ const Navbar = () => {
   const location = useLocation();
   console.log(location);
   const handleSearch = (e) => {
-    if (location.pathname !== '/categories') {
-      console.log('i was run');
-      history.push('/categories');
-    }
+    // if (location.pathname !== '/categories') {
+    //   console.log('i was run');
+    //   history.push('/categories');
+    // }
     setSearch(e.target.value);
   };
 
   return (
     <header>
-      <nav>
+      <nav className="navbar">
         <Link to="/">logo</Link>
         <ul>
           <li>
@@ -37,11 +37,15 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <input
-        onChange={handleSearch}
-        type="text"
-        placeholder="Search personal care products..."
-      />
+      <form class="example" action="action_page.php">
+        <input
+          className="searchbar"
+          onChange={handleSearch}
+          type="text"
+          placeholder="Search personal care products..."
+        />
+        <button type="button">Search</button>
+      </form>
       <a href="#">login</a>
     </header>
   );

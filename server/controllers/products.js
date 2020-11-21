@@ -40,8 +40,12 @@ exports.getSpecificProduct = async (req, res) => {
 
 exports.getAllProducts = async (req, res) => {
   let limit = parseInt(req.query.limit);
+  let match = req.query;
+  if (req.query.verified) match.verified = req.query.verified === true;
   try {
-    const products = await Product.find(req.query).sort({ createdAt: -1 });
+    const products = await Product.find(match)
+      .limit(limit)
+      .sort({ createdAt: -1 });
     res.json(products);
   } catch (error) {
     res.status(400).json({ error: error.message });

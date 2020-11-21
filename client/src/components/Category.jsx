@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import ProductImage from './ProductImage';
 
-const ProductList = () => {
+const Category = () => {
   const { search, products, setProducts } = useContext(AppContext);
   const { id } = useParams();
 
@@ -13,7 +13,6 @@ const ProductList = () => {
       .get(`/api/products?category=${id}`)
       .then((response) => {
         setProducts(response.data);
-        console.log(products);
       })
       .catch((error) => {
         console.log(error);
@@ -26,6 +25,7 @@ const ProductList = () => {
 
   return (
     <div>
+      <h2>{}</h2>
       {filteredProducts.map((product) => (
         <li>
           <Link to={`/products/${product._id}`}>
@@ -39,4 +39,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default Category;

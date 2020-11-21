@@ -58,23 +58,20 @@ const productSchema = new mongoose.Schema(
       }
     ],
     category: {
-      type: String,
-      enum: Object.keys(categories),
-      required: true,
-      trim: true,
-      lowercase: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
     },
     subcategory: {
       type: String,
       // required: true,
       trim: true,
-      lowercase: true,
-      validate: {
-        validator: function (v) {
-          return categories[this.category].includes(v);
-        },
-        message: 'Pick an existing subcategory'
-      }
+      lowercase: true
+      // validate: {
+      //   validator: function (v) {
+      //     return categories[this.category].includes(v);
+      //   },
+      //   message: 'Pick an existing subcategory'
+      // }
     },
     ingredients: [
       {

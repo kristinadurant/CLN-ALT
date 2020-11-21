@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
 const Home = () => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    axios
-      .get('/api/categories')
-      .then((response) => {
-        setCategories(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
   const [verified, setVerified] = useState([]);
+  const { categories } = useContext(AppContext);
+
   useEffect(() => {
     axios
-      .get('/api/products/?verified=true')
+      .get('/api/products/?verified=true&limit=10')
       .then((response) => {
         setVerified(response.data);
       })
@@ -73,7 +65,7 @@ const Home = () => {
         <ul>
           {categories?.map((category) => (
             <li key={category._id}>
-              <img src={category.image} />
+              <img src={category.image} alt={category.title} />
               <p>{category.title}</p>
             </li>
           ))}

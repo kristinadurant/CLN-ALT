@@ -173,3 +173,25 @@ li.ingredient p {
   overflow: hidden;
   transition: height 0.5s;
 }
+/*=======================
+    Nav bar
+========================*/
+
+.navbar {
+  height: 70.69969177246094px;
+  width: 1440px;
+  left: -0.4638671875px;
+  top: -0.1904296875px;
+  border-radius: 0px;
+  fill: Solid #ffffff;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.searchbar {
+}

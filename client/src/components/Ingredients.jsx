@@ -5,13 +5,18 @@ const Ingredient = ({ ingredient }) => {
 
   return (
     <li className={closed ? 'ingredient' : 'ingredient closed'}>
-      <button onClick={() => setClosed(!closed)}>{closed ? '-' : '+'}</button>
       <div>
-        {ingredient.name && <p>{ingredient.name}</p>}
-        {ingredient.source && <p>SOURCE: {ingredient.source}</p>}
-        {ingredient.concern && <p>CONCERNS: {ingredient.concern.join(', ')}</p>}
-        {ingredient.note && <p>NOTE: {ingredient.note}</p>}
+        <p>{ingredient.name}</p>
+        <p>
+          <span>
+            {ingredient.verified
+              ? 'What does it do?'
+              : 'Why is it bad for you?'}
+          </span>
+          {ingredient.description}
+        </p>
       </div>
+      <button onClick={() => setClosed(!closed)}>{closed ? '-' : '+'}</button>
     </li>
   );
 };

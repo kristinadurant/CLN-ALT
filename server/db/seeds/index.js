@@ -1,3 +1,5 @@
+const { default: Axios } = require('axios');
+
 if (process.env.NODE_ENV !== 'production') require('dotenv').config();
 
 require('../config/index');
@@ -60,8 +62,13 @@ const dbReset = async () => {
 ===============*/
   for (let i = 0; i < 100; i++) {
     const cat = {
-      skincare: ['moisturizers', 'cleansers', 'masks', 'eyecare'],
-      haircare: [
+      '5fb88175ea4b5e6d83d23f88': [
+        'moisturizers',
+        'cleansers',
+        'masks',
+        'eyecare'
+      ],
+      '5fb88163ea4b5e6d83d23f87': [
         'shampoo',
         'conditioner',
         'hairmask',
@@ -69,7 +76,7 @@ const dbReset = async () => {
         'hair spray',
         'hair dye'
       ],
-      'body care': [
+      '5fb88094bbfee26d6d95d6cf': [
         'sunscreen',
         'sun tanners',
         'sun oils',
@@ -78,9 +85,19 @@ const dbReset = async () => {
         'hand soap',
         'hand sanitizer'
       ],
-      fragrance: ['perfume', 'cologne'],
-      'oral care': ['toothpaste', 'mouthwash', 'teeth whitening', 'lip balm'],
-      'baby care': ['baby wipes', 'baby cleaners', 'baby creams', 'baby powder']
+      '5fb880afbbfee26d6d95d6d0': ['perfume', 'cologne'],
+      '5fb8811bbbfee26d6d95d6d1': [
+        'toothpaste',
+        'mouthwash',
+        'teeth whitening',
+        'lip balm'
+      ],
+      '5fb8814eea4b5e6d83d23f86': [
+        'baby wipes',
+        'baby cleaners',
+        'baby creams',
+        'baby powder'
+      ]
     };
     const tags = [
       'vegan',
@@ -93,7 +110,8 @@ const dbReset = async () => {
     const product = new Product({
       title: `${faker.commerce.productName()}`,
       description: faker.commerce.productDescription(),
-      image: faker.image.avatar(),
+      image:
+        'https://res.cloudinary.com/dwqituhwc/image/upload/v1605941417/C-rush_brightening_gel_creme_lzdxnr.png',
       verified: Boolean(Math.round(Math.random())),
       tags: tags,
       category: Object.keys(cat)[Math.floor(Math.random() * 6)],

@@ -40,7 +40,7 @@ exports.getSpecificIngredient = async (req, res) => {
 // ***********************************************//
 exports.getAllIngredients = async (req, res) => {
   let filter = {};
-  if (req.query.banned) filter.source = 'chemical';
+  if (req.query.banned) filter.verified = false;
   try {
     const ingredients = await Ingredient.find(filter);
     res.json(ingredients);
