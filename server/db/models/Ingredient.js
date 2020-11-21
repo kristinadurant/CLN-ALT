@@ -8,12 +8,8 @@ const ingredientSchema = new mongoose.Schema(
       required: true,
       trim: true
     },
-    source: {
-      type: String
-    },
-    function: {
-      type: String,
-      enum: ['natural', 'chemical'],
+    verified: {
+      type: Boolean,
       required: true
     },
     score: {
@@ -21,29 +17,9 @@ const ingredientSchema = new mongoose.Schema(
       min: 1,
       max: 10
     },
-    concerns: [
-      {
-        type: String,
-        enum: [
-          'Allergies/Immunotoxicity',
-          'Endocrine Disruption',
-          'Contamination Concerns',
-          'Irritation (Skin, Eyes, or Lungs)',
-          'Miscellaneous',
-          'Occupational Hazards',
-          'Persistence & Bioaccumulation',
-          'Use Restrictions',
-          'Multiple, Additive Exposure Sources',
-          'Organ System Toxicity(Non-Reproductive)',
-          'Neurotoxicity',
-          'Ecotoxicology',
-          'Cancer',
-          'Developmental & Reproductive Toxicity',
-          'Enhanced Skin Absorption'
-        ]
-      }
-    ],
-    note: String
+    description: {
+      type: String
+    }
   },
   {
     timestamps: true

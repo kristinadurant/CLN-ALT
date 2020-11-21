@@ -12,6 +12,7 @@ import Categories from './components/Categories';
 import ProductPage from './components/ProductPage';
 import IngredientsPage from './components/IngredientsPage';
 import TermsAndConditions from './components/TermsAndConditions';
+import Profile from './components/Profile';
 
 const App = () => {
   return (
@@ -31,6 +32,8 @@ const App = () => {
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
+          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/profile/" />
         </Switch>
         <Footer />
       </BrowserRouter>
