@@ -23,7 +23,7 @@ const ProductPage = () => {
 
   return (
     <div id="product">
-      <h3>{product.title}</h3>
+      <h4>{product.title}</h4>
       <p>{product.description}</p>
       <ProductImage image={product.image} verified={product.verified} />
       <div className="tags">

@@ -8,6 +8,7 @@ const express = require('express'),
   favoriteRouter = require('./routes/secure/favorites'),
   productRouter = require('./routes/secure/products'),
   reviewRouter = require('./routes/secure/reviews'),
+  categoryRouter = require('./routes/secure/categories'),
   // passport = require('./middleware/authentication/index'),
   fileUpload = require('express-fileupload'),
   cookieParser = require('cookie-parser'),
@@ -43,6 +44,7 @@ app.use('/api/ingredients', ingredientRouter);
 app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/favorites', favoriteRouter);
+app.use('/api/categories', categoryRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Handle React routing, return all requests to React app
