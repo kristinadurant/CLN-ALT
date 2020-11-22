@@ -13,7 +13,8 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/users', formData);
+      const response = await axios.post('/api', formData);
+      console.log('Signed in user');
       console.log(formData);
       sessionStorage.setItem('user', response.data);
       setCurrentUser(response.data.user);

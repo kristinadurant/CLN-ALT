@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 import Navbar from './components/Navbar';
 import PopUp from './components/PopUp';
@@ -15,6 +16,7 @@ import ProductPage from './components/ProductPage';
 import IngredientsPage from './components/IngredientsPage';
 import TermsAndConditions from './components/TermsAndConditions';
 import Profile from './components/Profile';
+import UpdatePasswordContainer from './components/UpdatePasswordContainer';
 
 const App = () => {
   return (
@@ -33,10 +35,15 @@ const App = () => {
           <Route exact path="/products/:id" component={ProductPage} />
           <Route
             exact
+            path="/updatePasswordContainer"
+            component={UpdatePasswordContainer}
+          />
+          <Route
+            exact
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
-          <Route exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile" component={Profile} />
         </Switch>
         <Footer />
       </BrowserRouter>

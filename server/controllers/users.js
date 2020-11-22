@@ -82,7 +82,9 @@ exports.passwordRedirect = async (req, res) => {
       maxAge: 600000,
       sameSite: 'Strict'
     });
-    res.redirect(process.env.URL + '/update-password');
+    console.log(token);
+    console.log('redirected');
+    res.redirect(process.env.URL + '/updatePasswordContainer');
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

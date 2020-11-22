@@ -5,6 +5,7 @@ import LogIn from './LogIn';
 import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
+import LogOut from './LogOut';
 
 const PopUp = () => {
   const { popSignUp, setPopSignUp } = useContext(AppContext);
@@ -54,6 +55,7 @@ const PopUp = () => {
           )}
           {popSignUp === 'resetPassword' && <ResetPassword />}
           {popSignUp === 'updatePassword' && <UpdatePassword />}
+          {popSignUp === 'logOut' && <LogOut />}
         </div>
       )}
     </>

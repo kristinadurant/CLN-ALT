@@ -1,10 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { set } from 'mongoose';
 
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+  const user = sessionStorage.getItem('user');
   const [currentUser, setCurrentUser] = useState(null);
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
@@ -12,19 +12,19 @@ const AppContextProvider = ({ children }) => {
   const [popSignUp, setPopSignUp] = useState(false);
   const [cat, setCat] = useState({});
 
-  // useEffect(() => {
-  //   if (user && !currentUser) {
-  //     axios
-  //       .get(`/api/users/me`, {
-  //         withCredentials: true
-  //       })
-  //       .then(({ data }) => {
-  //         setCurrentUser(data);
-  //       })
-  //       .catch((error) => console.log(error));
-  //   }
-  // }, [currentUser, user]);
-  console.log(currentUser);
+  useEffect(() => {
+    if (user && !currentUser) {
+      axios
+        .get(`/api/users/me`, {
+          withCredentials: true
+        })
+        .then((response) => {
+          setCurrentUser(response.data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [currentUser, user]);
+
   useEffect(() => {
     axios
       .get('/api/categories')
