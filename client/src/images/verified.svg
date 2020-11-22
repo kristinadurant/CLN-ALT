@@ -1,5 +1,7 @@
-<svg width="154" height="154" viewBox="0 0 154 154" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect width="154" height="154" fill="url(#pattern0)"/>
+<svg width="117" height="116" viewBox="0 0 117 116" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<rect x="0.665833" width="115.382" height="115.382" fill="url(#pattern0)"/>
+<path d="M62.6753 47.7157C59.0138 50.7025 60.3893 54.6486 60.7877 55.9832C65.3975 50.0455 72.1984 47.6928 72.1984 47.6928C72.1984 47.6928 54.1289 62.6399 50.562 69.6177C50.3291 70.0733 58.5097 62.9315 58.7325 62.1898C60.2364 60.8179 62.8398 57.4425 62.8398 57.4425C64.4823 58.5838 69.2572 58.2104 71.4912 56.0735C74.4405 53.2122 75.5334 50.0018 78.1002 44.9706C78.3805 44.4008 67.6714 43.6611 62.6753 47.7157Z" fill="black"/>
+<path d="M57.8603 60.7745L63.7718 56.686L64.3505 56.1924L54.5929 69.2949L47.1696 78.9217L46.3311 78.9047C45.9118 78.4727 45.9118 78.4727 39.2033 67.8642C39.6045 66.7068 39.8385 66.1419 39.9054 66.0041L46.6661 71.9687L52.2632 66.3716L55.9946 62.6402L57.8603 60.7745Z" fill="black"/>
 <defs>
 <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
 <use xlink:href="#image0" transform="scale(0.001)"/>

@@ -9,6 +9,8 @@ import Reviews from './Reviews';
 const ProductPage = () => {
   let { id } = useParams();
   const [product, setProduct] = useState({});
+  const [tab1, setTab1] = useState(true);
+  console.log(tab1);
 
   useEffect(() => {
     axios
@@ -22,27 +24,45 @@ const ProductPage = () => {
   }, []);
 
   return (
-    <div id="product">
+    <div id="product" className="inner">
       <h4>{product.title}</h4>
       <p>{product.description}</p>
-      <ProductImage image={product.image} verified={product.verified} />
-      <div className="tags">
-        {console.log(product)}
-        {product.tags?.map((tag, index) => {
-          return <img key={index} src={require(`../images/${tag}.svg`)} />;
-        })}
+      <div className="productContainer">
+        <ProductImage image={product.image} verified={product.verified} />
+        <div className="tags">
+          {console.log(product)}
+          {product.tags?.map((tag, index) => {
+            return <img key={index} src={require(`../images/${tag}.svg`)} />;
+          })}
+        </div>
       </div>
-      <Meter ingredients={product.ingredients} />
+      {!product.verified && <Meter ingredients={product.ingredients} />}
       <div className="tabs">
-        <button className="active">Ingredients</button>
-        <button>Reviews</button>
+        <button
+          className={tab1 && 'active'}
+          onClick={(e) => {
+            setTab1(true);
+          }}
+        >
+          Ingredients
+        </button>
+        <button
+          className={!tab1 && 'active'}
+          onClick={(e) => {
+            setTab1(false);
+          }}
+        >
+          Reviews
+        </button>
       </div>
-      <div>
+      <div className="ingredients" style={{ display: !tab1 && 'none' }}>
         {product.ingredients?.map((ingredient) => (
           <Ingredients key={ingredient._id} ingredient={ingredient} />
         ))}
       </div>
-      <Reviews />
+      <div className="reviews" style={{ display: tab1 && 'none' }}>
+        <Reviews />
+      </div>
     </div>
   );
 };
