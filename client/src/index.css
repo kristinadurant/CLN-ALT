@@ -12,11 +12,16 @@ remove what has comments and where
 img {
   max-width: 100%;
 }
+* {
+  color: #000;
+}
 button {
   background-color: #fff;
 }
 button:focus,
-button:active {
+button:active,
+input:focus,
+input:active {
   outline: none;
 }
 
@@ -25,7 +30,103 @@ button:active {
   margin: auto;
   width: 90%;
 }
-
+.block {
+  display: block;
+}
+.bgBlack {
+  background-color: #000;
+  color: #fff;
+}
+/*=========================
+    PRODUCT PAGE
+============================*/
+.module {
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 99;
+  background-color: #ece9e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.module .exit {
+  position: absolute;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.5rem;
+  top: 10%;
+  left: 5%;
+  border-radius: 100%;
+  border-color: #000;
+  color: #000;
+}
+.module > :nth-child(n + 2) {
+  width: 300px;
+  text-align: center;
+}
+.module > :nth-child(n) button {
+  display: block;
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
+  width: 100%;
+  font-weight: 900;
+}
+.module h6 {
+  margin-bottom: 10%;
+}
+.module input {
+  width: 100%;
+}
+.module a {
+  text-decoration: underline;
+  color: #646464;
+}
+.module form p {
+  color: #646464;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.module .container > :nth-child(n + 2) {
+  margin-bottom: 5%;
+}
+.module .options button {
+  align-items: center;
+  position: relative;
+}
+.module .options button .icon {
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.module input[type='checkbox'] {
+  width: auto;
+  margin-right: 1rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.module .success p + a {
+  display: block;
+  font-weight: bold;
+  color: #000;
+}
+.module .success p {
+  margin-bottom: 10%;
+}
+input {
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
+}
 /*=========================
     PRODUCT PAGE
 ============================*/

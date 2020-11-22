@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const Profile = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
-  return <div></div>;
+  return <div>{currentUser}</div>;
 };
 
 export default Profile;

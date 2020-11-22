@@ -3,7 +3,7 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
-  const { setSearch } = useContext(AppContext);
+  const { setSearch, setPopSignUp } = useContext(AppContext);
   const history = useHistory();
   const location = useLocation();
   console.log(location);
@@ -46,7 +46,7 @@ const Navbar = () => {
         />
         <button type="button">Search</button>
       </form>
-      <a href="#">login</a>
+      <button onClick={(e) => setPopSignUp('popOptions')}>login</button>
     </header>
   );
 };

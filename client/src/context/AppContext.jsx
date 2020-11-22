@@ -9,8 +9,22 @@ const AppContextProvider = ({ children }) => {
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [popSignUp, setPopSignUp] = useState(false);
   const [cat, setCat] = useState({});
 
+  // useEffect(() => {
+  //   if (user && !currentUser) {
+  //     axios
+  //       .get(`/api/users/me`, {
+  //         withCredentials: true
+  //       })
+  //       .then(({ data }) => {
+  //         setCurrentUser(data);
+  //       })
+  //       .catch((error) => console.log(error));
+  //   }
+  // }, [currentUser, user]);
+  console.log(currentUser);
   useEffect(() => {
     axios
       .get('/api/categories')
@@ -32,7 +46,9 @@ const AppContextProvider = ({ children }) => {
         products,
         setProducts,
         categories,
-        setCategories
+        setCategories,
+        popSignUp,
+        setPopSignUp
       }}
     >
       {children}

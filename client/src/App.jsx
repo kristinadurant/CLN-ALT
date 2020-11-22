@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
 import './App.css';
 import Navbar from './components/Navbar';
+import PopUp from './components/PopUp';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import UserGuide from './components/UserGuide';
@@ -20,6 +21,7 @@ const App = () => {
     <AppContextProvider>
       <BrowserRouter>
         <Navbar />
+        <PopUp />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/categories" component={Categories} />
@@ -35,7 +37,6 @@ const App = () => {
             component={TermsAndConditions}
           />
           <Route exact path="/profile" component={Profile} />
-          <Route exact path="/profile/" />
         </Switch>
         <Footer />
       </BrowserRouter>
