@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import ProductImage from './ProductImage';
-import Meter from './Meter';
-import Ingredients from './Ingredients';
-import Reviews from './Reviews';
+import ProductImage from '../components/ProductImage';
+import Meter from '../components/Meter';
+import Ingredients from '../components/Ingredients';
+import Reviews from '../components/Reviews';
 
 const ProductPage = () => {
   const { id } = useParams();

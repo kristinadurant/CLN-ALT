@@ -6,16 +6,16 @@ import './App.css';
 import Navbar from './components/Navbar';
 import PopUp from './components/PopUp';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import UserGuide from './components/UserGuide';
-import Blog from './components/Blog';
-import OurStory from './components/OurStory';
-import Categories from './components/Categories';
+import Home from './pages/Home';
+import UserGuide from './pages/UserGuide';
+import Blog from './pages/Blog';
+import OurStory from './pages/OurStory';
+import Categories from './pages/Categories';
 import Category from './components/Category';
-import ProductPage from './components/ProductPage';
-import IngredientsPage from './components/IngredientsPage';
-import TermsAndConditions from './components/TermsAndConditions';
-import Profile from './components/Profile';
+import ProductPage from './pages/ProductPage';
+import IngredientsPage from './pages/IngredientsPage';
+import TermsAndConditions from './pages/TermsAndConditions';
+import Profile from './pages/Profile';
 import UpdatePasswordContainer from './components/UpdatePasswordContainer';
 
 const App = () => {

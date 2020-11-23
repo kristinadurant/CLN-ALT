@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Ingredients from './Ingredients';
+import Ingredients from '../components/Ingredients';
 
 const IngredientsPage = () => {
   const [ingredients, setIngredients] = useState([]);

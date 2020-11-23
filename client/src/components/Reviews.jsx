@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
-  let { id } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
     axios
@@ -19,8 +19,8 @@ const Reviews = () => {
 
   return (
     <>
-      <div className="stars">
-        <div>
+      <div className="reviewsHeader">
+        <div className="stars">
           <img src={require('../images/stars.png')} />
           {reviews.length} Reviews
         </div>
@@ -28,8 +28,8 @@ const Reviews = () => {
       </div>
       <ul>
         {reviews?.map((review) => (
-          <li key={review._id}>
-            <div>
+          <li key={review._id} className="list">
+            <div className="listImage">
               <img src={require('../images/placeholderUser.png')} />
               <p>{review.user}</p>
             </div>
