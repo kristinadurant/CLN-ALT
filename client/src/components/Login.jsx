@@ -8,15 +8,14 @@ const LogIn = () => {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
   };
 
   const handleLogIn = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/login', formData);
-      setCurrentUser(response.data);
-      sessionStorage.setItem('user', response.data);
+      setCurrentUser(response.data.user);
+      sessionStorage.setItem('user', response.data.user);
       setPopSignUp(false);
     } catch (error) {
       console.log('Login Error: ' + error);
