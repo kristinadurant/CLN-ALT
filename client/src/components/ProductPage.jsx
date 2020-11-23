@@ -7,7 +7,7 @@ import Ingredients from './Ingredients';
 import Reviews from './Reviews';
 
 const ProductPage = () => {
-  let { id } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState({});
   const [tab1, setTab1] = useState(true);
   console.log(tab1);
@@ -30,7 +30,6 @@ const ProductPage = () => {
       <div className="productContainer">
         <ProductImage image={product.image} verified={product.verified} />
         <div className="tags">
-          {console.log(product)}
           {product.tags?.map((tag, index) => {
             return <img key={index} src={require(`../images/${tag}.svg`)} />;
           })}
