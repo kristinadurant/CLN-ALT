@@ -14,8 +14,6 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api', formData);
-      console.log('Signed in user');
-      console.log(formData);
       sessionStorage.setItem('user', response.data);
       setCurrentUser(response.data.user);
       setPopSignUp('success');

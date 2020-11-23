@@ -1,26 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
 const Favorites = ({ userId }) => {
-  const { currentUser } = useContext(AppContext);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
-    setFavorites([{ user: 2 }]);
-    //  axios
-    //   .get(`/api/reviews/?user=${userId}`,
-    //     { withCredentials: true }
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  }, []);
+    axios
+      .get(`/api/reviews/?user=${userId}`, { withCredentials: true })
+      .then((response) => {
+        setFavorites(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [userId]);
 
   return (
     <>
@@ -36,9 +30,11 @@ const Favorites = ({ userId }) => {
           ))}
         </ul>
       )) || (
-        <div>
-          No favorites yet.{' '}
-          <Link to="/categories">Search for products to review.</Link>
+        <div className="noResults">
+          <p>No favorites yet.</p>
+          <p>
+            <Link to="/categories">Search for your favorites.</Link>
+          </p>
         </div>
       )}
     </>

@@ -269,3 +269,13 @@ li.ingredient strong {
   border-radius: 100%;
   padding: 0 3%;
 }
+.noResults {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  align-items: center;
+}
+.noResults a {
+  text-decoration: underline;
+}

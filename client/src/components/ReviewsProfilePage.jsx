@@ -1,26 +1,20 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
 const ReviewsProfilePage = ({ userId }) => {
-  const { currentUser } = useContext(AppContext);
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    setReviews([{ _id: '2', rate: 2, description: 'this is a great product' }]);
-    //  axios
-    //   .get(`/api/reviews/?user=${userId?.toString()}`,
-    //     { withCredentials: true }
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-  }, []);
+    axios
+      .get(`/api/reviews/?user=${userId}`, { withCredentials: true })
+      .then((response) => {
+        setReviews(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [userId]);
 
   return (
     <>
@@ -42,9 +36,11 @@ const ReviewsProfilePage = ({ userId }) => {
           ))}
         </ul>
       )) || (
-        <div>
-          No reviews yet.{' '}
-          <Link to="/categories">Search for products to review.</Link>
+        <div className="noResults">
+          <p>No reviews yet. </p>
+          <p>
+            <Link to="/categories">Search for products to review.</Link>
+          </p>
         </div>
       )}
     </>
