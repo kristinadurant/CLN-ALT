@@ -2,3 +2,141 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/*=========================
+==========================
+remove what has comments and where
+ it has important 
+ =============================
+ ============================*/
+img {
+  max-width: 100%;
+}
+button {
+  background-color: #fff;
+}
+button:focus,
+button:active {
+  outline: none;
+}
+
+.inner {
+  max-width: 1280px;
+  margin: auto;
+  width: 90%;
+}
+
+/*=========================
+    PRODUCT PAGE
+============================*/
+
+#product h4 {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+}
+#product h4 + p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.productContainer {
+  max-width: 600px;
+  margin-bottom: 8%;
+}
+.productImage {
+  text-align: center;
+  position: relative; /*remove*/
+}
+.productImage .verified {
+  position: initial !important;
+  width: 7rem !important;
+  bottom: 0; /*remove*/
+  left: 0; /*remove*/
+}
+.productImage > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.productImage button {
+  border: 2px solid #000;
+  border-radius: 0;
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 900;
+  padding: 0 5%;
+  margin-bottom: 0.5rem;
+}
+
+.productImage .verified {
+  top: 0;
+  width: auto;
+}
+
+.productContainer .tags {
+  display: flex;
+  justify-content: center;
+}
+.productContainer .tags img {
+  margin: 0 1%;
+}
+
+/*=========================
+    TABS
+============================*/
+
+.tabs button {
+  background-color: #ffff;
+  border: 2px solid #000 !important;
+  font-weight: 900;
+}
+.tabs button.active {
+  background-color: #000 !important;
+  color: #fff;
+}
+li.ingredient {
+  border-bottom: 1px solid #ded5d5 !important;
+  padding: 1rem 0;
+}
+li.ingredient button {
+  font-size: 1.5rem;
+  margin-right: 1%;
+}
+li.ingredient p {
+  display: flex;
+  align-items: center;
+}
+li.ingredient strong {
+  margin-right: 0.5rem;
+}
+
+.button {
+  width: 7rem;
+  padding: 0.3rem 0;
+  font-weight: 900;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.stars {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+}
+.stars div {
+  display: flex;
+  align-items: center;
+}
+.reviews li {
+  display: flex;
+}
+.reviews li div:first-of-type {
+  width: 15%;
+}
+.reviews li div:first-of-type img {
+  border-radius: 100%;
+  width: 4rem;
+}
