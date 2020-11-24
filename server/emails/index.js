@@ -21,7 +21,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
   });
 
 exports.forgotPasswordEmail = (email, token) => {
-  const exampleHTMLEmail = `<a target="_blank" rel="noopener noreferrer" href="${process.env.APP_URL}/api/password/${token}">Reset Password</a>`;
+  const exampleHTMLEmail = `<a target="_blank" rel="noopener noreferrer" href="${process.env.SERVER_URL}/api/password/${token}">Reset Password</a>`;
 
   sgMail.send({
     to: email,

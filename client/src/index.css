@@ -12,20 +12,180 @@ remove what has comments and where
 img {
   max-width: 100%;
 }
+* {
+  color: #000;
+}
 button {
   background-color: #fff;
 }
 button:focus,
-button:active {
+button:active,
+input:focus,
+input:active {
   outline: none;
 }
-
+.noBorder {
+  border: none;
+}
+.block {
+  display: block;
+}
+.bgBlack {
+  background-color: #000;
+  color: #fff;
+}
+/*=========================
+    CONTAINER STYLES
+===========================*/
 .inner {
   max-width: 1280px;
   margin: auto;
   width: 90%;
 }
-
+.columns2 {
+  display: flex;
+  align-items: center;
+}
+.columns2 > :nth-child(n) {
+  width: 50%;
+}
+.imageBox {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+/*=========================
+    PRODUCT LIST PAGE
+============================*/
+#productsList h2 {
+  margin-bottom: 3%;
+  font-size: 3rem;
+}
+#subCategories {
+  margin-bottom: 6%;
+}
+#subCategories .button {
+  margin-right: 2%;
+}
+#subCategories .button.active {
+  border: none;
+  background-color: #ece9e1;
+}
+#productsList ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#productsList ul li {
+  width: 45%;
+  margin-bottom: 5%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+#productsList .productImage div div {
+  display: none;
+}
+#productsList ul li > a {
+  width: 50%;
+}
+#productsList .productInfo {
+  width: 45%;
+}
+#productsList .productInfo h4 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+/*=========================
+    MODULE
+============================*/
+.module {
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  width: 100vw;
+  z-index: 99;
+  background-color: #ece9e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.module .exit {
+  position: absolute;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 1.5rem;
+  top: 10%;
+  left: 5%;
+  border-radius: 100%;
+  border-color: #000;
+  color: #000;
+}
+.module > :nth-child(n + 2) {
+  width: 300px;
+  text-align: center;
+}
+.module > :nth-child(n) button {
+  display: block;
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
+  width: 100%;
+  font-weight: 900;
+}
+.module h6 {
+  margin-bottom: 10%;
+}
+.module input {
+  width: 100%;
+}
+.module a {
+  text-decoration: underline;
+  color: #646464;
+}
+.module form p {
+  color: #646464;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+.module .container > :nth-child(n + 2) {
+  margin-bottom: 5%;
+}
+.module .options button {
+  align-items: center;
+  position: relative;
+}
+.module .options button .icon {
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.module input[type='checkbox'] {
+  width: auto;
+  margin-right: 1rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.module .success p + a {
+  display: block;
+  font-weight: bold;
+  color: #000;
+}
+.module .success p {
+  margin-bottom: 10%;
+}
+input {
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
+}
 /*=========================
     PRODUCT PAGE
 ============================*/
@@ -41,6 +201,9 @@ button:active {
 .productContainer {
   max-width: 600px;
   margin-bottom: 8%;
+}
+#product .imageBox {
+  box-shadow: none;
 }
 .productImage {
   text-align: center;
@@ -96,9 +259,16 @@ button:active {
   background-color: #000 !important;
   color: #fff;
 }
-li.ingredient {
+li.list {
   border-bottom: 1px solid #ded5d5 !important;
   padding: 1rem 0;
+  display: flex;
+  align-items: center;
+}
+li.list .listImage {
+  width: 15%;
+  text-align: center;
+  margin-right: 3%;
 }
 li.ingredient button {
   font-size: 1.5rem;
@@ -120,23 +290,45 @@ li.ingredient strong {
   border-radius: 3px;
 }
 
-.stars {
+.reviewsHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 2%;
 }
-.stars div {
+.stars {
   display: flex;
   align-items: center;
 }
-.reviews li {
-  display: flex;
-}
-.reviews li div:first-of-type {
-  width: 15%;
+.stars img {
+  margin-right: 1rem;
 }
 .reviews li div:first-of-type img {
   border-radius: 100%;
   width: 4rem;
+}
+
+/*=========================
+    PROFILE PAGE
+============================*/
+#profile .userContainer {
+  margin: 0 auto 8%;
+  width: 50%;
+}
+#profile .userContainer > div {
+  padding: 0 3%;
+}
+#profile .userContainer img {
+  border-radius: 100%;
+  padding: 0 3%;
+}
+.noResults {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  align-items: center;
+}
+.noResults a {
+  text-decoration: underline;
 }

@@ -1,29 +1,33 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 import Navbar from './components/Navbar';
+import PopUp from './components/PopUp';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import UserGuide from './components/UserGuide';
-import Blog from './components/Blog';
-import OurStory from './components/OurStory';
-import Categories from './components/Categories';
-import Category from './components/Category';
-import ProductPage from './components/ProductPage';
-import IngredientsPage from './components/IngredientsPage';
-import TermsAndConditions from './components/TermsAndConditions';
-import Profile from './components/Profile';
+import Home from './pages/Home';
+import UserGuide from './pages/UserGuide';
+import Blog from './pages/Blog';
+import OurStory from './pages/OurStory';
+import Categories from './pages/Categories';
+import Category from './pages/Category';
+import ProductPage from './pages/ProductPage';
+import IngredientsPage from './pages/IngredientsPage';
+import TermsAndConditions from './pages/TermsAndConditions';
+import Profile from './pages/Profile';
+import UpdatePasswordContainer from './components/UpdatePasswordContainer';
 
 const App = () => {
   return (
     <AppContextProvider>
       <BrowserRouter>
         <Navbar />
+        <PopUp />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/categories" component={Categories} />
-          <Route exact path="/categories/:id" component={Category} />
+          <PrivateRoute exact path="/categories/:id" component={Category} />
           <Route exact path="/userGuide" component={UserGuide} />
           <Route exact path="/bannedIngredients" component={IngredientsPage} />
           <Route exact path="/ourStory" component={OurStory} />
@@ -31,11 +35,15 @@ const App = () => {
           <Route exact path="/products/:id" component={ProductPage} />
           <Route
             exact
+            path="/updatePasswordContainer"
+            component={UpdatePasswordContainer}
+          />
+          <Route
+            exact
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
-          <Route exact path="/profile" component={Profile} />
-          <Route exact path="/profile/" />
+          <PrivateRoute exact path="/profile" component={Profile} />
         </Switch>
         <Footer />
       </BrowserRouter>

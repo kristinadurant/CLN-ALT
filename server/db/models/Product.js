@@ -1,29 +1,5 @@
 const mongoose = require('mongoose');
 
-let categories = {
-  skincare: ['moisturizers', 'cleansers', 'masks', 'eyecare'],
-  haircare: [
-    'shampoo',
-    'conditioner',
-    'hairmask',
-    'hair oils/serums',
-    'hair spray',
-    'hair dye'
-  ],
-  'body care': [
-    'sunscreen',
-    'sun tanners',
-    'sun oils',
-    'bodywash',
-    'body lotion',
-    'hand soap',
-    'hand sanitizer'
-  ],
-  fragrance: ['perfume', 'cologne'],
-  'oral care': ['toothpaste', 'mouthwash', 'teeth whitening', 'lip balm'],
-  'baby care': ['baby wipes', 'baby cleaners', 'baby creams', 'baby powder']
-};
-
 const productSchema = new mongoose.Schema(
   {
     title: {
@@ -75,6 +51,12 @@ const productSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
+productSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'product'
+});
 
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

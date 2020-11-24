@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-const Ingredient = ({ ingredient }) => {
+const Ingredients = ({ ingredient }) => {
   const [closed, setClosed] = useState(false);
 
   return (
-    <li className={closed ? 'ingredient' : 'ingredient closed'}>
+    <li className={closed ? 'ingredient list' : 'ingredient list closed'}>
       <button onClick={() => setClosed(!closed)}>{closed ? '-' : '+'}</button>
       <div>
         <p>{ingredient.name}</p>
@@ -21,4 +21,4 @@ const Ingredient = ({ ingredient }) => {
   );
 };
 
-export default Ingredient;
+export default Ingredients;

@@ -22,13 +22,24 @@ exports.getSpecificProduct = async (req, res) => {
   try {
     const product = await Product.findOne({
       _id
-    });
+    })
+      .populate('ingredients')
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
+      });
+
     if (!product)
       return res.status(400).json({
         message: 'Uh Oh! Product not Found, double check your spelling!'
       });
-    await product.populate('ingredients').execPopulate();
-    res.status(200).json(product);
+    res.status(200).json({
+      ...product.toObject(),
+      reviews: product.reviews
+    });
   } catch (error) {
     res.status(400).json({
       error: error.message

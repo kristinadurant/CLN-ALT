@@ -1,5 +1,5 @@
 import React from 'react';
-import Meter from './Meter';
+import Meter from '../components/Meter';
 
 const UserGuide = () => {
   return (

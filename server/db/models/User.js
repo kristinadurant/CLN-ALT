@@ -57,6 +57,17 @@ const userSchema = new mongoose.Schema(
   }
 );
 
+userSchema.virtual('reviews', {
+  ref: 'Review',
+  localField: '_id',
+  foreignField: 'user'
+});
+
+userSchema.virtual('favorites', {
+  ref: 'Favorite',
+  localField: '_id',
+  foreignField: 'user'
+});
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();

@@ -10,7 +10,7 @@ const express = require('express'),
   reviewRouter = require('./routes/secure/reviews'),
   categoryRouter = require('./routes/secure/categories'),
   subCategoryRouter = require('./routes/secure/subCategories'),
-  // passport = require('./middleware/authentication/index'),
+  passport = require('./middleware/authentication/index'),
   fileUpload = require('express-fileupload'),
   cookieParser = require('cookie-parser'),
   path = require('path');
@@ -19,7 +19,7 @@ const express = require('express'),
 app.use(express.json());
 
 //Unauthenticated routes
-app.use('/api/users', openRoutes);
+app.use('/api', openRoutes);
 
 //Middleware to parse through incoming cookies in the requests.
 app.use(cookieParser());
@@ -37,16 +37,17 @@ app.use(
 );
 
 //Authenticated Routes
-// app.use('/api/*', passport.authenticate('jwt', { session: false }));
+app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
-app.use('/api/users', userRouter);
 app.use('/api/posts', postRouter);
+app.use('/api/categories', categoryRouter);
+app.use('/api/subCategories', subCategoryRouter);
 app.use('/api/ingredients', ingredientRouter);
 app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/favorites', favoriteRouter);
-app.use('/api/categories', categoryRouter);
-app.use('/api/subCategories', subCategoryRouter);
+
+app.use('/api/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {
   // Handle React routing, return all requests to React app

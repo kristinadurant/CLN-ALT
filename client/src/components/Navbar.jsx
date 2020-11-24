@@ -3,10 +3,9 @@ import { Link, useHistory, useLocation } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
-  const { setSearch } = useContext(AppContext);
+  const { setSearch, setPopSignUp, currentUser } = useContext(AppContext);
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
   const handleSearch = (e) => {
     // if (location.pathname !== '/categories') {
     //   console.log('i was run');
@@ -46,7 +45,11 @@ const Navbar = () => {
         />
         <button type="button">Search</button>
       </form>
-      <a href="#">login</a>
+      <button
+        onClick={(e) => setPopSignUp(currentUser ? 'logOut' : 'popOptions')}
+      >
+        login
+      </button>
     </header>
   );
 };

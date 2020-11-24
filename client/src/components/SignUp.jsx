@@ -1,31 +1,35 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
-const LogIn = () => {
+const SignUp = () => {
   const { setCurrentUser, setPopSignUp } = useContext(AppContext);
   const [formData, setFormData] = useState(null);
-
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
   };
 
-  const handleLogIn = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/login', formData);
-      setCurrentUser(response.data);
+      const response = await axios.post('/api', formData);
       sessionStorage.setItem('user', response.data);
-      setPopSignUp(false);
+      setCurrentUser(response.data.user);
+      setPopSignUp('success');
     } catch (error) {
-      console.log('Login Error: ' + error);
+      console.log('Signup Error ' + error);
     }
   };
-
   return (
-    <form className="container" onSubmit={handleLogIn}>
-      <h6>Let's log you in.</h6>
+    <form className="container" onSubmit={handleSignUp}>
+      <h6>Let's sign you up.</h6>
+      <input
+        onChange={handleChange}
+        name="name"
+        type="text"
+        placeholder="Name"
+      />
       <input
         onChange={handleChange}
         name="email"
@@ -38,15 +42,20 @@ const LogIn = () => {
         type="password"
         placeholder="Password"
       />
+      <p>
+        <input type="checkbox" />
+        <span>
+          I agree with <Link to="/termsAndConditions">Terms & Conditions</Link>{' '}
+          and
+          <Link to="/privacyPolicy"> Privacy Policy</Link>
+        </span>
+      </p>
       <button className="button bgBlack" type="submit">
-        Log In
+        Sign Up
       </button>
-      <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
-        Forgot Password?
-      </a>
       <a onClick={(e) => setPopSignUp('popOptions')}>Back</a>
     </form>
   );
 };
 
-export default LogIn;
+export default SignUp;

@@ -1,15 +1,28 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import { set } from 'mongoose';
 
 const AppContext = createContext();
 
 const AppContextProvider = ({ children }) => {
+  const user = sessionStorage.getItem('user');
   const [currentUser, setCurrentUser] = useState(null);
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [cat, setCat] = useState({});
+  const [popSignUp, setPopSignUp] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (user && !currentUser) {
+      axios
+        .get(`/api/users/me`, { data: user._id }, { withCredentials: true })
+        .then(({ data }) => {
+          console.log(data);
+          setCurrentUser(data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [user, currentUser]);
 
   useEffect(() => {
     axios
@@ -25,6 +38,8 @@ const AppContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        loading,
+        setLoading,
         currentUser,
         setCurrentUser,
         search,
@@ -32,7 +47,9 @@ const AppContextProvider = ({ children }) => {
         products,
         setProducts,
         categories,
-        setCategories
+        setCategories,
+        popSignUp,
+        setPopSignUp
       }}
     >
       {children}

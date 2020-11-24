@@ -12,8 +12,6 @@ const User = require('../db/models/user'),
 // ***********************************************//
 
 exports.createUser = async (req, res) => {
-  const { name, email, password } = req.body;
-
   try {
     const user = new User(req.body);
     sendWelcomeEmail(user.email, user.name);
@@ -79,12 +77,13 @@ exports.passwordRedirect = async (req, res) => {
     jwt.verify(token, process.env.JWT_SECRET, function (err) {
       if (err) throw new Error(err.message);
     });
+
     res.cookie('jwt', token, {
       httpOnly: true,
       maxAge: 600000,
       sameSite: 'Strict'
     });
-    res.redirect(process.env.URL + '/update-password');
+    res.redirect(process.env.URL + '/updatePasswordContainer');
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -93,7 +92,31 @@ exports.passwordRedirect = async (req, res) => {
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => {
-  res.json(req.user);
+  try {
+    const user = await User.findOne(req.body)
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
+      })
+      .populate({
+        path: 'favorites',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
+      });
+    res.json({
+      ...user.toObject(),
+      reviews: user.reviews,
+      favorites: user.favorites
+    });
+    await user.save();
+  } catch (error) {
+    res.status(400).json('Error: ' + error);
+  }
 };
 
 // ***********************************************//
@@ -109,11 +132,8 @@ exports.updateCurrentUser = async (req, res) => {
   if (!isValidOperation)
     return res.status(400).json({ message: 'Invalid updates' });
   try {
-    //Loop through each update, and change the value for the current user to the value coming from the body
     updates.forEach((update) => (req.user[update] = req.body[update]));
-    //save the updated user in the db
     await req.user.save();
-    //send the updated user as a response
     res.json(req.user);
   } catch (error) {
     res.status(400).json({ error: error.message });

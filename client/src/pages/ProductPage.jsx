@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import ProductImage from './ProductImage';
-import Meter from './Meter';
-import Ingredients from './Ingredients';
-import Reviews from './Reviews';
+import ProductImage from '../components/ProductImage';
+import Meter from '../components/Meter';
+import Ingredients from '../components/Ingredients';
+import Reviews from '../components/Reviews';
 
 const ProductPage = () => {
-  let { id } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState({});
   const [tab1, setTab1] = useState(true);
-  console.log(tab1);
 
   useEffect(() => {
     axios
@@ -21,18 +20,27 @@ const ProductPage = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>
       <p>{product.description}</p>
       <div className="productContainer">
-        <ProductImage image={product.image} verified={product.verified} />
+        <ProductImage
+          image={product.image}
+          verified={product.verified}
+          title={product.title}
+        />
         <div className="tags">
-          {console.log(product)}
           {product.tags?.map((tag, index) => {
-            return <img key={index} src={require(`../images/${tag}.svg`)} />;
+            return (
+              <img
+                key={index}
+                src={require(`../images/${tag}.svg`)}
+                alt={tag}
+              />
+            );
           })}
         </div>
       </div>
@@ -61,7 +69,7 @@ const ProductPage = () => {
         ))}
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
-        <Reviews />
+        {product?.reviews && <Reviews reviews={product.reviews} />}
       </div>
     </div>
   );
