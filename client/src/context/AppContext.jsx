@@ -10,19 +10,19 @@ const AppContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [popSignUp, setPopSignUp] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (user && !currentUser) {
       axios
-        .get(`/api/users/me`, {
-          withCredentials: true
-        })
-        .then((response) => {
-          setCurrentUser(response.data);
+        .get(`/api/users/me`, { data: user._id }, { withCredentials: true })
+        .then(({ data }) => {
+          console.log(data);
+          setCurrentUser(data);
         })
         .catch((error) => console.log(error));
     }
-  }, [currentUser, user]);
+  }, [user, currentUser]);
 
   useEffect(() => {
     axios
@@ -38,6 +38,8 @@ const AppContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
+        loading,
+        setLoading,
         currentUser,
         setCurrentUser,
         search,

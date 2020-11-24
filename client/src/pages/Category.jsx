@@ -4,9 +4,10 @@ import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import ProductImage from '../components/ProductImage';
 import BookmarkButton from '../components/BookmarkButton';
+import SubCategories from '../components/SubCategories';
 
 const Category = () => {
-  const { search, products, setProducts } = useContext(AppContext);
+  const { search, products, setProducts, currentUser } = useContext(AppContext);
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,10 +27,11 @@ const Category = () => {
 
   return (
     <div id="productsList" className="inner">
-      <h2>{}</h2>
+      <h2>{id}</h2>
+      <SubCategories category={id} />
       <ul>
         {filteredProducts.map((product) => (
-          <li>
+          <li key={product._id}>
             <Link to={`/products/${product._id}`}>
               <ProductImage image={product.image} verified={product.verified} />
             </Link>
@@ -41,7 +43,7 @@ const Category = () => {
                   <img src={require(`../images/star.svg`)} alt="star" />
                   <span>4.5</span>
                 </Link>
-                <BookmarkButton />
+                <BookmarkButton user={currentUser?._id} product={product._id} />
               </div>
             </div>
           </li>

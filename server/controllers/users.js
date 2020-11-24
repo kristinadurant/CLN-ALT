@@ -113,8 +113,9 @@ exports.getCurrentUser = async (req, res) => {
       reviews: user.reviews,
       favorites: user.favorites
     });
+    await user.save();
   } catch (error) {
-    res.status(400).json('Error: ' + err);
+    res.status(400).json('Error: ' + error);
   }
 };
 

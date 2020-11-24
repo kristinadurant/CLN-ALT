@@ -35,6 +35,10 @@ app.use(
     tempFileDir: '/tmp/images'
   })
 );
+
+//Authenticated Routes
+app.use('/api/*', passport.authenticate('jwt', { session: false }));
+
 app.use('/api/posts', postRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/subCategories', subCategoryRouter);
@@ -42,8 +46,6 @@ app.use('/api/ingredients', ingredientRouter);
 app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/favorites', favoriteRouter);
-//Authenticated Routes
-app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/users', userRouter);
 

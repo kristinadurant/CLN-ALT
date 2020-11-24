@@ -1,17 +1,16 @@
 const Favorite = require('../db/models/favorite'),
   mongoose = require('mongoose');
 
-//ANCHOR CREATE Favorite
+// ANCHOR CREATE Favorite
 exports.createFavorite = async (req, res) => {
   try {
-    const Favorite = await new Favorite(req.body);
-    await Favorite.save();
+    const favorite = await new Favorite(req.body);
+    await favorite.save();
     res.status(200).send(favorite);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-
 //ANCHOR GET A SPECIFIC Favorite
 exports.getSpecificFavorite = async (req, res) => {
   const _id = req.params.id;
@@ -20,7 +19,7 @@ exports.getSpecificFavorite = async (req, res) => {
       message: 'Uh Oh, Not a valid favorite'
     });
   try {
-    const Favorite = await Favorite.findOne({
+    const favorite = await Favorite.findOne({
       _id
     });
     if (!favorite)
@@ -40,9 +39,9 @@ exports.getSpecificFavorite = async (req, res) => {
 exports.getAllFavorites = async (req, res) => {
   try {
     const favorites = await Favorite.find(req.query).sort({ createdAt: -1 });
-    await favorites
-      .populate({ path: 'product', select: ['title', 'image'] })
-      .execPopulate();
+    // await favorites
+    //   .populate({ path: 'product', select: ['title', 'image'] })
+    //   .execPopulate();
     res.json(favorites);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -53,13 +52,13 @@ exports.getAllFavorites = async (req, res) => {
 exports.updateFavorite = async (req, res) => {
   const updates = Object.keys(req.body);
   try {
-    const Favorite = await Favorite.findOne({
+    const favorite = await Favorite.findOne({
       _id: req.params.id
     });
-    if (!Favorite)
+    if (!favorite)
       return res.status(404).json({ message: 'Uh Oh! :( Favorite Not Found' });
     updates.forEach((update) => (favorite[update] = req.body[update]));
-    await Favorite.save();
+    await favorite.save();
     res.status(201).json(favorite);
   } catch (error) {
     res.status(400).json('Error: ' + err);
@@ -69,7 +68,7 @@ exports.updateFavorite = async (req, res) => {
 //ANCHOR DELETE A SPECIFIC Favorite /////
 exports.deleteFavorite = async (req, res) => {
   try {
-    const Favorite = await Favorite.findByIdAndDelete({
+    const favorite = await Favorite.findByIdAndDelete({
       _id: req.params.id
     });
     if (!favorite)

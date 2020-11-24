@@ -56,6 +56,20 @@ input:active {
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
+#productsList h2 {
+  margin-bottom: 3%;
+  font-size: 3rem;
+}
+#subCategories {
+  margin-bottom: 6%;
+}
+#subCategories .button {
+  margin-right: 2%;
+}
+#subCategories .button.active {
+  border: none;
+  background-color: #ece9e1;
+}
 #productsList ul {
   display: flex;
   flex-wrap: wrap;
