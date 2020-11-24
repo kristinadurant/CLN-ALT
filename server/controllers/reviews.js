@@ -39,7 +39,7 @@ exports.getSpecificReview = async (req, res) => {
 
 exports.getAllReviews = async (req, res) => {
   try {
-    const reviews = await Review.find(req.query).sort({ createdAt: -1 });
+    const reviews = await Review.find({});
     res.json(reviews);
   } catch (error) {
     res.status(400).json({ error: error.message });

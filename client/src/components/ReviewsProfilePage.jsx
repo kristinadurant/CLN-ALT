@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-const ReviewsProfilePage = ({ userId }) => {
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`/api/reviews/?user=${userId}`, { withCredentials: true })
-      .then((response) => {
-        setReviews(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [userId]);
-
+const ReviewsProfilePage = ({ reviews }) => {
   return (
     <>
       {(reviews?.length > 0 && (
@@ -23,7 +9,7 @@ const ReviewsProfilePage = ({ userId }) => {
           {reviews?.map((review) => (
             <li key={review._id} className="list">
               <Link className="listImage" to={`/products/${review.product}`}>
-                <img src={review.productImage} />
+                <img src={review.image} />
               </Link>
               <div>
                 <p className="stars">

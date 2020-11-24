@@ -6,6 +6,7 @@ import Favorites from '../components/Favorites';
 const Profile = () => {
   const { currentUser, setPopSignUp } = useContext(AppContext);
   const [tab2, setTab2] = useState(true);
+  console.log(currentUser);
 
   return (
     <div id="profile" className="inner">
@@ -40,10 +41,10 @@ const Profile = () => {
         </button>
       </div>
       <div className="favorites" style={{ display: !tab2 && 'none' }}>
-        <Favorites />
+        <Favorites favorites={currentUser?.favorites} />
       </div>
       <div className="reviews" style={{ display: tab2 && 'none' }}>
-        <ReviewsProfilePage userId={currentUser?._id} />
+        <ReviewsProfilePage reviews={currentUser?.reviews} />
       </div>
     </div>
   );

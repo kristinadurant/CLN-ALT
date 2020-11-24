@@ -15,10 +15,8 @@ const LogIn = () => {
     e.preventDefault();
     try {
       const response = await axios.post('/api/login', formData);
-      setCurrentUser(response.data.user);
-      console.log('logged in user');
-      console.log(response.data.user);
-      sessionStorage.setItem('user', response.data.user);
+      setCurrentUser(response.data);
+      sessionStorage.setItem('user', response.data);
       setPopSignUp(false);
     } catch (error) {
       console.log('Login Error: ' + error);

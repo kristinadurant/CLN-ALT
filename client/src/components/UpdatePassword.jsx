@@ -14,6 +14,7 @@ const UpdatePassword = () => {
     if (password.password !== password.confirmPassword) {
       throw Error('Error!');
     }
+    console.log('what password did i try', password);
     await axios.put(
       '/api/users/password',
       { password: password.password },

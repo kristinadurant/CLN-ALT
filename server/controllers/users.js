@@ -77,6 +77,8 @@ exports.passwordRedirect = async (req, res) => {
     jwt.verify(token, process.env.JWT_SECRET, function (err) {
       if (err) throw new Error(err.message);
     });
+
+    console.log('verified');
     res.cookie('jwt', token, {
       httpOnly: true,
       maxAge: 600000,
@@ -93,7 +95,30 @@ exports.passwordRedirect = async (req, res) => {
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => {
-  res.json(req.user);
+  try {
+    const user = await User.findOne(req.body)
+      .populate({
+        path: 'reviews',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
+      })
+      .populate({
+        path: 'favorites',
+        populate: {
+          path: 'user',
+          model: 'User'
+        }
+      });
+    res.json({
+      ...user.toObject(),
+      reviews: user.reviews,
+      favorites: user.favorites
+    });
+  } catch (error) {
+    res.status(400).json('Error: ' + err);
+  }
 };
 
 // ***********************************************//
@@ -184,8 +209,10 @@ exports.uploadAvatar = async (req, res) => {
 
 exports.updatePassword = async (req, res) => {
   try {
+    console.log('am i in this route?');
     req.user.password = req.body.password;
     await req.user.save();
+    console.log('updated user password');
     res.clearCookie('jwt');
     res.status(200).json({ message: 'password updated successfully!' });
   } catch (error) {

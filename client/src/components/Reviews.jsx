@@ -1,28 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
+import React from 'react';
 
-const Reviews = () => {
-  const [reviews, setReviews] = useState([]);
-  const { id } = useParams();
-
-  useEffect(() => {
-    axios
-      .get(`/api/reviews/?product=${id}`)
-      .then((response) => {
-        setReviews(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+const Reviews = ({ reviews }) => {
+  const total = reviews.length;
 
   return (
     <>
       <div className="reviewsHeader">
         <div className="stars">
           <img src={require('../images/stars.png')} />
-          {reviews.length} Reviews
+          {total === 1 ? `${total} Review` : `${total} Reviews`}
         </div>
         <button className="button"> + Review</button>
       </div>
@@ -30,11 +16,13 @@ const Reviews = () => {
         {reviews?.map((review) => (
           <li key={review._id} className="list">
             <div className="listImage">
-              <img src={require('../images/placeholderUser.png')} />
-              <p>{review.user}</p>
+              <img
+                src={review.avatar || require('../images/placeholderUser.png')}
+              />
+              <p>{review.user.name}</p>
             </div>
             <div>
-              <p>
+              <p className="stars">
                 <img src={require('../images/stars.png')} />
                 {review.rate}
               </p>

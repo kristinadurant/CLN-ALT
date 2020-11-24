@@ -39,7 +39,10 @@ exports.getSpecificFavorite = async (req, res) => {
 
 exports.getAllFavorites = async (req, res) => {
   try {
-    const Favorites = await Favorite.find(req.query).sort({ createdAt: -1 });
+    const favorites = await Favorite.find(req.query).sort({ createdAt: -1 });
+    await favorites
+      .populate({ path: 'product', select: ['title', 'image'] })
+      .execPopulate();
     res.json(favorites);
   } catch (error) {
     res.status(400).json({ error: error.message });

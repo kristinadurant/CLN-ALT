@@ -10,13 +10,14 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [tab1, setTab1] = useState(true);
-  console.log(tab1);
+  console.log(product);
 
   useEffect(() => {
     axios
       .get(`/api/products/${id}`)
       .then((response) => {
         setProduct(response.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -60,7 +61,7 @@ const ProductPage = () => {
         ))}
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
-        <Reviews />
+        {product?.reviews && <Reviews reviews={product.reviews} />}
       </div>
     </div>
   );
