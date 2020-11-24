@@ -11,7 +11,7 @@ import UserGuide from './pages/UserGuide';
 import Blog from './pages/Blog';
 import OurStory from './pages/OurStory';
 import Categories from './pages/Categories';
-import Category from './components/Category';
+import Category from './pages/Category';
 import ProductPage from './pages/ProductPage';
 import IngredientsPage from './pages/IngredientsPage';
 import TermsAndConditions from './pages/TermsAndConditions';

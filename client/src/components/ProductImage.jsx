@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductImage = ({ image, verified, title }) => {
   return (
-    <div className="productImage">
+    <div className="productImage imageBox">
       <div>
         <img
           className="verified"
