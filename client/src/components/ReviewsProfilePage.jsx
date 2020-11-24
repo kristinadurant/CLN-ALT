@@ -9,11 +9,11 @@ const ReviewsProfilePage = ({ reviews }) => {
           {reviews?.map((review) => (
             <li key={review._id} className="list">
               <Link className="listImage" to={`/products/${review.product}`}>
-                <img src={review.image} />
+                <img src={review.image} alt={review.product} />
               </Link>
               <div>
                 <p className="stars">
-                  <img src={require('../images/stars.png')} />
+                  <img src={require('../images/stars.png')} alt="reviews" />
                   {review.rate}
                 </p>
                 <p>{review.description}</p>

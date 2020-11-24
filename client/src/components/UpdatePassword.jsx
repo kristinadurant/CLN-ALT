@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
 const UpdatePassword = () => {
+  const history = useHistory();
   const { setPopSignUp } = useContext(AppContext);
   const [password, setPassword] = useState(null);
   const handleChange = (event) => {
@@ -14,12 +16,13 @@ const UpdatePassword = () => {
     if (password.password !== password.confirmPassword) {
       throw Error('Error!');
     }
-    console.log('what password did i try', password);
     await axios.put(
       '/api/users/password',
       { password: password.password },
       { withCredentials: true }
     );
+    setPopSignUp('logIn');
+    history.push('/profile');
   };
   return (
     <form className="container" onSubmit={handleSubmit}>
@@ -37,9 +40,9 @@ const UpdatePassword = () => {
         placeholder="Confirm Password"
       />
       <button className="button bgBlack" type="submit">
-        Sign Up
+        Update Password
       </button>
-      <a onClick={(e) => setPopSignUp('resetPassword')}>
+      <a onClick={(e) => setPopSignUp('resetPassword')} href="#">
         Didn't get an Email? Try again.
       </a>
     </form>

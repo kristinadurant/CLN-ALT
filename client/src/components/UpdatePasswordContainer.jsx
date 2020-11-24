@@ -6,7 +6,7 @@ const UpdatePasswordContainer = () => {
 
   useEffect(() => {
     setPopSignUp('updatePassword');
-  }, []);
+  }, [setPopSignUp]);
 
   return <div>reset</div>;
 };

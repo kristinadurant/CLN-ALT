@@ -10,29 +10,37 @@ const ProductPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [tab1, setTab1] = useState(true);
-  console.log(product);
 
   useEffect(() => {
     axios
       .get(`/api/products/${id}`)
       .then((response) => {
         setProduct(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>
       <p>{product.description}</p>
       <div className="productContainer">
-        <ProductImage image={product.image} verified={product.verified} />
+        <ProductImage
+          image={product.image}
+          verified={product.verified}
+          title={product.title}
+        />
         <div className="tags">
           {product.tags?.map((tag, index) => {
-            return <img key={index} src={require(`../images/${tag}.svg`)} />;
+            return (
+              <img
+                key={index}
+                src={require(`../images/${tag}.svg`)}
+                alt={tag}
+              />
+            );
           })}
         </div>
       </div>

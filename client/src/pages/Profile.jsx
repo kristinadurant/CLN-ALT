@@ -6,13 +6,13 @@ import Favorites from '../components/Favorites';
 const Profile = () => {
   const { currentUser, setPopSignUp } = useContext(AppContext);
   const [tab2, setTab2] = useState(true);
-  console.log(currentUser);
 
   return (
     <div id="profile" className="inner">
       <div className="userContainer columns2">
         <img
           src={currentUser?.image || require(`../images/placeholderUser.png`)}
+          alt="profile"
         />
         <div>
           <p>{currentUser?.name}</p>

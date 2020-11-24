@@ -10,7 +10,6 @@ const AppContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [popSignUp, setPopSignUp] = useState(false);
-  const [cat, setCat] = useState({});
 
   useEffect(() => {
     if (user && !currentUser) {

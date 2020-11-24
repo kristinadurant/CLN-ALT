@@ -17,11 +17,11 @@ const Blog = () => {
 
   return (
     <div>
-      <h6>List of Banned Ingredients</h6>
+      <h6>Blog</h6>
       {posts.map((post) => (
-        <li>
+        <li key={post._id}>
           <h2>{post.title}</h2>
-          <img url={post.image} />
+          <img url={post.image} alt={post.title} />
           {post.text}
         </li>
       ))}

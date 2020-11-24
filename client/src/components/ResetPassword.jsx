@@ -12,8 +12,6 @@ const ResetPassword = () => {
     try {
       await axios.get(`/api/password?email=${email}`);
       form.reset();
-      console.log('an alert should trigger');
-      alert('check your email');
     } catch (error) {
       console.log(error);
     }

@@ -6,7 +6,6 @@ const Navbar = () => {
   const { setSearch, setPopSignUp, currentUser } = useContext(AppContext);
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
   const handleSearch = (e) => {
     // if (location.pathname !== '/categories') {
     //   console.log('i was run');

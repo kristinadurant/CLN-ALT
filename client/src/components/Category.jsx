@@ -17,7 +17,7 @@ const Category = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [setProducts, id]);
 
   const filteredProducts = products?.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());

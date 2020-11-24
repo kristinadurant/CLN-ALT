@@ -1,12 +1,13 @@
 import React from 'react';
 
-const ProductImage = ({ image, verified }) => {
+const ProductImage = ({ image, verified, title }) => {
   return (
     <div className="productImage">
       <div>
         <img
           className="verified"
           src={require(`../images/${verified ? 'verified.svg' : 'banned.svg'}`)}
+          alt={verified ? 'verified' : 'banned'}
         />
         {verified && (
           <div>
@@ -20,7 +21,7 @@ const ProductImage = ({ image, verified }) => {
           </div>
         )}
       </div>
-      <img src={image} />
+      <img src={image} alt={title} />
     </div>
   );
 };

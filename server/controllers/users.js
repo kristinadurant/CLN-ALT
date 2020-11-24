@@ -78,14 +78,11 @@ exports.passwordRedirect = async (req, res) => {
       if (err) throw new Error(err.message);
     });
 
-    console.log('verified');
     res.cookie('jwt', token, {
       httpOnly: true,
       maxAge: 600000,
       sameSite: 'Strict'
     });
-    console.log(token);
-    console.log('redirected');
     res.redirect(process.env.URL + '/updatePasswordContainer');
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -134,11 +131,8 @@ exports.updateCurrentUser = async (req, res) => {
   if (!isValidOperation)
     return res.status(400).json({ message: 'Invalid updates' });
   try {
-    //Loop through each update, and change the value for the current user to the value coming from the body
     updates.forEach((update) => (req.user[update] = req.body[update]));
-    //save the updated user in the db
     await req.user.save();
-    //send the updated user as a response
     res.json(req.user);
   } catch (error) {
     res.status(400).json({ error: error.message });
@@ -209,10 +203,8 @@ exports.uploadAvatar = async (req, res) => {
 
 exports.updatePassword = async (req, res) => {
   try {
-    console.log('am i in this route?');
     req.user.password = req.body.password;
     await req.user.save();
-    console.log('updated user password');
     res.clearCookie('jwt');
     res.status(200).json({ message: 'password updated successfully!' });
   } catch (error) {
