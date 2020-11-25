@@ -1,22 +1,33 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
-const Profile = () => {
-  const { id } = useParams();
+const Admin = () => {
   const { setPopSignUp, currentUser, categories } = useContext(AppContext);
   const [formData, setFormData] = useState(null);
   const [verified, setVerified] = useState(false);
-  console.log(categories);
+  const [cat, setCat] = useState([]);
+  const [subCat, setSubCat] = useState([]);
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
   const handleChangeVerified = (e) => {
     setVerified(!verified);
     setFormData({ ...formData, [e.target.name]: verified });
   };
-
+  const hangleChangeCategory = (e) => {
+    setCat(e.target.value);
+    setFormData({ ...formData, category: e.target.value });
+  };
+  useEffect(() => {
+    axios
+      .get(`/api/subCategories/?category=${cat}`)
+      .then(({ data }) => {
+        setSubCat(data);
+      })
+      .catch((error) => console.log(error));
+  }, [cat, setSubCat]);
   const handleSubmission = async (e) => {
     const form = e.target;
     e.preventDefault();
@@ -30,7 +41,7 @@ const Profile = () => {
       //   swal('Oops!', 'Something went wrong');
     }
   };
-  console.log(formData);
+
   return (
     <div id="profile" className="inner">
       <div className="userContainer columns2">
@@ -58,22 +69,23 @@ const Profile = () => {
           name="description"
           placeholder="Product description"
           onChange={handleChange}
+          rows="10"
         />
-        <select name="category" onChange={handleChange}>
-          <option value="5fb88094bbfee26d6d95d6cf">bodycare</option>
-          <option value="5fb880afbbfee26d6d95d6d0">fragrance</option>
-          <option value="5fb8811bbbfee26d6d95d6d1">oralcare</option>
-          <option value="5fb8814eea4b5e6d83d23f86">babycare</option>
-          <option value="5fb88163ea4b5e6d83d23f87">haircare</option>
-          <option value="5fb88175ea4b5e6d83d23f88">skincare</option>
+        <select name="category" onChange={hangleChangeCategory}>
+          {categories?.map((category) => (
+            <option key={category._id} value={category._id}>
+              {category.title}
+            </option>
+          ))}
         </select>
-        <input
-          type="text"
-          name="subcategory"
-          placeholder="Product subcategory"
-          onChange={handleChange}
-        />
-        <select name="tags" onChange={handleChange}>
+        <select name="subCategory" onChange={handleChange}>
+          {subCat?.map((subCategory) => (
+            <option key={subCategory._id} value={subCategory._id}>
+              {subCategory.title}
+            </option>
+          ))}
+        </select>
+        <select name="tags" onChange={handleChange} multiple>
           <option value="vegan">Vegan</option>
           <option value="paraben_free">Paraben free</option>
           <option value="cruelty_free">Cruelty free</option>
@@ -92,4 +104,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Admin;
