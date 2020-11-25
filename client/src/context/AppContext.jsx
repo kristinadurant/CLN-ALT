@@ -17,7 +17,6 @@ const AppContextProvider = ({ children }) => {
       axios
         .get(`/api/users/me`, { withCredentials: true })
         .then(({ data }) => {
-          console.log(data);
           setCurrentUser(data);
         })
         .catch((error) => console.log(error));

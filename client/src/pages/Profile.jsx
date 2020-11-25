@@ -21,7 +21,7 @@ const Profile = () => {
         console.log(error);
       });
   }, [setProfile]);
-  console.log(profile);
+
   const reviews = profile?.reviews;
   const favorites = profile?.favorites;
 
