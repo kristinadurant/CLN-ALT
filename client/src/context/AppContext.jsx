@@ -15,7 +15,7 @@ const AppContextProvider = ({ children }) => {
   useEffect(() => {
     if (user && !currentUser) {
       axios
-        .get(`/api/users/me`, { data: user._id }, { withCredentials: true })
+        .get(`/api/users/me`, { withCredentials: true })
         .then(({ data }) => {
           console.log(data);
           setCurrentUser(data);

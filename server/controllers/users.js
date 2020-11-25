@@ -92,20 +92,25 @@ exports.passwordRedirect = async (req, res) => {
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => {
+  res.json(req.user);
+};
+
+exports.getProfile = async (req, res) => {
+  const _id = req.params.id;
   try {
-    const user = await User.findOne(req.body)
+    user = await User.findOne({ _id })
       .populate({
         path: 'reviews',
         populate: {
-          path: 'user',
-          model: 'User'
+          path: 'product',
+          model: 'Product'
         }
       })
       .populate({
         path: 'favorites',
         populate: {
-          path: 'user',
-          model: 'User'
+          path: 'product',
+          model: 'Product'
         }
       });
     res.json({

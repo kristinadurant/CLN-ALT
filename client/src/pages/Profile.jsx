@@ -1,22 +1,40 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import ReviewsProfilePage from '../components/ReviewsProfilePage';
 import Favorites from '../components/Favorites';
+import axios from 'axios';
 
 const Profile = () => {
-  const { currentUser, setPopSignUp } = useContext(AppContext);
+  const { id } = useParams();
+  const { setPopSignUp } = useContext(AppContext);
   const [tab2, setTab2] = useState(true);
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    axios
+      .get(`/api/users/profile/${id}`)
+      .then((response) => {
+        setProfile(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setProfile]);
+  console.log(profile);
+  const reviews = profile?.reviews;
+  const favorites = profile?.favorites;
 
   return (
     <div id="profile" className="inner">
       <div className="userContainer columns2">
         <img
-          src={currentUser?.image || require(`../images/placeholderUser.png`)}
+          src={profile?.avatar || require(`../images/placeholderUser.png`)}
           alt="profile"
         />
         <div>
-          <p>{currentUser?.name}</p>
-          <p>{currentUser?.email}</p>
+          <p>{profile?.name}</p>
+          <p>{profile?.email}</p>
           <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
             Change Password
           </a>
@@ -29,7 +47,7 @@ const Profile = () => {
             setTab2(true);
           }}
         >
-          Favorites
+          Bookmarks
         </button>
         <button
           className={!tab2 && 'active'}
@@ -41,10 +59,10 @@ const Profile = () => {
         </button>
       </div>
       <div className="favorites" style={{ display: !tab2 && 'none' }}>
-        <Favorites favorites={currentUser?.favorites} />
+        <Favorites favorites={favorites} />
       </div>
       <div className="reviews" style={{ display: tab2 && 'none' }}>
-        <ReviewsProfilePage reviews={currentUser?.reviews} />
+        <ReviewsProfilePage reviews={reviews} />
       </div>
     </div>
   );

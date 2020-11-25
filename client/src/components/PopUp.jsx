@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import LogIn from './LogIn';
+import LogIn from '../components/LogIn';
 import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';

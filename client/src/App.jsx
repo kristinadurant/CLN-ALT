@@ -43,7 +43,7 @@ const App = () => {
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
-          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile/:id" component={Profile} />
         </Switch>
         <Footer />
       </BrowserRouter>

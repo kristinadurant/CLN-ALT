@@ -23,7 +23,7 @@ const LogOut = () => {
 
   const handleRedirect = () => {
     setPopSignUp(false);
-    history.push('/profile');
+    history.push(`/profile/${currentUser._id}`);
   };
 
   return (

@@ -8,10 +8,16 @@ const Favorites = ({ favorites }) => {
         <ul>
           {favorites?.map((favorite) => (
             <li key={favorite._id} className="list">
-              <Link to={`/products/${favorite.product}`} className="listImage">
-                <img src={favorite.image} alt={favorite.product} />
+              <Link
+                to={`/products/${favorite.product._id}`}
+                className="listImage"
+              >
+                <img
+                  src={favorite.product.image}
+                  alt={favorite.product.title}
+                />
               </Link>
-              <p>{favorite.product}</p>
+              <p>{favorite.product.title}</p>
             </li>
           ))}
         </ul>
