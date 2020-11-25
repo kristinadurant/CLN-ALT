@@ -8,8 +8,11 @@ const ReviewsProfilePage = ({ reviews }) => {
         <ul>
           {reviews?.map((review) => (
             <li key={review._id} className="list">
-              <Link className="listImage" to={`/products/${review.product}`}>
-                <img src={review.image} alt={review.product} />
+              <Link
+                className="listImage"
+                to={`/products/${review.product._id}`}
+              >
+                <img src={review.product.image} alt={review.product.title} />
               </Link>
               <div>
                 <p className="stars">

@@ -16,6 +16,7 @@ import ProductPage from './pages/ProductPage';
 import IngredientsPage from './pages/IngredientsPage';
 import TermsAndConditions from './pages/TermsAndConditions';
 import Profile from './pages/Profile';
+import Admin from './pages/Admin';
 import UpdatePasswordContainer from './components/UpdatePasswordContainer';
 
 const App = () => {
@@ -43,7 +44,8 @@ const App = () => {
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
-          <PrivateRoute exact path="/profile" component={Profile} />
+          <PrivateRoute exact path="/profile/:id" component={Profile} />
+          <PrivateRoute exact path="/admin/:id" component={Admin} />
         </Switch>
         <Footer />
       </BrowserRouter>
