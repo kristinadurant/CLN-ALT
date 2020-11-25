@@ -12,6 +12,7 @@ const ResetPassword = () => {
     try {
       await axios.get(`/api/password?email=${email}`);
       form.reset();
+      setPopSignUp('updatePassword');
     } catch (error) {
       console.log(error);
     }
