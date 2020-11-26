@@ -5,6 +5,7 @@ body {
 #root {
   position: relative;
   min-height: 100vh;
+  padding-bottom: 100px;
 }
 /*=========================
 ==========================
@@ -314,14 +315,17 @@ li.ingredient strong {
 /*=========================
     PROFILE PAGE
 ============================*/
-#profile .userContainer {
+#profile .userContainer,
+#admin .userContainer {
   margin: 0 auto 8%;
   width: 50%;
 }
-#profile .userContainer > div {
+#profile .userContainer > div,
+#admin .userContainer > div {
   padding: 0 3%;
 }
-#profile .userContainer img {
+#profile .userContainer img,
+#admin .userContainer img {
   border-radius: 100%;
   padding: 0 3%;
 }

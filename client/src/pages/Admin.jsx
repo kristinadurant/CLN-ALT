@@ -1,11 +1,17 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AppContext } from '../context/AppContext';
+import { useHistory } from 'react-router-dom';
 import AddProduct from '../components/AddProduct';
 import SearchProducts from '../components/SearchProducts';
 
 const Admin = () => {
   const { setPopSignUp, currentUser } = useContext(AppContext);
+  const history = useHistory();
   const [tab2, setTab2] = useState(true);
+  const handleRedirect = () => {
+    setPopSignUp(false);
+    history.push(`/profile/${currentUser._id}`);
+  };
 
   return (
     <div id="admin" className="inner">
@@ -20,6 +26,9 @@ const Admin = () => {
           <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
             Change Password
           </a>
+          <button className="button" onClick={handleRedirect}>
+            VIEW PROFILE
+          </button>
         </div>
       </div>
       <div className="tabs">
