@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import LogIn from '../components/LogIn';
+import login from '../components/Login';
 import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
@@ -24,22 +24,22 @@ const PopUp = () => {
                 <br />
                 Don't have an account yet?
               </h6>
-              <button onClick={(e) => setPopSignUp('logIn')}>
+              <button onClick={(e) => setPopSignUp('login')}>
                 <span className="icon">
-                  <img src={require('../images/email.svg')} alt="logIn" />
+                  <img src={require('../images/email.svg')} alt="login" />
                 </span>
                 <p>LOG IN WITH EMAIL</p>
               </button>
               <button onClick={(e) => setPopSignUp('signUp')}>
                 <span className="icon">
-                  <img src={require('../images/account.svg')} alt="logIn" />
+                  <img src={require('../images/account.svg')} alt="login" />
                 </span>
                 <p>REGISTER WITH EMAIL</p>
               </button>
               <a onClick={(e) => setPopSignUp(false)}>Skip</a>
             </div>
           )}
-          {popSignUp === 'logIn' && <LogIn />}
+          {popSignUp === 'login' && <login />}
           {popSignUp === 'signUp' && <SignUp />}
           {popSignUp === 'success' && (
             <div className="success container">

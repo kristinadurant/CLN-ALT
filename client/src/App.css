@@ -12,21 +12,21 @@ li {
   list-style-type: none;
 }
 
-#root {
+/* #root {
   min-height: 100vh;
   position: relative;
   padding-top: 100px;
   padding-bottom: 100px;
-}
+} */
 h3,
 h6 {
   font-size: 2rem;
 }
 /*===================
-    HEADER
+    NAVBAR/HEADER
 ====================*/
 
-header {
+/* header {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -44,7 +44,122 @@ header nav ul {
 }
 header nav ul li {
   padding: 0 10px;
+} */
+
+.navbar {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 140px;
+  margin-right: 140px;
 }
+
+.navbar a {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 25px;
+  color: #4e4e4e;
+}
+
+.navbar ul li {
+  margin-top: 25px;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+.searchnav-button {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  color: #ffffff;
+  background-color: #1f1f1f;
+  border-radius: 3px;
+  margin-left: 5px;
+}
+
+.searchbar {
+  border: 2px solid black;
+  border-radius: 3px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 255px;
+}
+.profileimage {
+  width: 27px;
+  height: 28px;
+}
+
+.burger,
+.hamburgerexit {
+  display: none;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px;
+}
+
+@media screen and (max-width: 576px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transfrom 0.5s ease-in;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  /* @keyframes navLinkFade{
+    from{
+      opacity: 0;
+      transform:
+    }
+  } */
+
+  .nav-links li {
+    opacity: 0;
+  }
+  .nav-active {
+    transform: translateX(0%);
+    position: absolute;
+    right: 0px;
+    height: 92vh;
+    top: 8vh;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 194px;
+    left: 0px;
+  }
+}
+
 /*==================
     FOOTER 
 ====================*/
@@ -172,26 +287,4 @@ li.ingredient p {
   height: 2rem;
   overflow: hidden;
   transition: height 0.5s;
-}
-/*=======================
-    Nav bar
-========================*/
-
-.navbar {
-  height: 70.69969177246094px;
-  width: 1440px;
-  left: -0.4638671875px;
-  top: -0.1904296875px;
-  border-radius: 0px;
-  fill: Solid #ffffff;
-  font-family: Poppins;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-
-.searchbar {
 }

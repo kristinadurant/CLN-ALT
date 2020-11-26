@@ -181,11 +181,11 @@ input:active {
 .module .success p {
   margin-bottom: 10%;
 }
-input {
+/* input {
   border: 2px solid #000;
   border-radius: 3px;
   padding: 0.75rem;
-}
+} */
 /*=========================
     PRODUCT PAGE
 ============================*/
