@@ -9,7 +9,7 @@ const Favorites = ({ favorites }) => {
           {favorites?.map((favorite) => (
             <li key={favorite._id} className="list">
               <Link
-                to={`/products/${favorite.product._id}`}
+                // to={`/products/${favorite.product._id}`}
                 className="listImage"
               >
                 <img

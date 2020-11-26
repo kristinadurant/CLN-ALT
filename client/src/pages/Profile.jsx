@@ -22,8 +22,8 @@ const Profile = () => {
       });
   }, [setProfile]);
 
-  const reviews = profile?.reviews;
-  const favorites = profile?.favorites;
+  const reviews = profile?.reviews && profile.reviews;
+  const favorites = profile?.favorites && profile.favorites;
 
   return (
     <div id="profile" className="inner">

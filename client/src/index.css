@@ -2,7 +2,10 @@ body {
   margin: 0;
   padding: 0;
 }
-
+#root {
+  position: relative;
+  min-height: 100vh;
+}
 /*=========================
 ==========================
 remove what has comments and where
