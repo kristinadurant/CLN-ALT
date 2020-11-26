@@ -21,7 +21,7 @@ const UpdatePassword = () => {
       { password: password.password },
       { withCredentials: true }
     );
-    setPopSignUp('logIn');
+    setPopSignUp('login');
     history.push('/profile');
   };
   return (
