@@ -8,7 +8,7 @@ const Admin = () => {
   const [tab2, setTab2] = useState(true);
 
   return (
-    <div id="profile" className="inner">
+    <div id="admin" className="inner">
       <div className="userContainer columns2">
         <img
           src={currentUser?.avatar || require(`../images/placeholderUser.png`)}

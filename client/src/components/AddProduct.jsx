@@ -85,6 +85,7 @@ const AddProduct = ({ product }) => {
 
   return (
     <form onSubmit={product ? handleUpdate : handleSubmission}>
+      <label>Title</label>
       <input
         type="text"
         name="title"
@@ -92,6 +93,7 @@ const AddProduct = ({ product }) => {
         onChange={handleChange}
         value={product?.title}
       />
+      <label>Description</label>
       <textarea
         name="description"
         placeholder="Product description"
@@ -99,6 +101,7 @@ const AddProduct = ({ product }) => {
         rows="10"
         value={product?.description}
       />
+      <label>Category</label>
       <select name="category" onChange={handleChange} value={product?.category}>
         {categories?.map((category) => (
           <option key={category._id} value={category._id}>
@@ -106,6 +109,7 @@ const AddProduct = ({ product }) => {
           </option>
         ))}
       </select>
+      <label>Subcategory</label>
       <select
         name="subCategory"
         onChange={handleChange}
@@ -117,11 +121,13 @@ const AddProduct = ({ product }) => {
           </option>
         )) || <option>Chose a category</option>}
       </select>
+      <label>Tags</label>
       <MultiSelectInput
         fieldName="tags"
         options={TAGS}
         handleChange={handleMultiSelectChange}
       />
+      <label>Ingredients</label>
       <MultiSelectInput
         fieldName="ingredients"
         options={ingredients && ingredients}
@@ -135,7 +141,7 @@ const AddProduct = ({ product }) => {
       >
         Verified
       </button>
-      <button className="button" type="submit">
+      <button className="button bgBlack" type="submit">
         Add Product
       </button>
     </form>
