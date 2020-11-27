@@ -1,5 +1,5 @@
 import React from 'react';
-
+import BookmarkButton from './BookmarkButton';
 const ProductImage = ({ image, verified, title }) => {
   return (
     <div className="productImage imageBox">
@@ -14,10 +14,7 @@ const ProductImage = ({ image, verified, title }) => {
             <button className="share">
               Share <img src={require(`../images/share.svg`)} alt="share" />
             </button>
-            <button className="bookmark">
-              Bookmark{' '}
-              <img src={require(`../images/bookmark.svg`)} alt="bookmark" />
-            </button>
+            <BookmarkButton />
           </div>
         )}
       </div>

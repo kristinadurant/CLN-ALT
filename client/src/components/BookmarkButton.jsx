@@ -1,11 +1,13 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 
 const BookmarkButton = ({ user, product }) => {
   const { setLoading } = useContext(AppContext);
+  const [bookmarked, setBookmarked] = useState('bookmark');
 
   const addBoorkmark = async () => {
+    setBookmarked('bookmarked');
     setLoading(true);
     try {
       await axios.post(
@@ -20,9 +22,9 @@ const BookmarkButton = ({ user, product }) => {
   };
 
   return (
-    <button className="noBorder" onClick={addBoorkmark}>
-      <img src={require('../images/bookmark.svg')} alt="bookmark" />
-      <span>400</span>
+    <button className={bookmarked} onClick={addBoorkmark}>
+      <span>{bookmarked}</span>
+      <img src={require(`../images/${bookmarked}.svg`)} alt="bookmark" />
     </button>
   );
 };
