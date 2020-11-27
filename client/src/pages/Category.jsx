@@ -5,6 +5,7 @@ import axios from 'axios';
 import ProductImage from '../components/ProductImage';
 import BookmarkButton from '../components/BookmarkButton';
 import SubCategories from '../components/SubCategories';
+import CategoryList from '../components/CategoryList';
 
 const Category = () => {
   const { search, products, setProducts, currentUser } = useContext(AppContext);
@@ -28,6 +29,7 @@ const Category = () => {
   return (
     <div id="productsList" className="inner">
       <h2>{id}</h2>
+      <CategoryList />
       <SubCategories category={id} />
       <ul>
         {filteredProducts.map((product) => (
