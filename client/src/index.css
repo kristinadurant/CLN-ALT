@@ -318,16 +318,25 @@ li.ingredient strong {
 #profile .userContainer,
 #admin .userContainer {
   margin: 0 auto 8%;
-  width: 50%;
 }
-#profile .userContainer > div,
-#admin .userContainer > div {
-  padding: 0 3%;
+.userContainer > :first-child,
+.userContainer > :first-child form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#profile .userContainer img,
-#admin .userContainer img {
+#profile .imageContainer,
+#admin .imageContainer {
   border-radius: 100%;
-  padding: 0 3%;
+  overflow: hidden;
+  margin-bottom: 10%;
+  width: 17vw;
+  height: 17vw;
+  min-width: 150px;
+}
+#profile .imageContainer img,
+#admin .imageContainer img {
+  width: 100%;
 }
 .noResults {
   font-size: 1.5rem;

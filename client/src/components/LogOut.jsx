@@ -34,7 +34,7 @@ const LogOut = () => {
     <div className="logout container">
       <h6>{currentUser?.name}</h6>
       <button onClick={handleRedirect}>GO TO PROFILE</button>
-      {currentUser.admin && (
+      {currentUser?.admin && (
         <button onClick={handleRedirectAdmin}>MANAGE PRODUCTS</button>
       )}
       <button onClick={handleLogOut}>LOGOUT</button>

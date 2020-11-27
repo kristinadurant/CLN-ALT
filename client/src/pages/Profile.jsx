@@ -4,6 +4,7 @@ import { AppContext } from '../context/AppContext';
 import { useHistory } from 'react-router-dom';
 import ReviewsProfilePage from '../components/ReviewsProfilePage';
 import Favorites from '../components/Favorites';
+import AddImage from '../components/AddImage';
 import axios from 'axios';
 
 const Profile = () => {
@@ -26,7 +27,7 @@ const Profile = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [setProfile]);
+  }, [setProfile, id]);
 
   const reviews = profile?.reviews && profile.reviews;
   const favorites = profile?.favorites && profile.favorites;
@@ -34,10 +35,7 @@ const Profile = () => {
   return (
     <div id="profile" className="inner">
       <div className="userContainer columns2">
-        <img
-          src={profile?.avatar || require(`../images/placeholderUser.png`)}
-          alt="profile"
-        />
+        <AddImage profile={profile} setProfile={setProfile} />
         <div>
           <p>{profile?.name}</p>
           <p>{profile?.email}</p>
