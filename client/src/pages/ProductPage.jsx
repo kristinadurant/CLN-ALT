@@ -56,6 +56,7 @@ const ProductPage = () => {
           Ingredients
         </button>
         <button
+          id="reviews"
           className={!tab1 && 'active'}
           onClick={(e) => {
             setTab1(false);
@@ -69,7 +70,7 @@ const ProductPage = () => {
           <Ingredients key={ingredient._id} ingredient={ingredient} />
         ))}
       </div>
-      <div id="reviews" className="reviews" style={{ display: tab1 && 'none' }}>
+      <div className="reviews" style={{ display: tab1 && 'none' }}>
         {product?.reviews && (
           <Reviews reviews={product.reviews} productId={id} />
         )}
