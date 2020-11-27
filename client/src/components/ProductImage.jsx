@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import BookmarkButton from './BookmarkButton';
 
 const ProductImage = ({ image, verified, title, id }) => {
@@ -12,10 +12,10 @@ const ProductImage = ({ image, verified, title, id }) => {
           alt={verified ? 'verified' : 'banned'}
         />
         <div className="productButtons">
-          <Link to={`/products/${id}#reviews`}>
+          <HashLink smooth to={`/products/${id}#reviews`}>
             <span>+</span>
             <span>Review</span>
-          </Link>
+          </HashLink>
           <BookmarkButton product={id} />
         </div>
       </div>
