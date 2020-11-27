@@ -43,7 +43,9 @@ const AddImage = ({ profile, setProfile }) => {
       </div>
       <form onSubmit={handleSubmit}>
         <input type="file" accept="image/*" onChange={handleImageSelect} />
-        <button type="submit">Save Image</button>
+        <button className="button bgBlack" type="submit">
+          Save Image
+        </button>
       </form>
     </div>
   );

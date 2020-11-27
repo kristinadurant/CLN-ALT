@@ -387,6 +387,8 @@ li.ingredient strong {
 #profile .userContainer,
 #admin .userContainer {
   margin: 0 auto 8%;
+  display: flex;
+  align-items: center;
 }
 .userContainer > :first-child,
 .userContainer > :first-child form {
@@ -398,14 +400,34 @@ li.ingredient strong {
 #admin .imageContainer {
   border-radius: 100%;
   overflow: hidden;
-  margin-bottom: 10%;
   width: 17vw;
   height: 17vw;
   min-width: 150px;
 }
+#profile .imageContainer {
+  margin-bottom: 10%;
+}
+#admin .imageContainer,
+#profile .userContainer > :first-child {
+  margin-right: 5%;
+}
 #profile .imageContainer img,
 #admin .imageContainer img {
   width: 100%;
+}
+#profile .userContainer input[type='file'] {
+  margin-bottom: 5%;
+  padding: 0.1rem;
+}
+#profile .button.adminPage {
+  width: auto;
+  padding: 0.3rem 0.5rem;
+}
+#profile .changePassword {
+  font-weight: 300;
+  text-decoration: underline;
+  margin: 0.5rem auto;
+  font-size: 0.875rem;
 }
 .noResults {
   font-size: 1.5rem;

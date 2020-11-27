@@ -15,17 +15,18 @@ const Admin = () => {
 
   return (
     <div id="admin" className="inner">
-      <div className="userContainer columns2">
-        <img
-          src={currentUser?.avatar || require(`../images/placeholderUser.png`)}
-          alt="profile"
-        />
+      <div className="userContainer">
+        <div className="imageContainer">
+          <img
+            src={
+              currentUser?.avatar || require(`../images/placeholderUser.png`)
+            }
+            alt="profile"
+          />
+        </div>
         <div>
+          <p>Admin</p>
           <p>{currentUser?.name}</p>
-          <p>{currentUser?.email}</p>
-          <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
-            Change Password
-          </a>
           <button className="button" onClick={handleRedirect}>
             VIEW PROFILE
           </button>
