@@ -10,7 +10,6 @@ import Home from './pages/Home';
 import UserGuide from './pages/UserGuide';
 import Blog from './pages/Blog';
 import OurStory from './pages/OurStory';
-import Categories from './pages/Categories';
 import Category from './pages/Category';
 import ProductPage from './pages/ProductPage';
 import IngredientsPage from './pages/IngredientsPage';
@@ -27,7 +26,7 @@ const App = () => {
         <PopUp />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/categories" component={Categories} />
+          <Route exact path="/categories" component={Category} />
           <Route exact path="/category/:id" component={Category} />
           <Route
             exact
