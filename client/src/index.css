@@ -281,6 +281,10 @@ input {
   border: 1px solid #ded5d5;
   font-weight: 300;
 }
+.productImage button.bookmarked img,
+.productImage button.bookmark img {
+  height: 1.25rem;
+}
 .productContainer .tags {
   display: flex;
   justify-content: center;

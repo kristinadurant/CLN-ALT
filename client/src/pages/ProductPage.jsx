@@ -28,6 +28,7 @@ const ProductPage = () => {
       <p>{product.description}</p>
       <div className="productContainer">
         <ProductImage
+          id={product._id}
           image={product.image}
           verified={product.verified}
           title={product.title}

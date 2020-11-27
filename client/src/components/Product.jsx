@@ -4,11 +4,15 @@ import ProductImage from '../components/ProductImage';
 import BookmarkButton from '../components/BookmarkButton';
 
 const Product = ({ product, user }) => {
-  console.log(product);
   return (
     <>
       <Link to={`/products/${product._id}`}>
-        <ProductImage image={product.image} verified={product.verified} />
+        <ProductImage
+          id={product._id}
+          verified={product.verified}
+          image={product.image}
+          title={product._title}
+        />
       </Link>
       <div className="productInfo">
         <h4>{product.title}</h4>
