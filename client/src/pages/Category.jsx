@@ -2,8 +2,7 @@ import React, { useEffect, useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
-import ProductImage from '../components/ProductImage';
-import BookmarkButton from '../components/BookmarkButton';
+import Product from '../components/Product';
 
 const Category = () => {
   const { search, products, setProducts, currentUser, categories } = useContext(
@@ -45,8 +44,7 @@ const Category = () => {
   const filteredProducts = products?.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
-  console.log(filter);
-  console.log(products);
+
   return (
     <div id="productsList" className="inner">
       <h6>What are you looking for?</h6>
@@ -90,20 +88,7 @@ const Category = () => {
       <ul>
         {filteredProducts.map((product) => (
           <li key={product._id}>
-            <Link to={`/products/${product._id}`}>
-              <ProductImage image={product.image} verified={product.verified} />
-            </Link>
-            <div className="productInfo">
-              <h4>{product.title}</h4>
-              <p>{product.description}</p>
-              <div>
-                <Link to={`/products/${product._id}`}>
-                  <img src={require(`../images/star.svg`)} alt="star" />
-                  <span>4.5</span>
-                </Link>
-                <BookmarkButton user={currentUser?._id} product={product._id} />
-              </div>
-            </div>
+            <Product product={product} user={currentUser} />
           </li>
         ))}
       </ul>
