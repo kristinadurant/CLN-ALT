@@ -28,7 +28,12 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/categories" component={Categories} />
-          <PrivateRoute exact path="/categories/:id" component={Category} />
+          <Route exact path="/category/:id" component={Category} />
+          <Route
+            exact
+            path="/category/:id/subCategory/:subid"
+            component={Category}
+          />
           <Route exact path="/userGuide" component={UserGuide} />
           <Route exact path="/bannedIngredients" component={IngredientsPage} />
           <Route exact path="/ourStory" component={OurStory} />

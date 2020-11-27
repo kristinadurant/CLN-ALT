@@ -1,36 +1,85 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import ProductImage from '../components/ProductImage';
 import BookmarkButton from '../components/BookmarkButton';
-import SubCategories from '../components/SubCategories';
-import CategoryList from '../components/CategoryList';
 
 const Category = () => {
-  const { search, products, setProducts, currentUser } = useContext(AppContext);
+  const { search, products, setProducts, currentUser, categories } = useContext(
+    AppContext
+  );
   const { id } = useParams();
+  const [cat, setCat] = useState(null);
+  const [subCat, setSubCat] = useState(null);
+  const [subcategories, setSubcategories] = useState([]);
+  const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    cat && setFilter(`/?category=${cat}`);
+    subCat && setFilter(`/?subcategory=${subCat}`);
+  }, [cat, subCat]);
 
   useEffect(() => {
     axios
-      .get(`/api/products?category=${id}`)
+      .get(`/api/products${filter}`)
       .then((response) => {
         setProducts(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [setProducts, id]);
+  }, [setProducts, filter]);
+
+  useEffect(() => {
+    axios
+      .get(`/api/subCategories?category=${cat}`)
+      .then((response) => {
+        setSubcategories(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [setSubcategories, cat]);
 
   const filteredProducts = products?.filter((product) => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
-
+  console.log(filter);
+  console.log(products);
   return (
     <div id="productsList" className="inner">
       <h2>{id}</h2>
-      <CategoryList />
-      <SubCategories category={id} />
+      <ul className="categoryList">
+        {categories.map((category) => (
+          <li
+            key={category._id}
+            className={category._id === cat ? 'active imageBox' : 'imageBox'}
+          >
+            <Link
+              to={`/category/${category._id}`}
+              onClick={() => setCat(category._id)}
+            >
+              <img src={category.image} alt={category.title} />
+              <p>{category.title}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+      <div id="subCategories">
+        {cat &&
+          subcategories?.map((sub) => (
+            <Link
+              to={`/category/${cat}/subcategory/${sub._id}`}
+              className={subCat === sub._id ? 'active button' : 'button'}
+              onClick={() => setSubCat(sub._id)}
+              key={sub._id}
+            >
+              {sub.title}
+            </Link>
+          ))}
+      </div>
+
       <ul>
         {filteredProducts.map((product) => (
           <li key={product._id}>
