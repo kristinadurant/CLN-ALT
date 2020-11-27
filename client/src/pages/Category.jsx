@@ -49,7 +49,11 @@ const Category = () => {
   console.log(products);
   return (
     <div id="productsList" className="inner">
-      <h2>{id}</h2>
+      <h6>What are you looking for?</h6>
+      <p>
+        With thousands of consumer products on the market, it can be
+        overwhelming to know which ones are safer for you. Let us help you.
+      </p>
       <ul className="categoryList">
         {categories.map((category) => (
           <li
@@ -58,7 +62,10 @@ const Category = () => {
           >
             <Link
               to={`/category/${category._id}`}
-              onClick={() => setCat(category._id)}
+              onClick={() => {
+                setCat(category._id);
+                setSubCat(null);
+              }}
             >
               <img src={category.image} alt={category.title} />
               <p>{category.title}</p>
