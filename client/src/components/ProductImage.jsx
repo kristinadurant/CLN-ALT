@@ -21,7 +21,8 @@ const ProductImage = ({ image, verified, title }) => {
           </div>
         )}
       </div>
-      <img src={image} alt={title} />
+      {image && <img src={image} alt={title} />}
+      {!image && <span>Coming soon</span>}
     </div>
   );
 };

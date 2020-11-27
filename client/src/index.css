@@ -60,9 +60,11 @@ input:active {
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
-#productsList h2 {
+#productsList h6 {
   margin-bottom: 3%;
-  font-size: 3rem;
+}
+#productsList h6 + p {
+  margin-bottom: 5%;
 }
 #productsList .categoryList {
   display: flex;
@@ -97,6 +99,8 @@ input:active {
 }
 #subCategories .button {
   margin-right: 2%;
+  padding: 0.3rem 1rem;
+  width: auto;
 }
 #subCategories .button.active {
   border: none;
@@ -119,6 +123,10 @@ input:active {
 }
 #productsList ul li > a {
   width: 50%;
+  height: 100%;
+}
+#productsList ul li > a .imageBox {
+  height: 100%;
 }
 #productsList .productInfo {
   width: 45%;
