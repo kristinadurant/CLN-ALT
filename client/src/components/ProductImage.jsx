@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BookmarkButton from './BookmarkButton';
+
 const ProductImage = ({ image, verified, title, id }) => {
   return (
     <div className="productImage imageBox">
@@ -9,10 +11,11 @@ const ProductImage = ({ image, verified, title, id }) => {
           src={require(`../images/${verified ? 'verified.svg' : 'banned.svg'}`)}
           alt={verified ? 'verified' : 'banned'}
         />
-        <div>
-          <button className="share">
-            Share <img src={require(`../images/share.svg`)} alt="share" />
-          </button>
+        <div className="productButtons">
+          <Link to={`/products/${id}#reviews`}>
+            <span>+</span>
+            <span>Review</span>
+          </Link>
           <BookmarkButton product={id} />
         </div>
       </div>

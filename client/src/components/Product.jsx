@@ -17,10 +17,10 @@ const Product = ({ product, user }) => {
       <div className="productInfo">
         <h4>{product.title}</h4>
         <p>{product.description}</p>
-        <div>
-          <Link to={`/products/${product._id}`}>
-            <img src={require(`../images/star.svg`)} alt="star" />
-            <span>4.5</span>
+        <div className="productButtons">
+          <Link to={`/products/${product._id}#review`}>
+            <span>+</span>
+            <span>Review</span>
           </Link>
           <BookmarkButton user={user?._id} product={product._id} />
         </div>

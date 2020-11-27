@@ -69,7 +69,7 @@ const ProductPage = () => {
           <Ingredients key={ingredient._id} ingredient={ingredient} />
         ))}
       </div>
-      <div className="reviews" style={{ display: tab1 && 'none' }}>
+      <div id="reviews" className="reviews" style={{ display: tab1 && 'none' }}>
         {product?.reviews && (
           <Reviews reviews={product.reviews} productId={id} />
         )}
