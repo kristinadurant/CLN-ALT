@@ -261,28 +261,34 @@ input {
   justify-content: space-between;
   align-items: center;
 }
-.productImage button {
+.productButtons > :nth-child(n) {
   border: 2px solid #000;
   border-radius: 0;
   width: 8rem;
   height: 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-weight: 900;
-  padding: 0 5%;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  text-align: center;
+}
+.productButtons > :nth-child(n) :first-child {
+  width: 20%;
+}
+.productButtons > :nth-child(n) :last-child {
+  font-size: 0.85rem;
 }
 .productImage .verified {
   top: 0;
   width: auto;
 }
-.productImage button.bookmarked {
+.productButtons button.bookmarked {
   border: 1px solid #ded5d5;
   font-weight: 300;
 }
-.productImage button.bookmarked img,
-.productImage button.bookmark img {
+.productButtons button.bookmarked img,
+.productButtons button.bookmark img {
   height: 1.25rem;
 }
 .productContainer .tags {
