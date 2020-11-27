@@ -34,16 +34,19 @@ const Profile = () => {
 
   return (
     <div id="profile" className="inner">
-      <div className="userContainer columns2">
+      <div className="userContainer">
         <AddImage profile={profile} setProfile={setProfile} />
         <div>
           <p>{profile?.name}</p>
           <p>{profile?.email}</p>
-          <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
+          <a
+            className="block changePassword"
+            onClick={(e) => setPopSignUp('resetPassword')}
+          >
             Change Password
           </a>
           {currentUser?.admin && (
-            <button className="button" onClick={handleRedirectAdmin}>
+            <button className="button adminPage" onClick={handleRedirectAdmin}>
               MANAGE PRODUCTS
             </button>
           )}
