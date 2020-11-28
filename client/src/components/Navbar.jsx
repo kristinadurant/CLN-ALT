@@ -11,8 +11,8 @@ const Navbar = () => {
   const location = useLocation();
 
   const handleSearch = (e) => {
-    if (location.pathname !== '/categories') {
-      history.push('/categories');
+    if (location.pathname !== '/products') {
+      history.push('/products');
     }
     setSearch(e.target.value);
   };
@@ -34,16 +34,13 @@ const Navbar = () => {
         </Link>
         <ul className={navactive ? 'nav-active' : 'nav-links'}>
           <li>
-            <Link to="/categories">Categories</Link>
+            <Link to="/products">Products</Link>
           </li>
           <li>
             <Link to="/userGuide">User Guide</Link>
           </li>
           <li>
             <Link to="/bannedIngredients">Banned Ingredients</Link>
-          </li>
-          <li>
-            <Link to="/ourStory">Our Story</Link>
           </li>
           <li>
             <Link to="/blog">Blog</Link>

@@ -37,7 +37,6 @@ app.use(
 );
 
 //Authenticated Routes
-app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/posts', postRouter);
 app.use('/api/categories', categoryRouter);
@@ -47,6 +46,7 @@ app.use('/api/products', productRouter);
 app.use('/api/reviews', reviewRouter);
 app.use('/api/favorites', favoriteRouter);
 
+app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
 
 if (process.env.NODE_ENV === 'production') {

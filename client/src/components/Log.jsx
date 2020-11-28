@@ -43,7 +43,7 @@ const Log = () => {
       <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
         Forgot Password?
       </a>
-      <a onClick={(e) => setPopSignUp('popOptions')}>Back</a>
+      <a onClick={(e) => setPopSignUp('popOptions')}>Need an Account?</a>
     </form>
   );
 };

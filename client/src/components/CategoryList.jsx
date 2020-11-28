@@ -25,7 +25,7 @@ const CategoryList = () => {
           className={category._id === id ? 'active imageBox' : 'imageBox'}
         >
           <Link
-            to={`/category/${category._id}`}
+            to={`/products/category/${category._id}`}
             onClick={() => setCat(category._id)}
           >
             <img src={category.image} alt={category.title} />

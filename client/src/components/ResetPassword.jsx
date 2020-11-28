@@ -12,7 +12,6 @@ const ResetPassword = () => {
     try {
       await axios.get(`/api/password?email=${email}`);
       form.reset();
-      setPopSignUp('updatePassword');
     } catch (error) {
       console.log(error);
     }
@@ -31,7 +30,7 @@ const ResetPassword = () => {
       <button className="button bgBlack" type="submit">
         Reset Password
       </button>
-      <a onClick={(e) => setPopSignUp('logIn')}>Back</a>
+      <a onClick={(e) => setPopSignUp('login')}>Back</a>
     </form>
   );
 };
