@@ -1,4 +1,4 @@
-const Post = require('../db/models/post'),
+const Post = require('../db/models/Post'),
   mongoose = require('mongoose');
 
 // ***********************************************//

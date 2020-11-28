@@ -1,4 +1,4 @@
-const Favorite = require('../db/models/favorite'),
+const Favorite = require('../db/models/Favorite'),
   mongoose = require('mongoose');
 
 // ANCHOR CREATE Favorite
