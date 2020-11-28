@@ -5,7 +5,10 @@ body {
 #root {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 250px;
+}
+header {
+  margin-bottom: 10%;
 }
 /*=========================
 ==========================
@@ -58,6 +61,67 @@ input:active {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
 }
+.topBackground {
+  background-image: url(./images/topbackground.png),
+    url(./images/bottombackground.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top right, bottom left;
+  background-size: 30%;
+}
+.bottomBackground {
+  background: url(./images/bottombackground.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 30%;
+}
+.sideBackground {
+  background: url(./images/sidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.topSideBackground {
+  background: url(./images/topsidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.noRepeat {
+  background-repeat: no-repeat !important;
+}
+/*=========================
+    FOOTER
+===========================*/
+footer {
+  background-image: url(./images/footer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  padding-top: 120px;
+}
+footer .inner {
+  display: flex;
+  align-items: center;
+}
+footer .social a {
+  margin-right: 2vw;
+}
+footer .social {
+  border-right: 2px solid #b6aa93;
+  width: 20%;
+}
+footer ul {
+  background-color: transparent !important;
+  justify-content: space-between !important;
+  width: 80%;
+}
+footer ul li {
+  width: 100%;
+  text-align: right;
+}
+footer ul a {
+  color: #b6aa93;
+}
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
@@ -88,6 +152,9 @@ input:active {
   );
 }
 #productsList .categoryList li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: center;
 }
 #productsList .categoryList li p {
@@ -146,7 +213,7 @@ input:active {
   min-height: 100vh;
   width: 100vw;
   z-index: 99;
-  background-color: #ece9e1;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -353,11 +420,14 @@ li.ingredient button {
 li.ingredient p {
   display: flex;
   align-items: center;
+  height: 3rem !important;
+}
+li.ingredient.closed div p:nth-of-type(n + 2) {
+  height: 0 !important;
 }
 li.ingredient strong {
   margin-right: 0.5rem;
 }
-
 .button {
   width: 7rem;
   padding: 0.3rem 0;
@@ -432,6 +502,12 @@ input[type='file'] {
   text-decoration: underline;
   margin: 0.5rem auto;
   font-size: 0.875rem;
+}
+#profile .deleteAccount {
+  color: #555;
+  font-size: 0.75rem;
+  font-weight: 300;
+  margin: 0.5rem auto;
 }
 .noResults {
   font-size: 1.5rem;

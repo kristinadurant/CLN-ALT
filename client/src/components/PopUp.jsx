@@ -13,7 +13,7 @@ const PopUp = () => {
   return (
     <>
       {popSignUp && (
-        <div className="module">
+        <div className="module topBackground">
           <button className="exit" onClick={(e) => setPopSignUp(false)}>
             &#10005;
           </button>

@@ -31,11 +31,6 @@ const AddProduct = () => {
     setFormData({ ...formData, [fieldName]: selections });
   };
 
-  const handleChangeVerified = (e) => {
-    setVerified(!verified);
-    setFormData({ ...formData, [e.target.name]: verified });
-  };
-
   useEffect(() => {
     axios
       .get(`/api/subCategories/?category=${cat}`)
@@ -59,9 +54,13 @@ const AddProduct = () => {
     const form = e.target;
     e.preventDefault();
     try {
-      const response = await axios.post('/api/products/', formData, {
-        withCredentials: true
-      });
+      const response = await axios.post(
+        '/api/products/',
+        { ...formData, verified },
+        {
+          withCredentials: true
+        }
+      );
       setProduct(response.data);
       setFormData({});
       form.reset();
@@ -69,95 +68,80 @@ const AddProduct = () => {
       console.log(error);
     }
   };
-
-  const handleUpdate = async (e) => {
-    const form = e.target;
-    e.preventDefault();
-    try {
-      await axios.put(`/api/products/${product._id}`, formData, {
-        withCredentials: true
-      });
-      setFormData({});
-      form.reset();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  console.log(formData);
+  console.log(verified);
   return (
     <>
-      {!product && (
-        <form onSubmit={product ? handleUpdate : handleSubmission}>
-          <label>Title</label>
-          <input
-            type="text"
-            name="title"
-            placeholder={product?.title}
-            onChange={handleChange}
-            value={product?.title}
-          />
-          <label>Description</label>
-          <textarea
-            name="description"
-            placeholder="Product description"
-            onChange={handleChange}
-            rows="10"
-            value={product?.description}
-          />
-          <label>Category</label>
-          <select
-            name="category"
-            onChange={handleChange}
-            value={product?.category}
+      <form onSubmit={handleSubmission}>
+        <label>Title</label>
+        <input
+          type="text"
+          name="title"
+          placeholder={product?.title}
+          onChange={handleChange}
+          value={product?.title}
+        />
+        <label>Description</label>
+        <textarea
+          name="description"
+          placeholder="Product description"
+          onChange={handleChange}
+          rows="10"
+          value={product?.description}
+        />
+        <label>Category</label>
+        <select
+          name="category"
+          onChange={handleChange}
+          value={product?.category}
+        >
+          {categories?.map((category) => (
+            <option key={category._id} value={category._id}>
+              {category.title}
+            </option>
+          ))}
+        </select>
+        <label>Subcategory</label>
+        <select
+          name="subcategory"
+          onChange={handleChange}
+          placeholder="Choose a category..."
+        >
+          {subCat?.map((subCategory) => (
+            <option key={subCategory._id} value={subCategory._id}>
+              {subCategory.title}
+            </option>
+          )) || <option>Chose a category</option>}
+        </select>
+        <label>Tags</label>
+        <MultiSelectInput
+          fieldName="tags"
+          options={TAGS}
+          handleChange={handleMultiSelectChange}
+        />
+        <label>Ingredients</label>
+        <MultiSelectInput
+          fieldName="ingredients"
+          options={ingredients && ingredients}
+          handleChange={handleMultiSelectChange}
+        />
+        <p className="verified">
+          <button
+            type="button"
+            name="verified"
+            onClick={(e) => setVerified(!verified)}
+            value={product?.verified}
           >
-            {categories?.map((category) => (
-              <option key={category._id} value={category._id}>
-                {category.title}
-              </option>
-            ))}
-          </select>
-          <label>Subcategory</label>
-          <select
-            name="subcategory"
-            onChange={handleChange}
-            placeholder="Choose a category..."
-          >
-            {subCat?.map((subCategory) => (
-              <option key={subCategory._id} value={subCategory._id}>
-                {subCategory.title}
-              </option>
-            )) || <option>Chose a category</option>}
-          </select>
-          <label>Tags</label>
-          <MultiSelectInput
-            fieldName="tags"
-            options={TAGS}
-            handleChange={handleMultiSelectChange}
-          />
-          <label>Ingredients</label>
-          <MultiSelectInput
-            fieldName="ingredients"
-            options={ingredients && ingredients}
-            handleChange={handleMultiSelectChange}
-          />
-          <p className="verified">
-            <button
-              type="button"
-              name="verified"
-              onClick={handleChangeVerified}
-              value={product?.verified}
-            >
-              {verified && (
-                <img src={require('../images/checkmark.svg')} alt="checkmark" />
-              )}
-            </button>
-            <span>Verified</span>
-          </p>
-          <button className="button bgBlack" type="submit">
-            Add Product
+            {verified && (
+              <img src={require('../images/checkmark.svg')} alt="checkmark" />
+            )}
           </button>
-        </form>
-      )}
+          <span>Verified</span>
+        </p>
+        <button className="button bgBlack" type="submit">
+          Add Product
+        </button>
+      </form>
       {product && <AddProductImage product={product} />}
     </>
   );

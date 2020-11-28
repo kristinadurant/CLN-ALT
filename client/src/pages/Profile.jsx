@@ -33,48 +33,59 @@ const Profile = () => {
   const favorites = profile?.favorites && profile.favorites;
 
   return (
-    <div id="profile" className="inner">
-      <div className="userContainer">
-        <AddImage profile={profile} setProfile={setProfile} />
-        <div>
-          <p>{profile?.name}</p>
-          <p>{profile?.email}</p>
-          <a
-            className="block changePassword"
-            onClick={(e) => setPopSignUp('resetPassword')}
-          >
-            Change Password
-          </a>
-          {currentUser?.admin && (
-            <button className="button adminPage" onClick={handleRedirectAdmin}>
-              MANAGE PRODUCTS
-            </button>
-          )}
+    <div className="topSideBackground noRepeat">
+      <div id="profile" className="inner">
+        <div className="userContainer">
+          <AddImage profile={profile} setProfile={setProfile} />
+          <div>
+            <p>{profile?.name}</p>
+            <p>{profile?.email}</p>
+            <a
+              className="block changePassword"
+              onClick={(e) => setPopSignUp('resetPassword')}
+            >
+              Change Password
+            </a>
+            <a
+              className="block deleteAccount"
+              // onClick={(e) => setPopSignUp('resetPassword')}
+            >
+              Delete Account
+            </a>
+            {currentUser?.admin && (
+              <button
+                className="button adminPage"
+                onClick={handleRedirectAdmin}
+              >
+                MANAGE PRODUCTS
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-      <div className="tabs">
-        <button
-          className={tab2 && 'active'}
-          onClick={(e) => {
-            setTab2(true);
-          }}
-        >
-          Bookmarks
-        </button>
-        <button
-          className={!tab2 && 'active'}
-          onClick={(e) => {
-            setTab2(false);
-          }}
-        >
-          Reviews
-        </button>
-      </div>
-      <div className="favorites" style={{ display: !tab2 && 'none' }}>
-        <Favorites favorites={favorites} />
-      </div>
-      <div className="reviews" style={{ display: tab2 && 'none' }}>
-        <ReviewsProfilePage reviews={reviews} />
+        <div className="tabs">
+          <button
+            className={tab2 && 'active'}
+            onClick={(e) => {
+              setTab2(true);
+            }}
+          >
+            Bookmarks
+          </button>
+          <button
+            className={!tab2 && 'active'}
+            onClick={(e) => {
+              setTab2(false);
+            }}
+          >
+            Reviews
+          </button>
+        </div>
+        <div className="favorites" style={{ display: !tab2 && 'none' }}>
+          <Favorites favorites={favorites} />
+        </div>
+        <div className="reviews" style={{ display: tab2 && 'none' }}>
+          <ReviewsProfilePage reviews={reviews} />
+        </div>
       </div>
     </div>
   );
