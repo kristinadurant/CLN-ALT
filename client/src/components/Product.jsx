@@ -4,19 +4,23 @@ import ProductImage from '../components/ProductImage';
 import BookmarkButton from '../components/BookmarkButton';
 
 const Product = ({ product, user }) => {
-  console.log(product);
   return (
     <>
       <Link to={`/products/${product._id}`}>
-        <ProductImage image={product.image} verified={product.verified} />
+        <ProductImage
+          id={product._id}
+          verified={product.verified}
+          image={product.image}
+          title={product._title}
+        />
       </Link>
       <div className="productInfo">
         <h4>{product.title}</h4>
         <p>{product.description}</p>
-        <div>
-          <Link to={`/products/${product._id}`}>
-            <img src={require(`../images/star.svg`)} alt="star" />
-            <span>4.5</span>
+        <div className="productButtons">
+          <Link to={`/products/${product._id}#review`}>
+            <span>+</span>
+            <span>Review</span>
           </Link>
           <BookmarkButton user={user?._id} product={product._id} />
         </div>

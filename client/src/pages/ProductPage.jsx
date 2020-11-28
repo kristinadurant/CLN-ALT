@@ -28,6 +28,7 @@ const ProductPage = () => {
       <p>{product.description}</p>
       <div className="productContainer">
         <ProductImage
+          id={product._id}
           image={product.image}
           verified={product.verified}
           title={product.title}
@@ -55,6 +56,7 @@ const ProductPage = () => {
           Ingredients
         </button>
         <button
+          id="reviews"
           className={!tab1 && 'active'}
           onClick={(e) => {
             setTab1(false);
