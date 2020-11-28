@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
+import Category from '../pages/Category';
 
 const Home = () => {
   const [verified, setVerified] = useState([]);
@@ -43,7 +44,12 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
-          <button type="submit" className="discover" to="/categories">
+          <button
+            type="submit"
+            className="discover"
+            component={Category}
+            to="/categories"
+          >
             Discover
           </button>
         </div>

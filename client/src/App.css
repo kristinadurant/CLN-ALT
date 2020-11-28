@@ -609,11 +609,6 @@ li.ingredient p {
     USERGUIDE PAGE
 ========================*/
 .userguide-title {
-  width: 342px;
-  height: 27px;
-  left: 20px;
-  top: 121px;
-
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
@@ -630,10 +625,6 @@ li.ingredient p {
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  width: 333px;
-  height: 75px;
-  left: 22px;
-  top: 367px;
   margin-bottom: 6%;
 }
 
@@ -651,8 +642,6 @@ li.ingredient p {
   font-weight: 600;
   font-size: 20px;
   line-height: 30px;
-  width: 333px;
-  height: 75px;
-  left: 22px;
+
   top: 367px;
 }
