@@ -61,6 +61,34 @@ input:active {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
 }
+.topBackground {
+  background-image: url(./images/topbackground.png),
+    url(./images/bottombackground.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top right, bottom left;
+  background-size: 30%;
+}
+.bottomBackground {
+  background: url(./images/bottombackground.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 30%;
+}
+.sideBackground {
+  background: url(./images/sidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.topSideBackground {
+  background: url(./images/topsidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.noRepeat {
+  background-repeat: no-repeat !important;
+}
 /*=========================
     FOOTER
 ===========================*/
@@ -185,7 +213,7 @@ footer ul a {
   min-height: 100vh;
   width: 100vw;
   z-index: 99;
-  background-color: #ece9e1;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -474,6 +502,12 @@ input[type='file'] {
   text-decoration: underline;
   margin: 0.5rem auto;
   font-size: 0.875rem;
+}
+#profile .deleteAccount {
+  color: #555;
+  font-size: 0.75rem;
+  font-weight: 300;
+  margin: 0.5rem auto;
 }
 .noResults {
   font-size: 1.5rem;

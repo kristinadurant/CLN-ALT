@@ -17,11 +17,13 @@ const IngredientsPage = () => {
   }, []);
 
   return (
-    <div className="inner">
-      <h6>List of Banned Ingredients</h6>
-      {ingredients.map((ingredient) => (
-        <Ingredients key={ingredient._id} ingredient={ingredient} />
-      ))}
+    <div className="sideBackground">
+      <div className="inner">
+        <h6>List of Banned Ingredients</h6>
+        {ingredients.map((ingredient) => (
+          <Ingredients key={ingredient._id} ingredient={ingredient} />
+        ))}
+      </div>
     </div>
   );
 };
