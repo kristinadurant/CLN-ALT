@@ -2,17 +2,15 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
+import Category from '../pages/Category';
 
 const Home = () => {
   const [verified, setVerified] = useState([]);
   const { categories } = useContext(AppContext);
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3
-  };
+  const [cat, setCat] = useState(null);
+  const [subCat, setSubCat] = useState(null);
+
+
 
   useEffect(() => {
     axios
@@ -48,7 +46,13 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
-          <button type="submit" className="discover" to="/categories">
+
+          <button
+            type="submit"
+            className="discover"
+            component={Category}
+            to="/categories"
+          >
             Discover
           </button>
         </div>
@@ -112,19 +116,28 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="categories" className="inner">
-        <div className="third-container">
-          <h5 className="home-title1">Browse by Category</h5>
-          <ul>
-            {categories?.map((category) => (
-              <li key={category._id}>
-                <img src={category.image} alt={category.title} />
-                <p>{category.title}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+
+      <p className="home-title1"> Browse by Category</p>
+
+      <ul className="categoryList2">
+        {categories.map((category) => (
+          <li
+            key={category._id}
+            className={category._id === cat ? 'active imageBox2' : 'imageBox2'}
+          >
+            <Link
+              to={`/category/${category._id}`}
+              onClick={() => {
+                setCat(category._id);
+                setSubCat(null);
+              }}
+            >
+              <img src={category.image} alt={category.title} />
+              <p>{category.title}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
       <section id="justVerified">
         <div className="fourth-container">
