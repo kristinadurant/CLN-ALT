@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import Login from './Login';
+import Log from './Log';
 import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
@@ -39,7 +39,7 @@ const PopUp = () => {
               <a onClick={(e) => setPopSignUp(false)}>Skip</a>
             </div>
           )}
-          {popSignUp === 'login' && <Login />}
+          {popSignUp === 'login' && <Log />}
           {popSignUp === 'signUp' && <SignUp />}
           {popSignUp === 'success' && (
             <div className="success container">

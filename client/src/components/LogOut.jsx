@@ -25,11 +25,18 @@ const LogOut = () => {
     setPopSignUp(false);
     history.push(`/profile/${currentUser._id}`);
   };
+  const handleRedirectAdmin = () => {
+    setPopSignUp(false);
+    history.push(`/admin/${currentUser._id}`);
+  };
 
   return (
     <div className="logout container">
       <h6>{currentUser?.name}</h6>
       <button onClick={handleRedirect}>GO TO PROFILE</button>
+      {currentUser?.admin && (
+        <button onClick={handleRedirectAdmin}>MANAGE PRODUCTS</button>
+      )}
       <button onClick={handleLogOut}>LOGOUT</button>
     </div>
   );

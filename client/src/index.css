@@ -2,7 +2,11 @@ body {
   margin: 0;
   padding: 0;
 }
-
+#root {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
 /*=========================
 ==========================
 remove what has comments and where
@@ -14,6 +18,7 @@ img {
 }
 * {
   color: #000;
+  font-family: 'Poppins', sans-serif;
 }
 button {
   background-color: #fff;
@@ -56,15 +61,47 @@ input:active {
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
-#productsList h2 {
+#productsList h6 {
   margin-bottom: 3%;
-  font-size: 3rem;
+}
+#productsList h6 + p {
+  margin-bottom: 5%;
+}
+#productsList .categoryList {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+#productsList .categoryList li {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3% 0 2%;
+}
+#productsList .categoryList li.active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(236, 233, 225, 1) 62%,
+    rgba(236, 233, 225, 1) 100%
+  );
+}
+#productsList .categoryList li a {
+  text-align: center;
+}
+#productsList .categoryList li p {
+  font-weight: 900;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 #subCategories {
   margin-bottom: 6%;
 }
 #subCategories .button {
   margin-right: 2%;
+  padding: 0.3rem 1rem;
+  width: auto;
 }
 #subCategories .button.active {
   border: none;
@@ -87,6 +124,10 @@ input:active {
 }
 #productsList ul li > a {
   width: 50%;
+  height: 100%;
+}
+#productsList ul li > a .imageBox {
+  height: 100%;
 }
 #productsList .productInfo {
   width: 45%;
@@ -181,11 +222,11 @@ input:active {
 .module .success p {
   margin-bottom: 10%;
 }
-/* input {
+input {
   border: 2px solid #000;
   border-radius: 3px;
   padding: 0.75rem;
-} */
+}
 /*=========================
     PRODUCT PAGE
 ============================*/
@@ -200,7 +241,7 @@ input:active {
 }
 .productContainer {
   max-width: 600px;
-  margin-bottom: 8%;
+  margin: 0 auto 8%;
 }
 #product .imageBox {
   box-shadow: none;
@@ -220,24 +261,36 @@ input:active {
   justify-content: space-between;
   align-items: center;
 }
-.productImage button {
+.productButtons > :nth-child(n) {
   border: 2px solid #000;
   border-radius: 0;
   width: 8rem;
   height: 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-weight: 900;
-  padding: 0 5%;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  text-align: center;
 }
-
+.productButtons > :nth-child(n) :first-child {
+  width: 20%;
+}
+.productButtons > :nth-child(n) :last-child {
+  font-size: 0.85rem;
+}
 .productImage .verified {
   top: 0;
   width: auto;
 }
-
+.productButtons button.bookmarked {
+  border: 1px solid #ded5d5;
+  font-weight: 300;
+}
+.productButtons button.bookmarked img,
+.productButtons button.bookmark img {
+  height: 1.25rem;
+}
 .productContainer .tags {
   display: flex;
   justify-content: center;
@@ -245,7 +298,27 @@ input:active {
 .productContainer .tags img {
   margin: 0 1%;
 }
-
+.meter {
+  margin-bottom: 5%;
+}
+.meterBar {
+  height: 2.5rem !important;
+  padding-top: 1.5rem !important;
+  border-radius: 1.5rem !important;
+  margin: auto;
+  border: 1px solid #000;
+  background-color: #fff !important;
+}
+.meterBar div {
+  background-color: #dba09c !important;
+  border-radius: 1.5rem !important;
+}
+.meter > p {
+  margin: auto;
+}
+.meter h2 {
+  font-size: 1rem;
+}
 /*=========================
     TABS
 ============================*/
@@ -311,16 +384,50 @@ li.ingredient strong {
 /*=========================
     PROFILE PAGE
 ============================*/
-#profile .userContainer {
+#profile .userContainer,
+#admin .userContainer {
   margin: 0 auto 8%;
-  width: 50%;
+  display: flex;
+  align-items: center;
 }
-#profile .userContainer > div {
-  padding: 0 3%;
+.userContainer > :first-child,
+.userContainer > :first-child form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#profile .userContainer img {
+#profile .imageContainer,
+#admin .imageContainer {
   border-radius: 100%;
-  padding: 0 3%;
+  overflow: hidden;
+  width: 17vw;
+  height: 17vw;
+  min-width: 150px;
+}
+#profile .imageContainer {
+  margin-bottom: 10%;
+}
+#admin .imageContainer,
+#profile .userContainer > :first-child {
+  margin-right: 5%;
+}
+#profile .imageContainer img,
+#admin .imageContainer img {
+  width: 100%;
+}
+#profile .userContainer input[type='file'] {
+  margin-bottom: 5%;
+  padding: 0.1rem;
+}
+#profile .button.adminPage {
+  width: auto;
+  padding: 0.3rem 0.5rem;
+}
+#profile .changePassword {
+  font-weight: 300;
+  text-decoration: underline;
+  margin: 0.5rem auto;
+  font-size: 0.875rem;
 }
 .noResults {
   font-size: 1.5rem;
@@ -331,4 +438,28 @@ li.ingredient strong {
 }
 .noResults a {
   text-decoration: underline;
+}
+
+/*=========================
+    ADMIN PAGE
+============================*/
+#admin .tabs {
+  margin-bottom: 5%;
+}
+#admin form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#admin form label {
+  width: 300px;
+  margin-bottom: 5px;
+}
+#admin form label + * {
+  display: block;
+  width: 300px;
+  margin-bottom: 15px;
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
 }

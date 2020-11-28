@@ -1,15 +1,22 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+import { useHistory } from 'react-router-dom';
 import ReviewsProfilePage from '../components/ReviewsProfilePage';
 import Favorites from '../components/Favorites';
+import AddImage from '../components/AddImage';
 import axios from 'axios';
 
 const Profile = () => {
   const { id } = useParams();
-  const { setPopSignUp } = useContext(AppContext);
+  const { setPopSignUp, currentUser } = useContext(AppContext);
+  const history = useHistory();
   const [tab2, setTab2] = useState(true);
   const [profile, setProfile] = useState(null);
+  const handleRedirectAdmin = () => {
+    setPopSignUp(false);
+    history.push(`/admin/${currentUser._id}`);
+  };
 
   useEffect(() => {
     axios
@@ -20,24 +27,29 @@ const Profile = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [setProfile]);
+  }, [setProfile, id]);
 
-  const reviews = profile?.reviews;
-  const favorites = profile?.favorites;
+  const reviews = profile?.reviews && profile.reviews;
+  const favorites = profile?.favorites && profile.favorites;
 
   return (
     <div id="profile" className="inner">
-      <div className="userContainer columns2">
-        <img
-          src={profile?.avatar || require(`../images/placeholderUser.png`)}
-          alt="profile"
-        />
+      <div className="userContainer">
+        <AddImage profile={profile} setProfile={setProfile} />
         <div>
           <p>{profile?.name}</p>
           <p>{profile?.email}</p>
-          <a className="block" onClick={(e) => setPopSignUp('resetPassword')}>
+          <a
+            className="block changePassword"
+            onClick={(e) => setPopSignUp('resetPassword')}
+          >
             Change Password
           </a>
+          {currentUser?.admin && (
+            <button className="button adminPage" onClick={handleRedirectAdmin}>
+              MANAGE PRODUCTS
+            </button>
+          )}
         </div>
       </div>
       <div className="tabs">
