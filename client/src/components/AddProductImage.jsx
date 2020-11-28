@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const AddProductImage = ({ product }) => {
+  const history = useHistory();
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
   const [productData, setProductData] = useState(product);
@@ -25,6 +27,7 @@ const AddProductImage = ({ product }) => {
         }
       });
       setProductData({ ...productData, image: updatedProduct.data.secure_url });
+      history.push(`/products/${product._id}`);
     } catch (error) {
       console.log(error.message);
     }

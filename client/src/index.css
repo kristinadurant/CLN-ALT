@@ -415,9 +415,10 @@ li.ingredient strong {
 #admin .imageContainer img {
   width: 100%;
 }
-#profile .userContainer input[type='file'] {
+input[type='file'] {
   margin-bottom: 5%;
   padding: 0.1rem;
+  width: 10vw;
 }
 #profile .button.adminPage {
   width: auto;
@@ -449,17 +450,34 @@ li.ingredient strong {
 #admin form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 #admin form label {
-  width: 300px;
+  width: 50%;
   margin-bottom: 5px;
 }
 #admin form label + * {
   display: block;
-  width: 300px;
+  width: 50%;
   margin-bottom: 15px;
   border: 2px solid #000;
   border-radius: 3px;
   padding: 0.75rem;
+}
+#admin form .verified {
+  display: flex;
+  margin-bottom: 30px;
+}
+#admin form .verified button {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}
+#admin form .verified img {
+  position: absolute;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  max-width: 2rem;
 }
