@@ -5,7 +5,10 @@ body {
 #root {
   position: relative;
   min-height: 100vh;
-  padding-bottom: 100px;
+  padding-bottom: 250px;
+}
+header {
+  margin-bottom: 10%;
 }
 /*=========================
 ==========================
@@ -57,6 +60,39 @@ input:active {
 .imageBox {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
+}
+/*=========================
+    FOOTER
+===========================*/
+footer {
+  background-image: url(./images/footer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  padding-top: 120px;
+}
+footer .inner {
+  display: flex;
+  align-items: center;
+}
+footer .social a {
+  margin-right: 2vw;
+}
+footer .social {
+  border-right: 2px solid #b6aa93;
+  width: 20%;
+}
+footer ul {
+  background-color: transparent !important;
+  justify-content: space-between !important;
+  width: 80%;
+}
+footer ul li {
+  width: 100%;
+  text-align: right;
+}
+footer ul a {
+  color: #b6aa93;
 }
 /*=========================
     PRODUCT LIST PAGE
@@ -356,11 +392,14 @@ li.ingredient button {
 li.ingredient p {
   display: flex;
   align-items: center;
+  height: 3rem !important;
+}
+li.ingredient.closed div p:nth-of-type(n + 2) {
+  height: 0 !important;
 }
 li.ingredient strong {
   margin-right: 0.5rem;
 }
-
 .button {
   width: 7rem;
   padding: 0.3rem 0;
