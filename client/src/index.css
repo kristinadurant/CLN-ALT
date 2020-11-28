@@ -88,6 +88,9 @@ input:active {
   );
 }
 #productsList .categoryList li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   text-align: center;
 }
 #productsList .categoryList li p {
