@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="line3"></div>
         </div>
         <Link to="/">
-          <img src={require('../images/Logo.svg')} />
+          <img src={require('../images/Logo.svg')} className="logo" />
         </Link>
         <ul className={navactive ? 'nav-active' : 'nav-links'}>
           <li>
@@ -56,7 +56,7 @@ const Navbar = () => {
               placeholder="Search personal care products..."
             />
             <button type="button" className="searchnav-button">
-              Search
+              SEARCH
             </button>
           </form>
 
