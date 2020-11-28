@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import login from '../components/Login';
+import Log from './Log';
 import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
@@ -13,7 +13,7 @@ const PopUp = () => {
   return (
     <>
       {popSignUp && (
-        <div className="module">
+        <div className="module topBackground">
           <button className="exit" onClick={(e) => setPopSignUp(false)}>
             &#10005;
           </button>
@@ -39,7 +39,7 @@ const PopUp = () => {
               <a onClick={(e) => setPopSignUp(false)}>Skip</a>
             </div>
           )}
-          {popSignUp === 'login' && <login />}
+          {popSignUp === 'login' && <Log />}
           {popSignUp === 'signUp' && <SignUp />}
           {popSignUp === 'success' && (
             <div className="success container">

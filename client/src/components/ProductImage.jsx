@@ -1,6 +1,8 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link';
+import BookmarkButton from './BookmarkButton';
 
-const ProductImage = ({ image, verified, title }) => {
+const ProductImage = ({ image, verified, title, id }) => {
   return (
     <div className="productImage imageBox">
       <div>
@@ -9,19 +11,16 @@ const ProductImage = ({ image, verified, title }) => {
           src={require(`../images/${verified ? 'verified.svg' : 'banned.svg'}`)}
           alt={verified ? 'verified' : 'banned'}
         />
-        {verified && (
-          <div>
-            <button className="share">
-              Share <img src={require(`../images/share.svg`)} alt="share" />
-            </button>
-            <button className="bookmark">
-              Bookmark{' '}
-              <img src={require(`../images/bookmark.svg`)} alt="bookmark" />
-            </button>
-          </div>
-        )}
+        <div className="productButtons">
+          <HashLink smooth to={`/products/${id}#reviews`}>
+            <span>+</span>
+            <span>Review</span>
+          </HashLink>
+          <BookmarkButton product={id} />
+        </div>
       </div>
-      <img src={image} alt={title} />
+      {image && <img src={image} alt={title} />}
+      {!image && <span>Coming soon</span>}
     </div>
   );
 };

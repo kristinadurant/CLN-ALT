@@ -20,7 +20,7 @@ const ProductPage = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, setProduct]);
 
   return (
     <div id="product" className="inner">
@@ -28,6 +28,7 @@ const ProductPage = () => {
       <p>{product.description}</p>
       <div className="productContainer">
         <ProductImage
+          id={product._id}
           image={product.image}
           verified={product.verified}
           title={product.title}
@@ -55,6 +56,7 @@ const ProductPage = () => {
           Ingredients
         </button>
         <button
+          id="reviews"
           className={!tab1 && 'active'}
           onClick={(e) => {
             setTab1(false);
@@ -69,7 +71,9 @@ const ProductPage = () => {
         ))}
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
-        {product?.reviews && <Reviews reviews={product.reviews} />}
+        {product?.reviews && (
+          <Reviews reviews={product.reviews} productId={id} />
+        )}
       </div>
     </div>
   );

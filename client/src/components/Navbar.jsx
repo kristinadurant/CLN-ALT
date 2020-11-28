@@ -9,11 +9,11 @@ const Navbar = () => {
   //On nav-links make ternary instead of passing className, pass it a conditional statement
   const history = useHistory();
   const location = useLocation();
+
   const handleSearch = (e) => {
-    // if (location.pathname !== '/categories') {
-    //   console.log('i was run');
-    //   history.push('/categories');
-    // }
+    if (location.pathname !== '/categories') {
+      history.push('/categories');
+    }
     setSearch(e.target.value);
   };
   const handleToggle = () => {

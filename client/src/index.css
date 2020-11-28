@@ -2,7 +2,14 @@ body {
   margin: 0;
   padding: 0;
 }
-
+#root {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 250px;
+}
+header {
+  margin-bottom: 10%;
+}
 /*=========================
 ==========================
 remove what has comments and where
@@ -14,6 +21,7 @@ img {
 }
 * {
   color: #000;
+  font-family: 'Poppins', sans-serif;
 }
 button {
   background-color: #fff;
@@ -53,18 +61,114 @@ input:active {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
 }
+.topBackground {
+  background-image: url(./images/topbackground.png),
+    url(./images/bottombackground.png);
+  background-repeat: no-repeat, no-repeat;
+  background-position: top right, bottom left;
+  background-size: 30%;
+}
+.bottomBackground {
+  background: url(./images/bottombackground.png);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 30%;
+}
+.sideBackground {
+  background: url(./images/sidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.topSideBackground {
+  background: url(./images/topsidebackground.png);
+  background-repeat: repeat-y;
+  background-position: top right;
+  background-size: 30%;
+}
+.noRepeat {
+  background-repeat: no-repeat !important;
+}
+/*=========================
+    FOOTER
+===========================*/
+footer {
+  background-image: url(./images/footer.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+  padding-top: 120px;
+}
+footer .inner {
+  display: flex;
+  align-items: center;
+}
+footer .social a {
+  margin-right: 2vw;
+}
+footer .social {
+  border-right: 2px solid #b6aa93;
+  width: 20%;
+}
+footer ul {
+  background-color: transparent !important;
+  justify-content: space-between !important;
+  width: 80%;
+}
+footer ul li {
+  width: 100%;
+  text-align: right;
+}
+footer ul a {
+  color: #b6aa93;
+}
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
-#productsList h2 {
+#productsList h6 {
   margin-bottom: 3%;
-  font-size: 3rem;
+}
+#productsList h6 + p {
+  margin-bottom: 5%;
+}
+#productsList .categoryList {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+#productsList .categoryList li {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3% 0 2%;
+}
+#productsList .categoryList li.active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(236, 233, 225, 1) 62%,
+    rgba(236, 233, 225, 1) 100%
+  );
+}
+#productsList .categoryList li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+}
+#productsList .categoryList li p {
+  font-weight: 900;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 #subCategories {
   margin-bottom: 6%;
 }
 #subCategories .button {
   margin-right: 2%;
+  padding: 0.3rem 1rem;
+  width: auto;
 }
 #subCategories .button.active {
   border: none;
@@ -87,6 +191,10 @@ input:active {
 }
 #productsList ul li > a {
   width: 50%;
+  height: 100%;
+}
+#productsList ul li > a .imageBox {
+  height: 100%;
 }
 #productsList .productInfo {
   width: 45%;
@@ -105,7 +213,7 @@ input:active {
   min-height: 100vh;
   width: 100vw;
   z-index: 99;
-  background-color: #ece9e1;
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -181,11 +289,11 @@ input:active {
 .module .success p {
   margin-bottom: 10%;
 }
-/* input {
+input {
   border: 2px solid #000;
   border-radius: 3px;
   padding: 0.75rem;
-} */
+}
 /*=========================
     PRODUCT PAGE
 ============================*/
@@ -200,7 +308,7 @@ input:active {
 }
 .productContainer {
   max-width: 600px;
-  margin-bottom: 8%;
+  margin: 0 auto 8%;
 }
 #product .imageBox {
   box-shadow: none;
@@ -220,24 +328,36 @@ input:active {
   justify-content: space-between;
   align-items: center;
 }
-.productImage button {
+.productButtons > :nth-child(n) {
   border: 2px solid #000;
   border-radius: 0;
   width: 8rem;
   height: 2rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   font-weight: 900;
-  padding: 0 5%;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
+  text-align: center;
 }
-
+.productButtons > :nth-child(n) :first-child {
+  width: 20%;
+}
+.productButtons > :nth-child(n) :last-child {
+  font-size: 0.85rem;
+}
 .productImage .verified {
   top: 0;
   width: auto;
 }
-
+.productButtons button.bookmarked {
+  border: 1px solid #ded5d5;
+  font-weight: 300;
+}
+.productButtons button.bookmarked img,
+.productButtons button.bookmark img {
+  height: 1.25rem;
+}
 .productContainer .tags {
   display: flex;
   justify-content: center;
@@ -245,7 +365,27 @@ input:active {
 .productContainer .tags img {
   margin: 0 1%;
 }
-
+.meter {
+  margin-bottom: 5%;
+}
+.meterBar {
+  height: 2.5rem !important;
+  padding-top: 1.5rem !important;
+  border-radius: 1.5rem !important;
+  margin: auto;
+  border: 1px solid #000;
+  background-color: #fff !important;
+}
+.meterBar div {
+  background-color: #dba09c !important;
+  border-radius: 1.5rem !important;
+}
+.meter > p {
+  margin: auto;
+}
+.meter h2 {
+  font-size: 1rem;
+}
 /*=========================
     TABS
 ============================*/
@@ -265,6 +405,9 @@ li.list {
   display: flex;
   align-items: center;
 }
+#admin li.list {
+  justify-content: space-between;
+}
 li.list .listImage {
   width: 15%;
   text-align: center;
@@ -277,11 +420,14 @@ li.ingredient button {
 li.ingredient p {
   display: flex;
   align-items: center;
+  height: 3rem !important;
+}
+li.ingredient.closed div p:nth-of-type(n + 2) {
+  height: 0 !important;
 }
 li.ingredient strong {
   margin-right: 0.5rem;
 }
-
 .button {
   width: 7rem;
   padding: 0.3rem 0;
@@ -311,16 +457,57 @@ li.ingredient strong {
 /*=========================
     PROFILE PAGE
 ============================*/
-#profile .userContainer {
+#profile .userContainer,
+#admin .userContainer {
   margin: 0 auto 8%;
-  width: 50%;
+  display: flex;
+  align-items: center;
 }
-#profile .userContainer > div {
-  padding: 0 3%;
+.userContainer > :first-child,
+.userContainer > :first-child form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#profile .userContainer img {
+#profile .imageContainer,
+#admin .imageContainer {
   border-radius: 100%;
-  padding: 0 3%;
+  overflow: hidden;
+  width: 17vw;
+  height: 17vw;
+  min-width: 150px;
+}
+#profile .imageContainer {
+  margin-bottom: 10%;
+}
+#admin .imageContainer,
+#profile .userContainer > :first-child {
+  margin-right: 5%;
+}
+#profile .imageContainer img,
+#admin .imageContainer img {
+  width: 100%;
+}
+input[type='file'] {
+  margin-bottom: 5%;
+  padding: 0.1rem;
+  width: 10vw;
+}
+#profile .button.adminPage {
+  width: auto;
+  padding: 0.3rem 0.5rem;
+}
+#profile .changePassword {
+  font-weight: 300;
+  text-decoration: underline;
+  margin: 0.5rem auto;
+  font-size: 0.875rem;
+}
+#profile .deleteAccount {
+  color: #555;
+  font-size: 0.75rem;
+  font-weight: 300;
+  margin: 0.5rem auto;
 }
 .noResults {
   font-size: 1.5rem;
@@ -331,4 +518,67 @@ li.ingredient strong {
 }
 .noResults a {
   text-decoration: underline;
+}
+
+/*=========================
+    ADMIN PAGE
+============================*/
+#admin .tabs {
+  margin-bottom: 5%;
+}
+#admin form {
+  display: flex;
+  flex-direction: column;
+}
+#admin form label {
+  width: 50%;
+  margin-bottom: 5px;
+}
+#admin form label + * {
+  display: block;
+  width: 50%;
+  margin-bottom: 15px;
+  border: 2px solid #000;
+  border-radius: 3px;
+  padding: 0.75rem;
+}
+#admin form .verified {
+  display: flex;
+  margin-bottom: 30px;
+}
+#admin form .verified button {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  border: 1px solid #000;
+  border-radius: 100%;
+  margin-right: 0.5rem;
+}
+#admin form .verified img {
+  position: absolute;
+  left: 0.25rem;
+  bottom: 0.25rem;
+  max-width: 2rem;
+}
+#admin .updateProduct .search {
+  width: 50%;
+  margin-bottom: 5%;
+}
+#admin .updateProduct .search + div li:first-of-type {
+  border-top: 1px solid #ded5d5;
+}
+#admin .updateProduct li div {
+  display: flex;
+}
+#admin .updateProduct li div button {
+  margin-left: 2%;
+}
+#admin .updateProduct form .bgBlack {
+  width: 8rem;
+}
+#admin .updateHeader {
+  border-bottom: 1px solid #ded5d5;
+  padding-bottom: 2%;
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
