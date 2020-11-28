@@ -176,6 +176,7 @@ footer ul a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 10%;
 }
 #productsList ul li {
   width: 45%;
@@ -527,6 +528,7 @@ input[type='file'] {
 #admin form {
   display: flex;
   flex-direction: column;
+  margin-bottom: 10%;
 }
 #admin form label {
   width: 50%;
