@@ -15,7 +15,6 @@ const SearchProducts = () => {
       .get('/api/products')
       .then(({ data }) => {
         setProducts(data);
-        console.log(data);
       })
       .catch((error) => console.log(error));
   }, [setProducts, loading]);

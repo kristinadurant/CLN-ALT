@@ -36,8 +36,6 @@ const AddProduct = () => {
     setFormData({ ...formData, [e.target.name]: verified });
   };
 
-  console.log('form', formData);
-
   useEffect(() => {
     axios
       .get(`/api/subCategories/?category=${cat}`)
