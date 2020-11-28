@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
-import AddProduct from './AddProduct';
+import UpdateProduct from './UpdateProduct';
 
 const SearchProducts = () => {
   const { setLoading, loading } = useContext(AppContext);
@@ -42,7 +42,14 @@ const SearchProducts = () => {
 
   return (
     <div>
-      <input type="text" placeholder="Search..." onChange={handleSearch} />
+      {!update && (
+        <input
+          type="text"
+          className="search"
+          placeholder="Search..."
+          onChange={handleSearch}
+        />
+      )}
       {search && !update && (
         <div>
           {filteredProducts?.map((product) => (
@@ -64,7 +71,7 @@ const SearchProducts = () => {
           ))}
         </div>
       )}
-      {update && <AddProduct product={update} />}
+      {update && <UpdateProduct currentProduct={update} />}
     </div>
   );
 };

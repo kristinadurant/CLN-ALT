@@ -338,6 +338,9 @@ li.list {
   display: flex;
   align-items: center;
 }
+#admin li.list {
+  justify-content: space-between;
+}
 li.list .listImage {
   width: 15%;
   text-align: center;
@@ -480,4 +483,26 @@ input[type='file'] {
   left: 0.25rem;
   bottom: 0.25rem;
   max-width: 2rem;
+}
+#admin .updateProduct .search {
+  width: 50%;
+  margin-bottom: 5%;
+}
+#admin .updateProduct .search + div li:first-of-type {
+  border-top: 1px solid #ded5d5;
+}
+#admin .updateProduct li div {
+  display: flex;
+}
+#admin .updateProduct li div button {
+  margin-left: 2%;
+}
+#admin .updateProduct form .bgBlack {
+  width: 8rem;
+}
+#admin .updateHeader {
+  border-bottom: 1px solid #ded5d5;
+  padding-bottom: 2%;
+  margin-bottom: 5%;
+  margin-top: 5%;
 }
