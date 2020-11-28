@@ -1,5 +1,6 @@
 const Product = require('../db/models/product'),
-  mongoose = require('mongoose');
+  mongoose = require('mongoose'),
+  cloudinary = require('cloudinary').v2;
 
 //ANCHOR CREATE PRODUCT  .CREATEPRODUCT
 exports.createProduct = async (req, res) => {
@@ -91,5 +92,26 @@ exports.deleteProduct = async (req, res) => {
     res.status(200).json({ message: 'Product has been Deleted!' });
   } catch (error) {
     res.status(400).json('Error' + err);
+  }
+};
+
+//UPLOAD IMAGE /////
+exports.uploadImage = async (req, res) => {
+  console.log(req.files.avatar.tempFilePath);
+  try {
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+      res.status(404).json({ message: 'Uh Oh! :( Product Not Found' });
+    } else {
+      console.log(product);
+      const response = await cloudinary.uploader.upload(
+        req.files.avatar.tempFilePath
+      );
+      product.image = response.secure_url;
+      await product.save();
+      res.json(product);
+    }
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
