@@ -31,11 +31,6 @@ const AddProduct = () => {
     setFormData({ ...formData, [fieldName]: selections });
   };
 
-  const handleChangeVerified = (e) => {
-    setVerified(!verified);
-    setFormData({ ...formData, [e.target.name]: verified });
-  };
-
   useEffect(() => {
     axios
       .get(`/api/subCategories/?category=${cat}`)
@@ -59,9 +54,13 @@ const AddProduct = () => {
     const form = e.target;
     e.preventDefault();
     try {
-      const response = await axios.post('/api/products/', formData, {
-        withCredentials: true
-      });
+      const response = await axios.post(
+        '/api/products/',
+        { ...formData, verified },
+        {
+          withCredentials: true
+        }
+      );
       setProduct(response.data);
       setFormData({});
       form.reset();
@@ -69,24 +68,11 @@ const AddProduct = () => {
       console.log(error);
     }
   };
-
-  const handleUpdate = async (e) => {
-    const form = e.target;
-    e.preventDefault();
-    try {
-      await axios.put(`/api/products/${product._id}`, formData, {
-        withCredentials: true
-      });
-      setFormData({});
-      form.reset();
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  console.log(formData);
+  console.log(verified);
   return (
     <>
-      <form onSubmit={product ? handleUpdate : handleSubmission}>
+      <form onSubmit={handleSubmission}>
         <label>Title</label>
         <input
           type="text"
@@ -139,14 +125,19 @@ const AddProduct = () => {
           options={ingredients && ingredients}
           handleChange={handleMultiSelectChange}
         />
-        <button
-          type="button"
-          name="verified"
-          onClick={handleChangeVerified}
-          value={product?.verified}
-        >
-          Verified
-        </button>
+        <p className="verified">
+          <button
+            type="button"
+            name="verified"
+            onClick={(e) => setVerified(!verified)}
+            value={product?.verified}
+          >
+            {verified && (
+              <img src={require('../images/checkmark.svg')} alt="checkmark" />
+            )}
+          </button>
+          <span>Verified</span>
+        </p>
         <button className="button bgBlack" type="submit">
           Add Product
         </button>

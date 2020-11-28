@@ -3,8 +3,10 @@ import Meter from '../components/Meter';
 
 const UserGuide = () => {
   return (
+
     <div className="inner">
       <h6 className="userguide-title">User's Guide</h6>
+
       <section>
         <img src={require('../images/verified.svg')} alt="verified" />
         <p className="what-does">

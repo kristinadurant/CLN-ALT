@@ -10,6 +10,8 @@ const Home = () => {
   const [cat, setCat] = useState(null);
   const [subCat, setSubCat] = useState(null);
 
+
+
   useEffect(() => {
     axios
       .get('/api/products/?verified=true&limit=10')
@@ -44,6 +46,7 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
+
           <button
             type="submit"
             className="discover"
@@ -112,6 +115,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+
 
       <p className="home-title1"> Browse by Category</p>
 

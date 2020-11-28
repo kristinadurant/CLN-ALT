@@ -66,7 +66,9 @@ const Category = () => {
                 setSubCat(null);
               }}
             >
-              <img src={category.image} alt={category.title} />
+              <div>
+                <img src={category.image} alt={category.title} />
+              </div>
               <p>{category.title}</p>
             </Link>
           </li>
