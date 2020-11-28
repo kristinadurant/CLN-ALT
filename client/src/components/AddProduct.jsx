@@ -117,7 +117,7 @@ const AddProduct = () => {
         </select>
         <label>Subcategory</label>
         <select
-          name="subCategory"
+          name="subcategory"
           onChange={handleChange}
           placeholder="Choose a category..."
         >
