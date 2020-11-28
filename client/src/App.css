@@ -1,3 +1,6 @@
+/*===================
+    GLOBAL
+====================*/
 * {
   padding: 0px;
   margin: 0;
@@ -12,30 +15,14 @@ li {
   list-style-type: none;
 }
 
-/* #root {
-  min-height: 100vh;
-  position: relative;
-  padding-top: 100px;
-  padding-bottom: 100px;
-} */
 h3,
 h6 {
   font-size: 2rem;
 }
-/*===================
-    NAVBAR/HEADER
-====================*/
 
-/* header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 50px;
-  background-color: pink;
-}
+/*===================
+    NAVBAR
+====================*/
 header nav {
   display: flex;
 }
@@ -44,8 +31,7 @@ header nav ul {
 }
 header nav ul li {
   padding: 0 10px;
-} */
-
+}
 .navbar {
   height: 70px;
   display: flex;
@@ -60,20 +46,22 @@ header nav ul li {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  margin-top: 25px;
+  margin-top: 20px;
   color: #4e4e4e;
 }
 
 .navbar ul li {
   margin-top: 25px;
+  margin-left: 30px;
+  margin-right: 3px;
 }
 
 .right-nav {
   display: flex;
   align-items: center;
-
   gap: 20px;
 }
+
 .searchnav-button {
   font-family: Poppins;
   font-style: normal;
@@ -82,18 +70,30 @@ header nav ul li {
   line-height: 15px;
   color: #ffffff;
   background-color: #1f1f1f;
-  border-radius: 3px;
   margin-left: 5px;
+  position: absolute;
+  border-radius: 3px;
+  height: 21px;
+  width: 70px;
+  left: 1256px;
+  top: 20px;
+  border-radius: 3px;
 }
 
 .searchbar {
-  border: 2px solid black;
-  border-radius: 3px;
+  border: 3px solid black;
+  border-radius: 1px;
   border-top: none;
   border-right: none;
   border-left: none;
-  width: 255px;
+  width: 270px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 15px;
 }
+
 .profileimage {
   width: 27px;
   height: 28px;
@@ -111,6 +111,9 @@ header nav ul li {
   margin: 5px;
 }
 
+/*===================
+NAVBAR RESPONSIVE VIEW
+====================*/
 @media screen and (max-width: 576px) {
   body {
     overflow-x: hidden;
@@ -121,7 +124,7 @@ header nav ul li {
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: blanchedalmond;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,13 +147,15 @@ header nav ul li {
   .nav-links li {
     opacity: 0;
   }
+
   .nav-active {
     transform: translateX(0%);
     position: absolute;
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: blanchedalmond;
+    background-color: White;
+
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -163,37 +168,323 @@ header nav ul li {
 /*==================
     FOOTER 
 ====================*/
+footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+#root {
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 100px; /* height of your footer */
+}
+
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-}
-footer ul {
-  display: flex;
-  justify-content: space-around;
-  background-color: pink;
-}
-header nav {
-  display: flex;
-}
-header nav ul {
-  display: flex;
-}
-header nav ul li {
-  padding: 0 10px;
 }
 
 /*==================
-    FOOTER 
+    HOME PAGE
 ====================*/
-footer {
-  position: absolute;
-  bottom: 0;
+.lotion {
   width: 100%;
+  background: cover;
 }
-footer ul {
+
+.think {
+  position: absolute;
+  width: 180px;
+  height: 59.09px;
+  left: 139px;
+  top: 194px;
+}
+
+.clean {
+  position: absolute;
+  width: 213px;
+  height: 65px;
+  left: 325px;
+  top: 194px;
+  margin-left: 15px;
+}
+
+.p1 {
+  position: absolute;
+  width: 477px;
+  height: 74px;
+  left: 140.76px;
+  top: 291px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
   display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  color: #000000;
+}
+
+.read-more {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  text-decoration-line: underline;
+  color: #646464;
+}
+
+.p2 {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  color: #3d3d3d;
+  height: 73px;
+  width: 928px;
+  left: 140.763671875px;
+  top: 693px;
+}
+
+.green-verified {
+  position: absolute;
+  width: 154px;
+  height: 154px;
+  left: 1145.76px;
+  top: 730px;
+}
+
+.second-container {
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
+  margin-top: 49px;
+}
+
+.how-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 49px;
+  margin-bottom: 60px;
+}
+
+.phone-columns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.phone-1,
+.phone-2 {
+  margin-right: 149px;
+  margin-left: 15px;
+}
+
+.third-container {
+  display: flex;
+  margin-top: 173px;
+}
+
+.insta-photo {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+}
+
+.fourth-container {
+  display: flex;
+  justify-content: center;
+}
+
+.verifiedphoto-1,
+.verifiedphoto-2 {
+  margin-right: 130px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px #d4d3d3;
+  border-radius: 3px;
+}
+.doc-photos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+}
+
+button.emailbutton-subscription {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 15px;
+  color: #ffffff;
+  background-color: #1f1f1f;
+  margin-left: 5px;
+  position: absolute;
+  border-radius: 3px;
+  height: 21px;
+  width: 70px;
+  left: 860px;
+}
+.wellness-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 37px;
+  letter-spacing: 0.1em;
+  text-transform: capitalize;
+  color: #181717;
+  width: 1166px;
+  height: 183px;
+  left: 135.76px;
+  top: 3356px;
+}
+
+.home-title1 {
+  font-family: Poppins;
+  font-size: 30px;
+  line-height: 75px;
+  color: #1f1f1f;
+  margin-left: 12px;
+}
+
+.home-title2 {
+  font-family: Poppins;
+  font-size: 30px;
+  line-height: 75px;
+  color: #1f1f1f;
+}
+
+.home-title3 {
+  font-family: Poppins;
+  font-size: 30px;
+  line-height: 75px;
+  color: #1f1f1f;
+}
+
+input.email-subscription {
+  border: 3px solid black;
+  border-radius: 1px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  width: 400px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 15px;
+}
+
+.discover {
+  position: absolute;
+  width: 285px;
+  height: 71px;
+  left: 139.76px;
+  top: 397px;
+  background: #1f1f1f;
+  border-radius: 10px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 37px;
+  margin-top: 20px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.clnalt-ver {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-right: 75%;
+}
+
+.photo-curve {
+  position: absolute;
+  top: 590px;
+  width: 100vw;
+  height: 65px;
+}
+
+.fourth-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#justVerified {
+  margin-right: 10%;
+}
+
+#categories li {
+  border: 1px solid black;
+  width: 30%;
+  margin-bottom: 2%;
+}
+
+#categories ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.doc-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+.social-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-text {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 35px;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  color: #292525;
+}
+
+.follow {
+  width: 55%;
+}
+.inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.social-container {
+  font-family: Poppins;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  color: #221f1f;
 }
 
 /*=======================
