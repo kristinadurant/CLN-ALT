@@ -60,15 +60,47 @@ input:active {
 /*=========================
     PRODUCT LIST PAGE
 ============================*/
-#productsList h2 {
+#productsList h6 {
   margin-bottom: 3%;
-  font-size: 3rem;
+}
+#productsList h6 + p {
+  margin-bottom: 5%;
+}
+#productsList .categoryList {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+#productsList .categoryList li {
+  width: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 3% 0 2%;
+}
+#productsList .categoryList li.active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(236, 233, 225, 1) 62%,
+    rgba(236, 233, 225, 1) 100%
+  );
+}
+#productsList .categoryList li a {
+  text-align: center;
+}
+#productsList .categoryList li p {
+  font-weight: 900;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
 }
 #subCategories {
   margin-bottom: 6%;
 }
 #subCategories .button {
   margin-right: 2%;
+  padding: 0.3rem 1rem;
+  width: auto;
 }
 #subCategories .button.active {
   border: none;
@@ -91,6 +123,10 @@ input:active {
 }
 #productsList ul li > a {
   width: 50%;
+  height: 100%;
+}
+#productsList ul li > a .imageBox {
+  height: 100%;
 }
 #productsList .productInfo {
   width: 45%;
@@ -185,11 +221,11 @@ input:active {
 .module .success p {
   margin-bottom: 10%;
 }
-/* input {
+input {
   border: 2px solid #000;
   border-radius: 3px;
   padding: 0.75rem;
-} */
+}
 /*=========================
     PRODUCT PAGE
 ============================*/
