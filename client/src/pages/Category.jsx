@@ -52,6 +52,7 @@ const Category = () => {
         With thousands of consumer products on the market, it can be
         overwhelming to know which ones are safer for you. Let us help you.
       </p>
+
       <ul className="categoryList">
         {categories.map((category) => (
           <li
@@ -71,6 +72,7 @@ const Category = () => {
           </li>
         ))}
       </ul>
+
       <div id="subCategories">
         {cat &&
           subcategories?.map((sub) => (

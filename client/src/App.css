@@ -358,11 +358,11 @@ button.emailbutton-subscription {
 }
 
 .home-title1 {
+  margin-left: 140px;
   font-family: Poppins;
   font-size: 30px;
   line-height: 75px;
   color: #1f1f1f;
-  margin-left: 12px;
 }
 
 .home-title2 {
@@ -433,14 +433,33 @@ input.email-subscription {
   margin-right: 10%;
 }
 
-#categories li {
-  border: 1px solid black;
-  width: 30%;
-  margin-bottom: 2%;
+.imageBox2 {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+  width: 150px;
+  margin-left: 65px;
+  margin-right: 65px;
 }
 
-#categories ul {
+.categoryList2 {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.categoryList2 li {
+  border: 1px solid black;
+  width: 18%;
+  margin-bottom: 6%;
+}
+
+.categoryList2 ul {
+  display: flex;
+  align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
 }
