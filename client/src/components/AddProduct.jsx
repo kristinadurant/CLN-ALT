@@ -22,9 +22,9 @@ const AddProduct = ({ product }) => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    e.target.name == 'category' && setCat(e.target.value);
+    e.target.name === 'category' && setCat(e.target.value);
   };
-  console.log(formData);
+
   const handleMultiSelectChange = ({ fieldName, selections }) => {
     setFormData({ ...formData, [fieldName]: selections });
   };
@@ -58,12 +58,10 @@ const AddProduct = ({ product }) => {
     e.preventDefault();
     try {
       await axios.post('/api/products/', formData, { withCredentials: true });
-      //   swal('New Task!', 'You task has been added!', 'success');
       setFormData({});
       form.reset();
     } catch (error) {
       console.log(error);
-      //   swal('Oops!', 'Something went wrong');
     }
   };
 
@@ -74,12 +72,10 @@ const AddProduct = ({ product }) => {
       await axios.put(`/api/products/${product._id}`, formData, {
         withCredentials: true
       });
-      //   swal('New Task!', 'You task has been added!', 'success');
       setFormData({});
       form.reset();
     } catch (error) {
       console.log(error);
-      //   swal('Oops!', 'Something went wrong');
     }
   };
 

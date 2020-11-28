@@ -20,7 +20,7 @@ const ProductPage = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, setProduct]);
 
   return (
     <div id="product" className="inner">
@@ -69,7 +69,9 @@ const ProductPage = () => {
         ))}
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
-        {product?.reviews && <Reviews reviews={product.reviews} />}
+        {product?.reviews && (
+          <Reviews reviews={product.reviews} productId={id} />
+        )}
       </div>
     </div>
   );
