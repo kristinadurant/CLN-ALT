@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddImage = ({ profile, setProfile }) => {
+const AddProductImage = ({ product }) => {
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
+  const [productData, setProductData] = useState(product);
 
   const handleImageSelect = (e) => {
     setPreview(URL.createObjectURL(e.target.files[0]));
@@ -15,17 +16,17 @@ const AddImage = ({ profile, setProfile }) => {
     const avatar = new FormData();
     avatar.append('avatar', image, image?.name);
     try {
-      const updatedUser = await axios({
+      const updatedProduct = await axios({
         method: 'POST',
-        url: '/api/users/avatar',
+        url: `/api/products/${product?._id}`,
         data: avatar,
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setProfile({ ...profile, avatar: updatedUser.data.secure_url });
+      setProductData({ ...productData, image: updatedProduct.data.secure_url });
     } catch (error) {
-      console.log('Error', 'Oops, something went wrong.');
+      console.log(error.message);
     }
   };
 
@@ -35,7 +36,7 @@ const AddImage = ({ profile, setProfile }) => {
         <img
           src={
             preview ||
-            profile?.avatar ||
+            product?.image ||
             require(`../images/placeholderUser.png`)
           }
           alt="profile-picture"
@@ -51,4 +52,4 @@ const AddImage = ({ profile, setProfile }) => {
   );
 };
 
-export default AddImage;
+export default AddProductImage;
