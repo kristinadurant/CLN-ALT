@@ -26,7 +26,7 @@ const AddProductImage = ({ product }) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setProductData({ ...productData, image: updatedProduct.data.secure_url });
+      setProductData({ ...productData, image: updatedProduct.data.secure_url })
       history.push(`/products/${product._id}`);
     } catch (error) {
       console.log(error.message);
