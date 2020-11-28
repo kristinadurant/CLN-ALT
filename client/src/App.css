@@ -266,7 +266,7 @@ footer {
   width: 154px;
   height: 154px;
   left: 1145.76px;
-  top: 730px;
+  top: 880px;
 }
 
 .second-container {
@@ -419,7 +419,7 @@ input.email-subscription {
 
 .photo-curve {
   position: absolute;
-  top: 590px;
+  top: 620px;
   width: 100vw;
   height: 65px;
 }
@@ -502,6 +502,7 @@ input.email-subscription {
   line-height: 45px;
   text-align: center;
   color: #221f1f;
+  margin-bottom: 10%;
 }
 
 /*=======================
