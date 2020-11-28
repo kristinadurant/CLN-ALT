@@ -26,16 +26,16 @@ const App = () => {
         <PopUp />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/categories" component={Category} />
-          <Route exact path="/category/:id" component={Category} />
+          <Route exact path="/products" component={Category} />
+          <Route exact path="/products/category/:id" component={Category} />
           <Route
             exact
-            path="/category/:id/subCategory/:subid"
+            path="/products/category/:id/subCategory/:subid"
             component={Category}
           />
           <Route exact path="/userGuide" component={UserGuide} />
           <Route exact path="/bannedIngredients" component={IngredientsPage} />
-          <Route exact path="/ourStory" component={OurStory} />
+          {/* <Route exact path="/ourStory" component={OurStory} /> */}
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/products/:id" component={ProductPage} />
           <Route

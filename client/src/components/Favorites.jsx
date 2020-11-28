@@ -26,7 +26,7 @@ const Favorites = ({ favorites }) => {
         <div className="noResults">
           <p>No favorites yet.</p>
           <p>
-            <Link to="/categories">Search for your favorites.</Link>
+            <Link to="/products">Search for your favorites.</Link>
           </p>
         </div>
       )}

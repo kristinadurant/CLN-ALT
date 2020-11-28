@@ -27,7 +27,7 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to a cleaner alternatives!
           </p>
-          <Link to="/categories">Discover</Link>
+          <Link to="/products">Discover</Link>
         </div>
       </section>
 

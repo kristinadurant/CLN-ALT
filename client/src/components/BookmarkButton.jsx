@@ -3,11 +3,13 @@ import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 
 const BookmarkButton = ({ product }) => {
-  const { setLoading, currentUser } = useContext(AppContext);
+  const { setLoading, currentUser, setPopSignUp } = useContext(AppContext);
   const [bookmarked, setBookmarked] = useState('bookmark');
 
   const addBoorkmark = async () => {
-    setBookmarked('bookmarked');
+    if (!currentUser && setPopSignUp('login')) {
+      return;
+    }
     setLoading(true);
     try {
       await axios.post(
@@ -16,6 +18,7 @@ const BookmarkButton = ({ product }) => {
         { withCredentials: true }
       );
       setLoading(false);
+      setBookmarked('bookmarked');
     } catch (error) {
       console.log(error);
     }

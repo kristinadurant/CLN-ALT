@@ -31,7 +31,7 @@ const ReviewsProfilePage = ({ reviews }) => {
         <div className="noResults">
           <p>No reviews yet. </p>
           <p>
-            <Link to="/categories">Search for products to review.</Link>
+            <Link to="/products">Search for products to review.</Link>
           </p>
         </div>
       )}

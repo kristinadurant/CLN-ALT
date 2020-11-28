@@ -204,6 +204,9 @@ footer ul a {
   font-size: 1.25rem;
   margin-bottom: 1rem;
 }
+.productButtons .star {
+  padding: 0 2px;
+}
 /*=========================
     MODULE
 ============================*/
