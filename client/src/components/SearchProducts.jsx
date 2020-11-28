@@ -27,6 +27,8 @@ const SearchProducts = () => {
     return product.title.toLowerCase().includes(search.toLowerCase());
   });
 
+  console.log(filteredProducts);
+
   const handleDelete = async (e) => {
     setLoading(true);
     try {
