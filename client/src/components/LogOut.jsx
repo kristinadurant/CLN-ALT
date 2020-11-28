@@ -16,6 +16,7 @@ const LogOut = () => {
       sessionStorage.removeItem('user');
       setCurrentUser(null);
       setPopSignUp(false);
+      history.push('/');
     } catch (error) {
       console.log(error);
     }

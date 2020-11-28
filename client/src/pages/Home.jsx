@@ -46,15 +46,7 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
-
-          <button
-            type="submit"
-            className="discover"
-            component={Category}
-            to="/categories"
-          >
-            Discover
-          </button>
+          <Link to="/products">Discover</Link>
         </div>
       </section>
 

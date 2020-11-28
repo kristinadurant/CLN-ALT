@@ -19,8 +19,22 @@ const Product = ({ product, user }) => {
         <p>{product.description}</p>
         <div className="productButtons">
           <Link to={`/products/${product._id}#review`}>
-            <span>+</span>
-            <span>Review</span>
+            {!user && (
+              <>
+                <img
+                  className="star"
+                  src={require('../images/star.svg')}
+                  alt="reviews"
+                />
+                <span>Reviews</span>
+              </>
+            )}
+            {user && (
+              <>
+                <span>+</span>
+                <span>Review</span>
+              </>
+            )}
           </Link>
           <BookmarkButton user={user?._id} product={product._id} />
         </div>

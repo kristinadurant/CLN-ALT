@@ -22,7 +22,7 @@ const UpdatePassword = () => {
       { withCredentials: true }
     );
     setPopSignUp('login');
-    history.push('/profile');
+    history.push('/');
   };
   return (
     <form className="container" onSubmit={handleSubmit}>

@@ -60,7 +60,7 @@ const Category = () => {
             className={category._id === cat ? 'active imageBox' : 'imageBox'}
           >
             <Link
-              to={`/category/${category._id}`}
+              to={`/products/category/${category._id}`}
               onClick={() => {
                 setCat(category._id);
                 setSubCat(null);
@@ -79,7 +79,7 @@ const Category = () => {
         {cat &&
           subcategories?.map((sub) => (
             <Link
-              to={`/category/${cat}/subcategory/${sub._id}`}
+              to={`/products/category/${cat}/subcategory/${sub._id}`}
               className={subCat === sub._id ? 'active button' : 'button'}
               onClick={() => setSubCat(sub._id)}
               key={sub._id}

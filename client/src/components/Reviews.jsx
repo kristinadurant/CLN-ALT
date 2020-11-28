@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 
 const Reviews = ({ reviews, productId }) => {
   const total = reviews.length;
-  const { user, currentUser } = useContext(AppContext);
+  const { user, currentUser, setPopSignUp } = useContext(AppContext);
   const [addReview, setAddReview] = useState(false);
   const [formData, setFormData] = useState({});
 
@@ -28,6 +28,14 @@ const Reviews = ({ reviews, productId }) => {
     }
   };
 
+  const handleOpenReview = (e) => {
+    if (!currentUser) {
+      setPopSignUp('login');
+    } else {
+      setAddReview(!addReview);
+    }
+  };
+
   return (
     <>
       <li className="reviewsHeader list">
@@ -35,7 +43,7 @@ const Reviews = ({ reviews, productId }) => {
           <img src={require('../images/stars.png')} alt="reviews" />
           {total === 1 ? `${total} Review` : `${total} Reviews`}
         </div>
-        <button className="button" onClick={() => setAddReview(!addReview)}>
+        <button className="button" onClick={handleOpenReview}>
           {addReview ? 'Cancel' : '+ Review'}
         </button>
       </li>

@@ -36,7 +36,7 @@ const PopUp = () => {
                 </span>
                 <p>REGISTER WITH EMAIL</p>
               </button>
-              <a onClick={(e) => setPopSignUp(false)}>Skip</a>
+              <a onClick={(e) => setPopSignUp(false)}>Cancel</a>
             </div>
           )}
           {popSignUp === 'login' && <Log />}
