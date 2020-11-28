@@ -97,13 +97,11 @@ exports.deleteProduct = async (req, res) => {
 
 //UPLOAD IMAGE /////
 exports.uploadImage = async (req, res) => {
-  console.log(req.files.avatar.tempFilePath);
   try {
     const product = await Product.findById(req.params.id);
     if (!product) {
       res.status(404).json({ message: 'Uh Oh! :( Product Not Found' });
     } else {
-      console.log(product);
       const response = await cloudinary.uploader.upload(
         req.files.avatar.tempFilePath
       );

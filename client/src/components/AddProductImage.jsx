@@ -1,9 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddProductImage = ({ product }) => {
-  const { setLoading } = useContext(AppContext);
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
   const [productData, setProductData] = useState(product);
@@ -13,27 +11,6 @@ const AddProductImage = ({ product }) => {
     setImage(e.target.files[0]);
   };
 
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     setLoading(true);
-  //     const avatar = new FormData();
-  //     avatar.append('avatar', image, image?.name);
-  //  console.log(image)
-  //     try {
-  //       const updatedProduct = await axios.post(
-  //           `/api/products/${product?._id}`,  {withCredentials: true},
-  //             avatar,
-
-  //         // headers: {
-  //         //   'Content-Type': 'multipart/form-data'
-  //         // }
-  //       );
-  //       setProductData({ ...product, image: updatedProduct.data.secure_url });
-  //       setLoading(true);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
   const handleSubmit = async (e) => {
     e.preventDefault();
     const avatar = new FormData();
