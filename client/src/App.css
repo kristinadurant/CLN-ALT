@@ -368,9 +368,9 @@ footer ul a {
 }
 .doc-photos {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 100px;
+  justify-content: space-between;
+  margin-right: 200px;
+  margin-bottom: 2%;
 }
 
 button.emailbutton-subscription {
@@ -417,6 +417,7 @@ button.emailbutton-subscription {
   font-size: 30px;
   line-height: 75px;
   color: #1f1f1f;
+  margin-right: 67%;
 }
 
 .home-title3 {
@@ -476,10 +477,6 @@ input.email-subscription {
   justify-content: space-evenly;
 }
 
-#justVerified {
-  margin-right: 10%;
-}
-
 .imageBox2 {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
@@ -513,7 +510,7 @@ input.email-subscription {
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 .social-container {
@@ -549,42 +546,11 @@ input.email-subscription {
   line-height: 45px;
   text-align: center;
 }
-/*=========================
-    SOCIAL CONTAINER
-============================*/
-.image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
+#__next {
+  padding: 20px;
 }
-
-.middle {
-  transition: 0.5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.insta-photo:hover .image {
-  opacity: 0.3;
-}
-
-.insta-photo:hover .middle {
-  opacity: 1;
-}
-
-.text {
-  background-color: #4caf50;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
+.image-item {
+  padding: 20px 0 20px 20px;
 }
 
 /*=========================

@@ -5,6 +5,7 @@ import axios from 'axios';
 import Category from '../pages/Category';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Simple from '../components/Simple';
 
 const Home = () => {
   const [verified, setVerified] = useState([]);
@@ -164,6 +165,8 @@ const Home = () => {
         </ul> */}
           </div>
         </section>
+
+        <Simple />
 
         <section id="doctors">
           <div className="doc-container">
