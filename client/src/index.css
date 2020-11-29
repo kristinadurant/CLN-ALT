@@ -517,9 +517,13 @@ input[type='file'] {
   flex-direction: column;
   padding-top: 5%;
   align-items: center;
+  margin-bottom: 10%;
 }
 .noResults a {
   text-decoration: underline;
+}
+.favorites {
+  margin-bottom: 10%;
 }
 
 /*=========================
