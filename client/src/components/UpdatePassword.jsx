@@ -32,12 +32,14 @@ const UpdatePassword = () => {
         name="password"
         type="password"
         placeholder="New Password"
+        required
       />
       <input
         onChange={handleChange}
         name="confirmPassword"
         type="password"
         placeholder="Confirm Password"
+        required
       />
       <button className="button bgBlack" type="submit">
         Update Password

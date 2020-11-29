@@ -29,18 +29,21 @@ const SignUp = () => {
         name="name"
         type="text"
         placeholder="Name"
+        required
       />
       <input
         onChange={handleChange}
         name="email"
         type="email"
         placeholder="Email"
+        required
       />
       <input
         onChange={handleChange}
         name="password"
         type="password"
         placeholder="Password"
+        required
       />
       <p>
         <input type="checkbox" required />
