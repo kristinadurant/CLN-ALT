@@ -53,7 +53,7 @@ const SearchProducts = () => {
       {search && !update && (
         <div>
           {filteredProducts?.map((product) => (
-            <li className="list" key={product._id}>
+            <li className="list productsList" key={product._id}>
               <Link to={`/products/${product._id}`}>{product.title}</Link>
               <div>
                 <button className="button" onClick={(e) => setUpdate(product)}>
