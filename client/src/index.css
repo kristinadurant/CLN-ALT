@@ -407,11 +407,15 @@ li.list {
   display: flex;
   align-items: center;
 }
-#admin li.list {
+li.productsList {
   justify-content: space-between;
 }
+.productsList .leftWrapper {
+  display: flex;
+  align-items: center;
+}
 li.list .listImage {
-  width: 15%;
+  width: 5vw;
   text-align: center;
   margin-right: 3%;
 }
