@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import Category from '../pages/Category';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const Home = () => {
   const [verified, setVerified] = useState([]);
@@ -212,9 +214,9 @@ const Home = () => {
               className="follow"
             />
             <div className="insta-photo">
-              <img src={require('../images/instaone.jpg')} />
-              <img src={require('../images/instatwo.jpg')} />
-              <img src={require('../images/insta-three.jpg')} />
+              <img src={require('../images/instaone.jpg')} class="image" />
+              <img src={require('../images/instatwo.jpg')} class="image" />
+              <img src={require('../images/insta-three.jpg')} class="image" />
             </div>
 
             <p>We're toxic-free but our emails are intoxicating.</p>
