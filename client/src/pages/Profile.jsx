@@ -18,7 +18,7 @@ const Profile = () => {
     history.push(`/admin/${currentUser._id}`);
   };
 
-  useEffect(() => {
+  const fetchProfile = () => {
     axios
       .get(`/api/users/profile/${id}`)
       .then((response) => {
@@ -27,7 +27,11 @@ const Profile = () => {
       .catch((error) => {
         console.log(error);
       });
-  }, [setProfile, id]);
+  };
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
   const reviews = profile?.reviews && profile.reviews;
   const favorites = profile?.favorites && profile.favorites;
@@ -81,7 +85,7 @@ const Profile = () => {
           </button>
         </div>
         <div className="favorites" style={{ display: !tab2 && 'none' }}>
-          <Favorites favorites={favorites} />
+          <Favorites fetchProfile={fetchProfile} favorites={favorites} />
         </div>
         <div className="reviews" style={{ display: tab2 && 'none' }}>
           <ReviewsProfilePage reviews={reviews} />
