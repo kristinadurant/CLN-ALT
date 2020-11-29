@@ -21,7 +21,7 @@ const ProductPage = () => {
         console.log(error);
       });
   }, [id, setProduct]);
-
+  console.log(product);
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>

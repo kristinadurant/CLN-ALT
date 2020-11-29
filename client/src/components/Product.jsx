@@ -16,7 +16,10 @@ const Product = ({ product, user }) => {
       </Link>
       <div className="productInfo">
         <h4>{product.title}</h4>
-        <p>{product.description}</p>
+        <p>
+          <span className="cut">{product.description}</span>
+          <span>...</span>
+        </p>
         <div className="productButtons">
           <Link to={`/products/${product._id}#review`}>
             {!user && (

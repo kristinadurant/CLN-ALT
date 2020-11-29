@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import Product from '../components/Product';
@@ -8,7 +8,6 @@ const Category = () => {
   const { search, products, setProducts, currentUser, categories } = useContext(
     AppContext
   );
-  const { id } = useParams();
   const [cat, setCat] = useState(null);
   const [subCat, setSubCat] = useState(null);
   const [subcategories, setSubcategories] = useState([]);
