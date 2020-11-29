@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Favorites = ({ favorites }) => {
+const Favorites = ({ favorites, fetchProfile }) => {
   const handleRemoveBookmark = async (e) => {
     try {
       await axios.delete(`/api/favorites/${e.target.value}`, {
         withCredentials: true
       });
+
+      fetchProfile();
     } catch (error) {
       console.log(error);
     }

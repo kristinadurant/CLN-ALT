@@ -48,12 +48,19 @@ const productSchema = new mongoose.Schema(
     ]
   },
   {
-    timestamps: true
+    timestamps: true,
+    toJSON: { virtuals: true }
   }
 );
 
 productSchema.virtual('reviews', {
   ref: 'Review',
+  localField: '_id',
+  foreignField: 'product'
+});
+
+productSchema.virtual('favorites', {
+  ref: 'Favorite',
   localField: '_id',
   foreignField: 'product'
 });
