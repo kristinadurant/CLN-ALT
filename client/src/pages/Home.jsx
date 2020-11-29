@@ -10,8 +10,6 @@ const Home = () => {
   const [cat, setCat] = useState(null);
   const [subCat, setSubCat] = useState(null);
 
-
-
   useEffect(() => {
     axios
       .get('/api/products/?verified=true&limit=10')
@@ -46,7 +44,9 @@ const Home = () => {
             Scan a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
-          <Link to="/products">Discover</Link>
+          <Link to="/products" className="discover">
+            Discover
+          </Link>
         </div>
       </section>
 
@@ -107,7 +107,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
 
       <p className="home-title1"> Browse by Category</p>
 

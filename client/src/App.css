@@ -40,9 +40,7 @@ h6 {
   display: block;
   position: relative;
 }
-header {
-  margin-bottom: 10vw;
-}
+
 .noBorder {
   border: none;
 }
@@ -452,6 +450,7 @@ input.email-subscription {
   margin-top: 20px;
   text-align: center;
   color: #ffffff;
+  vertical-align: middle;
 }
 
 .clnalt-ver {
@@ -544,8 +543,6 @@ input.email-subscription {
   font-size: 20px;
   line-height: 45px;
   text-align: center;
-  color: #221f1f;
-  margin-bottom: 10%;
 }
 /*=========================
     MODULE
@@ -693,7 +690,6 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 10%;
 }
 #productsList ul li {
   width: 45%;
