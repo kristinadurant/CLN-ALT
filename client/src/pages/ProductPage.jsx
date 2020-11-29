@@ -28,6 +28,17 @@ const ProductPage = () => {
       });
   }, [id, setProduct]);
 
+  const fetchProduct = () => {
+    axios
+      .get(`/api/products/${id}`)
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>
@@ -80,7 +91,11 @@ const ProductPage = () => {
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
         {product?.reviews && (
-          <Reviews reviews={product.reviews} productId={id} />
+          <Reviews
+            fetchProduct={fetchProduct}
+            reviews={product.reviews}
+            productId={id}
+          />
         )}
       </div>
     </div>

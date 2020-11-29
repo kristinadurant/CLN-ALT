@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import ReviewListItem from './ReviewListItem';
 import Stars from './Stars';
 
-const Reviews = ({ reviews, productId }) => {
+const Reviews = ({ reviews, productId, fetchProduct }) => {
   const { currentUser, setPopSignUp } = useContext(AppContext);
   const [addReview, setAddReview] = useState(false);
   const [formData, setFormData] = useState({});
@@ -26,6 +26,7 @@ const Reviews = ({ reviews, productId }) => {
       );
       setFormData({});
       setAddReview(!addReview);
+      fetchProduct();
     } catch (error) {
       console.log(error);
     }
