@@ -1,6 +1,14 @@
 const Favorite = require('../db/models/favorite'),
   mongoose = require('mongoose');
 
+exports.deleteFavoritesForProduct = async (favorites = []) => {
+  const favoriteDeletes = favorites.map(async (favorite) => {
+    await Favorite.findByIdAndDelete(favorite._id);
+  });
+
+  await Promise.all(favoriteDeletes);
+};
+
 // ANCHOR CREATE Favorite
 exports.createFavorite = async (req, res) => {
   try {

@@ -48,7 +48,8 @@ const productSchema = new mongoose.Schema(
     ]
   },
   {
-    timestamps: true
+    timestamps: true,
+    toJSON: { virtuals: true }
   }
 );
 
@@ -58,13 +59,11 @@ productSchema.virtual('reviews', {
   foreignField: 'product'
 });
 
-productSchema.pre('findByIdAndDelete', async function (next) {
-  console.log('got to reviews');
-  // await this.model('Review').deleteMany({ product: this._id });
-  console.log('got to favorites');
-  // await Favorite.deleteMany({ product: this._id });
-  console.log('done');
-  next();
+
+productSchema.virtual('favorites', {
+  ref: 'Favorite',
+  localField: '_id',
+  foreignField: 'product'
 });
 
 const Product = mongoose.model('Product', productSchema);
