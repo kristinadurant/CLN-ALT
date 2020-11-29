@@ -6,6 +6,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import PopUp from './components/PopUp';
 import Footer from './components/Footer';
+import ToTheTop from './components/ToTheTop';
 import Home from './pages/Home';
 import UserGuide from './pages/UserGuide';
 import Blog from './pages/Blog';
@@ -52,6 +53,7 @@ const App = () => {
           <PrivateRoute exact path="/admin/:id" component={Admin} />
         </Switch>
         <Footer />
+        <ToTheTop />
       </BrowserRouter>
     </AppContextProvider>
   );
