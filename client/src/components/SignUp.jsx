@@ -43,11 +43,17 @@ const SignUp = () => {
         placeholder="Password"
       />
       <p>
-        <input type="checkbox" />
+        <input type="checkbox" required />
         <span>
-          I agree with <Link to="/termsAndConditions">Terms & Conditions</Link>{' '}
+          I agree with{' '}
+          <Link to="/termsAndConditions" target="_blank">
+            Terms & Conditions
+          </Link>{' '}
           and
-          <Link to="/privacyPolicy"> Privacy Policy</Link>
+          <Link to="/privacyPolicy" target="_blank">
+            {' '}
+            Privacy Policy
+          </Link>
         </span>
       </p>
       <button className="button bgBlack" type="submit">

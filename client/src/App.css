@@ -40,16 +40,16 @@ h6 {
   display: block;
   position: relative;
 }
-header {
-  margin-bottom: 10vw;
-}
+
 .noBorder {
   border: none;
 }
 .block {
   display: block;
 }
-.bgBlack {
+.bgBlack,
+.bgBlack:focus,
+.bgBlack:active {
   background-color: #000;
   color: #fff;
 }
@@ -70,7 +70,7 @@ header {
   width: 50%;
 }
 .imageBox {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 4px 4px 3px rgba(0, 0, 0, 0.25);
   border-radius: 3px;
 }
 .topBackground {
@@ -121,7 +121,9 @@ header nav ul li {
   margin-left: 140px;
   margin-right: 140px;
 }
-
+.nav-links {
+  margin-right: 12%;
+}
 .navbar a {
   font-style: normal;
   font-weight: 500;
@@ -309,7 +311,7 @@ footer ul a {
   width: 154px;
   height: 154px;
   left: 1145.76px;
-  top: 880px;
+  top: 730px;
 }
 
 .second-container {
@@ -452,6 +454,7 @@ input.email-subscription {
   margin-top: 20px;
   text-align: center;
   color: #ffffff;
+  vertical-align: middle;
 }
 
 .clnalt-ver {
@@ -544,8 +547,6 @@ input.email-subscription {
   font-size: 20px;
   line-height: 45px;
   text-align: center;
-  color: #221f1f;
-  margin-bottom: 10%;
 }
 /*=========================
     MODULE
@@ -693,7 +694,6 @@ input {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 10%;
 }
 #productsList ul li {
   width: 45%;
@@ -712,8 +712,23 @@ input {
 #productsList ul li > a .imageBox {
   height: 100%;
 }
+#productsList .productImage img {
+  max-width: 10vw;
+  max-height: 10vw;
+}
 #productsList .productInfo {
   width: 45%;
+}
+#productsList .productInfo .cut {
+  white-space: normal;
+  width: 100%;
+  max-height: 11rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+#productsList .productInfo p {
+  margin-bottom: 1rem;
 }
 #productsList .productInfo h4 {
   text-transform: uppercase;
@@ -740,6 +755,10 @@ input {
 }
 #product .imageBox {
   box-shadow: none;
+}
+#product .productImage img {
+  max-width: 30vw;
+  max-height: 30vw;
 }
 .productImage {
   text-align: center;
@@ -837,14 +856,17 @@ input {
   position: relative;
   overflow: hidden;
 }
-/* @keyframes slideInFromLeft {
+@keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(0);
   }
-} */
+}
+.meterNoDisplay {
+  display: none;
+}
 .meterBar div {
   border-radius: 1rem;
   top: 0;
@@ -868,7 +890,6 @@ input {
   display: flex;
   width: 70%;
   justify-content: space-between;
-  font-family: Poppins;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -1182,7 +1203,15 @@ input[type='file'] {
   margin-bottom: 5%;
   margin-top: 5%;
 }
-
+/*======================
+TERMS AND CONDITIONS
+=======================*/
+.termsConditions h6 {
+  margin-bottom: 5%;
+}
+.termsConditions p {
+  margin-bottom: 2%;
+}
 /*===================
 NAVBAR RESPONSIVE VIEW
 ====================*/

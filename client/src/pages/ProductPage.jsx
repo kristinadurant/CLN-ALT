@@ -45,7 +45,9 @@ const ProductPage = () => {
           })}
         </div>
       </div>
-      {!product.verified && <Meter ingredients={product.ingredients} />}
+      {!product.verified && (
+        <Meter ingredients={product.ingredients} verified={product.verified} />
+      )}
       <div className="tabs">
         <button
           className={tab1 && 'active'}

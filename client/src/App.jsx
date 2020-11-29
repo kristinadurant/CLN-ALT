@@ -9,11 +9,11 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import UserGuide from './pages/UserGuide';
 import Blog from './pages/Blog';
-import OurStory from './pages/OurStory';
 import Category from './pages/Category';
 import ProductPage from './pages/ProductPage';
 import IngredientsPage from './pages/IngredientsPage';
 import TermsAndConditions from './pages/TermsAndConditions';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Profile from './pages/Profile';
 import Admin from './pages/Admin';
 import UpdatePasswordContainer from './components/UpdatePasswordContainer';
@@ -35,7 +35,6 @@ const App = () => {
           />
           <Route exact path="/userGuide" component={UserGuide} />
           <Route exact path="/bannedIngredients" component={IngredientsPage} />
-          {/* <Route exact path="/ourStory" component={OurStory} /> */}
           <Route exact path="/blog" component={Blog} />
           <Route exact path="/products/:id" component={ProductPage} />
           <Route
@@ -48,6 +47,7 @@ const App = () => {
             path="/termsAndConditions"
             component={TermsAndConditions}
           />
+          <Route exact path="/privacyPolicy" component={PrivacyPolicy} />
           <PrivateRoute exact path="/profile/:id" component={Profile} />
           <PrivateRoute exact path="/admin/:id" component={Admin} />
         </Switch>

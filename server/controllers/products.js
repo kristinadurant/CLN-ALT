@@ -1,6 +1,11 @@
-const Product = require('../db/models/Product'),
+const Product = require('../db/models/product'),
+  // ReviewModel = require('../db/models/Review'),
+  // FavoriteModel = require('../db/models/Favorite'),
   mongoose = require('mongoose'),
   cloudinary = require('cloudinary').v2;
+
+const { deleteReviewsForProduct } = require('../controllers/reviews');
+const { deleteFavoritesForProduct } = require('../controllers/favorites');
 
 //ANCHOR CREATE PRODUCT  .CREATEPRODUCT
 exports.createProduct = async (req, res) => {
@@ -84,12 +89,24 @@ exports.updateProduct = async (req, res) => {
 //ANCHOR DELETE A SPECIFIC PRODUCT /////
 exports.deleteProduct = async (req, res) => {
   try {
-    const product = await Product.findByIdAndDelete({
-      _id: req.params.id
-    });
+    const product = await Product.findById(req.params.id)
+      .populate('reviews')
+      .populate('favorites');
+
     if (!product)
       return res.status(404).json({ message: 'Uh Oh! :( Product Not Found' });
+
+    await Product.findByIdAndDelete({
+      _id: req.params.id
+    });
+
+    await Promise.all([
+      deleteReviewsForProduct(product.reviews),
+      deleteFavoritesForProduct(product.favorites)
+    ]);
+
     res.status(200).json({ message: 'Product has been Deleted!' });
+    return;
   } catch (error) {
     res.status(400).json('Error' + err);
   }

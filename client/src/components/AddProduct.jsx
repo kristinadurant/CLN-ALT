@@ -23,8 +23,8 @@ const AddProduct = () => {
   const [product, setProduct] = useState(null);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
     e.target.name === 'category' && setCat(e.target.value);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleMultiSelectChange = ({ fieldName, selections }) => {

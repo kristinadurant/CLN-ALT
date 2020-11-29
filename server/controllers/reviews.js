@@ -1,6 +1,14 @@
 const Review = require('../db/models/Review'),
   mongoose = require('mongoose');
 
+exports.deleteReviewsForProduct = async (reviews = []) => {
+  const reviewDeletes = reviews.map(async (review) => {
+    await Review.findByIdAndDelete(review._id);
+  });
+
+  await Promise.all(reviewDeletes);
+};
+
 //ANCHOR CREATE REVIEW
 exports.createReview = async (req, res) => {
   try {
