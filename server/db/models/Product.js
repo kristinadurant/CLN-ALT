@@ -58,5 +58,14 @@ productSchema.virtual('reviews', {
   foreignField: 'product'
 });
 
+productSchema.pre('findByIdAndDelete', async function (next) {
+  console.log('got to reviews');
+  // await this.model('Review').deleteMany({ product: this._id });
+  console.log('got to favorites');
+  // await Favorite.deleteMany({ product: this._id });
+  console.log('done');
+  next();
+});
+
 const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

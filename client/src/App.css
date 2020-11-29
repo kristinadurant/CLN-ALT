@@ -103,7 +103,22 @@ header {
 .noRepeat {
   background-repeat: no-repeat !important;
 }
-
+/*===================
+    TO THE TOP
+====================*/
+#toTheTop {
+  border-radius: 100%;
+  position: fixed;
+  bottom: 0.5rem;
+  background-color: #b6aa93;
+  right: 5rem;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
+  line-height: 4vw;
+  font-size: 2rem;
+  box-shadow: 0px 0px 5px 2px rgb(0 0 0 / 9%);
+}
 /*===================
     NAVBAR
 ====================*/
