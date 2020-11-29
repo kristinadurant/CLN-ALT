@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TermsAndConditions = () => {
+const PrivacyPolicy = () => {
   return (
     <div className="termsConditions inner">
-      <h6>Terms & Conditions</h6>
+      <h6>Privacy Policy</h6>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -53,4 +53,4 @@ const TermsAndConditions = () => {
   );
 };
 
-export default TermsAndConditions;
+export default PrivacyPolicy;
