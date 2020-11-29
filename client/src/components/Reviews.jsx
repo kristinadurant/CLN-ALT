@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
+import ReviewListItem from './ReviewListItem';
+import Stars from './Stars';
 
 const Reviews = ({ reviews, productId }) => {
-  const total = reviews.length;
-  const { user, currentUser, setPopSignUp } = useContext(AppContext);
+  const { currentUser, setPopSignUp } = useContext(AppContext);
   const [addReview, setAddReview] = useState(false);
   const [formData, setFormData] = useState({});
 
@@ -13,14 +14,16 @@ const Reviews = ({ reviews, productId }) => {
       setFormData({ ...formData, rate: Number(e.target.value) });
     }
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    setFormData({ ...formData, user: currentUser._id, product: productId });
   };
 
   const handleAddReview = async (e) => {
-    const form = e.target;
-    e.prefentDefault();
+    e.preventDefault();
     try {
-      await axios.post('/api/reviews/', formData, { withCredentials: true });
+      await axios.post(
+        '/api/reviews/',
+        { ...formData, user: currentUser._id, product: productId },
+        { withCredentials: true }
+      );
       setFormData({});
       setAddReview(!addReview);
     } catch (error) {
@@ -36,11 +39,20 @@ const Reviews = ({ reviews, productId }) => {
     }
   };
 
+  const total = reviews.length;
+
+  const avgReviews = (reviews) => {
+    let sum = 0;
+    reviews.map((rate) => rate.rate && (sum = sum + rate.rate));
+    return sum / reviews.length;
+  };
+  const avg = avgReviews(reviews);
+
   return (
     <>
       <li className="reviewsHeader list">
-        <div className="stars">
-          <img src={require('../images/stars.png')} alt="reviews" />
+        <div className="stars" title={avg}>
+          <Stars rate={Math.round(avg)} />
           {total === 1 ? `${total} Review` : `${total} Reviews`}
         </div>
         <button className="button" onClick={handleOpenReview}>
@@ -50,26 +62,34 @@ const Reviews = ({ reviews, productId }) => {
       <ul>
         {addReview && (
           <li className="list">
-            <div className="listImage">
-              <img
-                src={user?.avatar || require('../images/placeholderUser.png')}
-                alt="user"
-              />
-              <p>{user?.name}</p>
+            <div className="listWrapper">
+              <div className="listImage">
+                <img
+                  src={
+                    currentUser?.avatar ||
+                    require('../images/placeholderUser.png')
+                  }
+                  alt="user"
+                />
+              </div>
+              <p>{currentUser?.name}</p>
             </div>
-            <form onSubmit={handleAddReview}>
-              <input
-                onChange={handleChange}
-                name="rate"
-                type="number"
-                min="1"
-                max="5"
-              />
-              <input
-                onChange={handleChange}
-                name="description"
-                type="textarea"
-              />
+            <form className="reviewInput" onSubmit={handleAddReview}>
+              <p>
+                <input
+                  onChange={handleChange}
+                  name="rate"
+                  type="number"
+                  min="1"
+                  max="5"
+                />
+                <input
+                  onChange={handleChange}
+                  name="description"
+                  type="textarea"
+                  placeholder="Add your review..."
+                />
+              </p>
               <button className="button bgBlack" type="submit">
                 + Add
               </button>
@@ -77,22 +97,7 @@ const Reviews = ({ reviews, productId }) => {
           </li>
         )}
         {reviews?.map((review) => (
-          <li key={review._id} className="list">
-            <div className="listImage">
-              <img
-                src={review.avatar || require('../images/placeholderUser.png')}
-                alt="user"
-              />
-              <p>{review.user.name}</p>
-            </div>
-            <div>
-              <p className="stars">
-                <img src={require('../images/stars.png')} alt="reviews" />
-                {review.rate}
-              </p>
-              <p>{review.description}</p>
-            </div>
-          </li>
+          <ReviewListItem key={review._id} review={review} />
         ))}
       </ul>
     </>

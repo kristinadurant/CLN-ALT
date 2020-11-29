@@ -25,6 +25,7 @@ const Favorites = ({ favorites }) => {
                   className="listImage"
                 >
                   <img
+                    className="productImage"
                     src={favorite?.product?.image}
                     alt={favorite?.product?.title}
                   />

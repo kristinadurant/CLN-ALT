@@ -68,8 +68,7 @@ const AddProduct = () => {
       console.log(error);
     }
   };
-  console.log(formData);
-  console.log(verified);
+
   return (
     <>
       <form onSubmit={handleSubmission}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Stars from './Stars';
 
 const ReviewsProfilePage = ({ reviews }) => {
   return (
@@ -8,18 +9,21 @@ const ReviewsProfilePage = ({ reviews }) => {
         <ul>
           {reviews?.map((review) => (
             <li key={review?._id} className="list">
-              <Link
-                className="listImage"
-                to={`/products/${review?.product?._id}`}
-              >
-                <img
-                  src={review?.product?.image}
-                  alt={review?.product?.title}
-                />
-              </Link>
+              <div className="listWrapper">
+                <Link
+                  className="listImage"
+                  to={`/products/${review?.product?._id}`}
+                >
+                  <img
+                    className="productImage"
+                    src={review?.product?.image}
+                    alt={review?.product?.title}
+                  />
+                </Link>
+              </div>
               <div>
                 <p className="stars">
-                  <img src={require('../images/stars.png')} alt="reviews" />
+                  <Stars rate={review.rate} />
                   {review?.rate}
                 </p>
                 <p>{review?.description}</p>
