@@ -1,4 +1,4 @@
-const Category = require('../db/models/category'),
+const Category = require('../db/models/Category'),
   mongoose = require('mongoose');
 
 //ANCHOR CREATE Category

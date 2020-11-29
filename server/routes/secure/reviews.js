@@ -5,7 +5,7 @@ const router = require('express').Router(),
     createReview,
     updateReview,
     deleteReview
-  } = require('../../controllers/Reviews');
+  } = require('../../controllers/reviews');
 
 router.get('/', getAllReviews);
 router.get('/:id', getSpecificReview);

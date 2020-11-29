@@ -1,4 +1,4 @@
-const Product = require('../db/models/product'),
+const Product = require('../db/models/Product'),
   mongoose = require('mongoose'),
   cloudinary = require('cloudinary').v2;
 
