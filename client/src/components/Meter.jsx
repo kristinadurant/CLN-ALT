@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Meter = ({ ingredients, verified }) => {
+  const [meterNumber, setMeterNumber] = useState(0);
+
   function meter(ingredients) {
     let meter = 0;
     for (let i = 0; i < ingredients.length; i++) {
-      meter += ingredients[i].score;
+      if (ingredients[i].score) {
+        meter += ingredients[i].score;
+      }
     }
     return meter;
   }
@@ -15,21 +19,26 @@ const Meter = ({ ingredients, verified }) => {
     }
     return html;
   }
-
-  let meterNumber = ingredients ? meter(ingredients) : '70';
-
+  useEffect(() => {
+    if (ingredients) setMeterNumber(meter(ingredients));
+  }, [ingredients]);
+  console.log(meterNumber);
   return (
-    <div className={verified ? 'meterNoDisplay' : 'meter'}>
-      <div className="meterBar">
-        <div style={{ width: `${meterNumber}%` }}>
-          <p>{meterNumber}</p>
+    <>
+      {meterNumber > 0 && (
+        <div className={'meter'}>
+          <div className="meterBar">
+            <div style={{ width: `${meterNumber}%` }}>
+              <p>{meterNumber}</p>
+            </div>
+            {lines(10)}
+          </div>
+          <p>
+            <h2>Clean</h2> <h2>Dirty</h2>
+          </p>
         </div>
-        {lines(10)}
-      </div>
-      <p>
-        <h2>Clean</h2> <h2>Dirty</h2>
-      </p>
-    </div>
+      )}
+    </>
   );
 };
 

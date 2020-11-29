@@ -1,27 +1,21 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ProductImage from '../components/ProductImage';
 import Meter from '../components/Meter';
 import Ingredients from '../components/Ingredients';
 import Reviews from '../components/Reviews';
-import { AppContext } from '../context/AppContext';
 
 const ProductPage = () => {
-  const { setLoading, loading } = useContext(AppContext);
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [tab1, setTab1] = useState(true);
-  const [hideMeter, setHideMeter] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     axios
       .get(`/api/products/${id}`)
       .then((response) => {
         setProduct(response.data);
-        setHideMeter(response.data.verified);
-        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -38,6 +32,7 @@ const ProductPage = () => {
         console.log(error);
       });
   };
+  console.log(product);
 
   return (
     <div id="product" className="inner">
@@ -62,9 +57,7 @@ const ProductPage = () => {
           })}
         </div>
       </div>
-      {hideMeter && (
-        <Meter ingredients={product.ingredients} verified={product.verified} />
-      )}
+      <Meter ingredients={product.ingredients} verified={product?.verified} />
       <div className="tabs">
         <button
           className={tab1 && 'active'}
