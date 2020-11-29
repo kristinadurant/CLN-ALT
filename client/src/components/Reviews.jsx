@@ -5,7 +5,7 @@ import ReviewListItem from './ReviewListItem';
 import Stars from './Stars';
 
 const Reviews = ({ reviews, productId }) => {
-  const { user, currentUser, setPopSignUp } = useContext(AppContext);
+  const { currentUser, setPopSignUp } = useContext(AppContext);
   const [addReview, setAddReview] = useState(false);
   const [formData, setFormData] = useState({});
 
@@ -17,7 +17,6 @@ const Reviews = ({ reviews, productId }) => {
   };
 
   const handleAddReview = async (e) => {
-    const form = e.target;
     e.preventDefault();
     try {
       await axios.post(
