@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Meter = ({ ingredients }) => {
+const Meter = ({ ingredients, verified }) => {
   function meter(ingredients) {
     let meter = 0;
     for (let i = 0; i < ingredients.length; i++) {
@@ -19,7 +19,7 @@ const Meter = ({ ingredients }) => {
   let meterNumber = ingredients ? meter(ingredients) : '70';
 
   return (
-    <div className="meter">
+    <div className={verified ? 'meterNoDisplay' : 'meter'}>
       <div className="meterBar">
         <div style={{ width: `${meterNumber}%` }}>
           <p>{meterNumber}</p>

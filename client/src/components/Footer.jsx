@@ -30,16 +30,20 @@ const Footer = () => {
         </div>
         <ul>
           <li>
-            <Link to="/ourStory">ABOUT US</Link>
+            <Link to="/userGuide">USER GUIDE</Link>
           </li>
           <li>
             <Link to="#">CONTACT</Link>
           </li>
           <li>
-            <Link to="#">PRIVACY LOGIN</Link>
+            <Link to="/privacyPolicy" target="_blank">
+              PRIVACY POLICY
+            </Link>
           </li>
           <li>
-            <Link to="#">TERMS OF USE</Link>
+            <Link to="/termsAndConditions" target="_blank">
+              TERMS OF USE
+            </Link>
           </li>
         </ul>
       </div>

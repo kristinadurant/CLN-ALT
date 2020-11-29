@@ -21,7 +21,7 @@ const ProductPage = () => {
         console.log(error);
       });
   }, [id, setProduct]);
-  console.log(product);
+
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>
@@ -45,7 +45,9 @@ const ProductPage = () => {
           })}
         </div>
       </div>
-      {!product.verified && <Meter ingredients={product.ingredients} />}
+      {!product.verified && (
+        <Meter ingredients={product.ingredients} verified={product.verified} />
+      )}
       <div className="tabs">
         <button
           className={tab1 && 'active'}

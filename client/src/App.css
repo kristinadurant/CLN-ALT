@@ -49,7 +49,9 @@ header {
 .block {
   display: block;
 }
-.bgBlack {
+.bgBlack,
+.bgBlack:focus,
+.bgBlack:active {
   background-color: #000;
   color: #fff;
 }
@@ -856,14 +858,17 @@ input {
   position: relative;
   overflow: hidden;
 }
-/* @keyframes slideInFromLeft {
+@keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%);
   }
   100% {
     transform: translateX(0);
   }
-} */
+}
+.meterNoDisplay {
+  display: none;
+}
 .meterBar div {
   border-radius: 1rem;
   top: 0;
@@ -887,7 +892,6 @@ input {
   display: flex;
   width: 70%;
   justify-content: space-between;
-  font-family: Poppins;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -1201,7 +1205,15 @@ input[type='file'] {
   margin-bottom: 5%;
   margin-top: 5%;
 }
-
+/*======================
+TERMS AND CONDITIONS
+=======================*/
+.termsConditions h6 {
+  margin-bottom: 5%;
+}
+.termsConditions p {
+  margin-bottom: 2%;
+}
 /*===================
 NAVBAR RESPONSIVE VIEW
 ====================*/
