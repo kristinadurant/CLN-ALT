@@ -44,7 +44,7 @@ const Reviews = ({ reviews, productId }) => {
 
   const avgReviews = (reviews) => {
     let sum = 0;
-    reviews.map((rate) => (sum = sum + rate.rate));
+    reviews.map((rate) => rate.rate && (sum = sum + rate.rate));
     return sum / reviews.length;
   };
   const avg = avgReviews(reviews);
