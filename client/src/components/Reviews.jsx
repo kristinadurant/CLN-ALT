@@ -63,26 +63,34 @@ const Reviews = ({ reviews, productId }) => {
       <ul>
         {addReview && (
           <li className="list">
-            <div className="listImage">
-              <img
-                src={user?.avatar || require('../images/placeholderUser.png')}
-                alt="user"
-              />
-              <p>{user?.name}</p>
+            <div className="listWrapper">
+              <div className="listImage">
+                <img
+                  src={
+                    currentUser?.avatar ||
+                    require('../images/placeholderUser.png')
+                  }
+                  alt="user"
+                />
+              </div>
+              <p>{currentUser?.name}</p>
             </div>
-            <form onSubmit={handleAddReview}>
-              <input
-                onChange={handleChange}
-                name="rate"
-                type="number"
-                min="1"
-                max="5"
-              />
-              <input
-                onChange={handleChange}
-                name="description"
-                type="textarea"
-              />
+            <form className="reviewInput" onSubmit={handleAddReview}>
+              <p>
+                <input
+                  onChange={handleChange}
+                  name="rate"
+                  type="number"
+                  min="1"
+                  max="5"
+                />
+                <input
+                  onChange={handleChange}
+                  name="description"
+                  type="textarea"
+                  placeholder="Add your review..."
+                />
+              </p>
               <button className="button bgBlack" type="submit">
                 + Add
               </button>

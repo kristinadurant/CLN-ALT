@@ -913,11 +913,6 @@ li.productsList {
   display: flex;
   align-items: center;
 }
-li.list .listImage {
-  width: 5vw;
-  text-align: center;
-  margin-right: 3%;
-}
 li.ingredient button {
   font-size: 1.5rem;
   margin-right: 1%;
@@ -947,6 +942,26 @@ li.ingredient strong {
   align-items: center;
   margin-top: 2%;
 }
+.reviewInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.reviewInput p {
+  width: 100%;
+}
+.reviewInput input[type='textarea'] {
+  border: none;
+  width: 80%;
+  border-bottom: 1px solid #dcdcdc57;
+}
+.reviewInput input[type='number'] {
+  width: 2.5rem;
+  margin-right: 1rem;
+  height: 2rem;
+  padding: 0;
+}
 .stars {
   display: flex;
   align-items: center;
@@ -959,10 +974,17 @@ i.fa-star.regular {
 }
 .reviews li .listImage {
   border-radius: 100%;
+}
+li .listImage {
   margin: auto !important;
   width: 4vw;
   height: 4vw;
   overflow: hidden;
+  display: block;
+  text-align: center;
+}
+li .listImage .productImage {
+  max-height: 100%;
 }
 .reviews li .listWrapper {
   text-align: center;
