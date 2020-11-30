@@ -1,4 +1,4 @@
-const Review = require('../db/models/review'),
+const Review = require('../db/models/Review'),
   mongoose = require('mongoose');
 
 exports.deleteReviewsForProduct = async (reviews = []) => {

@@ -1,4 +1,4 @@
-const Ingredient = require('../db/models/ingredient'),
+const Ingredient = require('../db/models/Ingredient'),
   mongoose = require('mongoose');
 
 // ***********************************************//
