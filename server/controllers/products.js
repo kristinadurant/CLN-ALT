@@ -1,4 +1,3 @@
-
 const Product = require('../db/models/product'),
   mongoose = require('mongoose'),
   cloudinary = require('cloudinary').v2;
@@ -53,11 +52,11 @@ exports.getSpecificProduct = async (req, res) => {
 };
 
 //ANCHOR GET ALL PRODUCTS .getAllProducts///////////
-
 exports.getAllProducts = async (req, res) => {
+  let match = {};
   let limit = parseInt(req.query.limit);
-  let match = req.query;
-  if (req.query.verified) match.verified = req.query.verified === true;
+  let keys = Object.keys(req.query).filter((key) => key !== 'limit');
+  keys.forEach((key) => (match[key] = req.query[key]));
   try {
     const products = await Product.find(match)
       .limit(limit)
