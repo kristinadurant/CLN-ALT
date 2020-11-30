@@ -7,11 +7,13 @@ const ReviewListItem = ({ review }) => {
       <div className="listWrapper">
         <div className="listImage">
           <img
-            src={review.user.avatar || require('../images/placeholderUser.png')}
+            src={
+              review.user?.avatar || require('../images/placeholderUser.png')
+            }
             alt="user"
           />
         </div>
-        <p>{review.user.name}</p>
+        <p>{review.user?.name || 'User'}</p>
       </div>
       <div>
         <p className="stars">
