@@ -216,7 +216,7 @@ const Home = () => {
           <p>We're toxic-free but our emails are intoxicating.</p>
           <p>Sign up for updates and all things natural.</p>
           <form className="email-subscription">
-            <input type="email" className="email-subscription" />
+            <input type="email" className="email-subscription" required />
             <button type="submit" className="emailbutton-subscription">
               SUBMIT
             </button>

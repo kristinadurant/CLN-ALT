@@ -6,9 +6,10 @@ import ResetPassword from './ResetPassword';
 import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
 import LogOut from './LogOut';
+import DeleteUser from './DeleteUser';
 
 const PopUp = () => {
-  const { popSignUp, setPopSignUp } = useContext(AppContext);
+  const { popSignUp, setPopSignUp, currentUser } = useContext(AppContext);
 
   return (
     <>
@@ -45,7 +46,10 @@ const PopUp = () => {
             <div className="success container">
               <h6>Confirmation</h6>
               <p>You're all set! Check out your profile.</p>
-              <Link to="/profile" onClick={(e) => setPopSignUp(false)}>
+              <Link
+                to={`/profile/${currentUser?._id}`}
+                onClick={(e) => setPopSignUp(false)}
+              >
                 Go to Profile
               </Link>
               <Link to="/" onClick={(e) => setPopSignUp(false)}>
@@ -56,6 +60,7 @@ const PopUp = () => {
           {popSignUp === 'resetPassword' && <ResetPassword />}
           {popSignUp === 'updatePassword' && <UpdatePassword />}
           {popSignUp === 'logOut' && <LogOut />}
+          {popSignUp === 'deleteUser' && <DeleteUser />}
         </div>
       )}
     </>

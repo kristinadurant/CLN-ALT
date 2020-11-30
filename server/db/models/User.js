@@ -53,7 +53,8 @@ const userSchema = new mongoose.Schema(
     }
   },
   {
-    timestamps: true
+    timestamps: true,
+    toJSON: { virtuals: true }
   }
 );
 
@@ -112,10 +113,6 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-userSchema.pre('remove', async function (next) {
-  // await this.model('Review').remove({ user: this._id });
-  this.model('Favorite').remove({ user: this._id }, next);
-});
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

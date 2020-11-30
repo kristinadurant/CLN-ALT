@@ -4,6 +4,7 @@ import axios from 'axios';
 const AddImage = ({ profile, setProfile }) => {
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
+  const [changeImage, setChangeImage] = useState(false);
 
   const handleImageSelect = (e) => {
     setPreview(URL.createObjectURL(e.target.files[0]));
@@ -24,6 +25,7 @@ const AddImage = ({ profile, setProfile }) => {
         }
       });
       setProfile({ ...profile, avatar: updatedUser.data.secure_url });
+      setChangeImage(false);
     } catch (error) {
       console.log('Error', 'Oops, something went wrong.');
     }
@@ -41,12 +43,28 @@ const AddImage = ({ profile, setProfile }) => {
           alt="profile-picture"
         />
       </div>
-      <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" onChange={handleImageSelect} />
-        <button className="button bgBlack" type="submit">
-          Save Image
+      {changeImage && (
+        <form onSubmit={handleSubmit}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageSelect}
+            required
+          />
+          <button className="button bgBlack" type="submit">
+            Save Image
+          </button>
+        </form>
+      )}
+      {!changeImage && (
+        <button
+          className="button bgBlack"
+          onClick={(e) => setChangeImage(true)}
+        >
+          {' '}
+          Change Image{' '}
         </button>
-      </form>
+      )}
     </div>
   );
 };

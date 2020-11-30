@@ -4,7 +4,7 @@ import { AppContext } from '../context/AppContext';
 import ReviewListItem from './ReviewListItem';
 import Stars from './Stars';
 
-const Reviews = ({ reviews, productId }) => {
+const Reviews = ({ reviews, productId, fetchProduct }) => {
   const { currentUser, setPopSignUp } = useContext(AppContext);
   const [addReview, setAddReview] = useState(false);
   const [formData, setFormData] = useState({});
@@ -26,6 +26,7 @@ const Reviews = ({ reviews, productId }) => {
       );
       setFormData({});
       setAddReview(!addReview);
+      fetchProduct();
     } catch (error) {
       console.log(error);
     }
@@ -82,12 +83,14 @@ const Reviews = ({ reviews, productId }) => {
                   type="number"
                   min="1"
                   max="5"
+                  required
                 />
                 <input
                   onChange={handleChange}
                   name="description"
                   type="textarea"
                   placeholder="Add your review..."
+                  required
                 />
               </p>
               <button className="button bgBlack" type="submit">

@@ -26,6 +26,7 @@ const ResetPassword = () => {
         type="email"
         placeholder="Email Address"
         autoComplete="off"
+        required
       />
       <button className="button bgBlack" type="submit">
         Reset Password
