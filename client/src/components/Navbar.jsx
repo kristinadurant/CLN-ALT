@@ -42,9 +42,6 @@ const Navbar = () => {
           <li>
             <Link to="/bannedIngredients">Banned Ingredients</Link>
           </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
         </ul>
 
         <div className="right-nav">
