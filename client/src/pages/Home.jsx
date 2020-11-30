@@ -2,8 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
-import Category from '../pages/Category';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import Simple from '../components/Simple';
 
@@ -23,6 +21,8 @@ const Home = () => {
         console.log(error);
       });
   }, []);
+
+  console.log(verified);
 
   return (
     <div>
@@ -87,22 +87,22 @@ const Home = () => {
               <img src={require('../images/howclnalt.svg')} alt="how-title" />
             </div>
             <div className="phone-columns">
-              <div className="phone-1">
-                <img src={require('../images/phone.svg')} alt="phone-icon" />
+              <div className="phone-text">
+                <img src={require('../images/iphone1.png')} alt="phone-icon" />
                 <div className="phone-text">
                   <p>SEARCH</p>
-                  <p>Search a product</p>
+                  <p> a product</p>
                 </div>
               </div>
-              <div className="phone-2">
-                <img src={require('../images/phone.svg')} alt="phone-icon" />
+              <div className="phone-text">
+                <img src={require('../images/iphone2.png')} alt="phone-icon" />
                 <div className="phone-text">
                   <p>LEARN</p>
                   <p>about the ingredients</p>
                 </div>
               </div>
-              <div className="phone-3">
-                <img src={require('../images/phone.svg')} alt="phone-icon" />
+              <div className="phone-text">
+                <img src={require('../images/iphone3.png')} alt="phone-icon" />
                 <div className="phone-text">
                   <p>FIND</p>
                   <p>cleaner alternatives</p>
@@ -123,7 +123,7 @@ const Home = () => {
               }
             >
               <Link
-                to={`/category/${category._id}`}
+                to={`/products/category/${category._id}`}
                 onClick={() => {
                   setCat(category._id);
                   setSubCat(null);
@@ -139,30 +139,6 @@ const Home = () => {
         <section id="justVerified">
           <div className="fourth-container">
             <h5 className="home-title2">Just Verified</h5>
-
-            {/* <div className="cards-background">
-            <img
-              src={require('../images/verone.png')}
-              className="verifiedphoto-1"
-            />
-            <img
-              src={require('../images/vertwo.png')}
-              className="verifiedphoto-2"
-            />
-            <img
-              src={require('../images/verthree.png')}
-              className="verifiedphoto-3"
-            />
-          </div> */}
-
-            {/* <ul>
-          {verified?.map((product) => (
-            <li key={product._id}>
-              <img src={product.image} alt="product-image" />
-              <p>{product.title}</p>
-            </li>
-          ))}
-        </ul> */}
           </div>
         </section>
 
@@ -186,7 +162,7 @@ const Home = () => {
                   src={require('../images/doctortanner.svg')}
                   alt="doctor-photo"
                 />
-                <p className="doc-name">Dr. Mia Chenna</p>
+                <p className="doc-title">Dr. Mia Chenna</p>
                 <p className="doc-title">Dermatologist</p>
               </div>
               <div>
@@ -194,7 +170,7 @@ const Home = () => {
                   src={require('../images/doctorlee.svg')}
                   alt="doctor-photo"
                 />
-                <p className="doc-name">Dr. Wendy Lee</p>
+                <p className="doc-title">Dr. Wendy Lee</p>
                 <p className="doc-title">Doctor</p>
               </div>
               <div>
@@ -202,7 +178,7 @@ const Home = () => {
                   src={require('../images/doctorchenna.svg')}
                   alt="doctor-photo"
                 />
-                <p className="doc-name">Dr. Dara Chenna</p>
+                <p className="doc-title">Dr. Dara Chenna</p>
                 <p className="doc-title">Cosmetologist</p>
               </div>
             </div>
@@ -217,9 +193,21 @@ const Home = () => {
               className="follow"
             />
             <div className="insta-photo">
-              <img src={require('../images/instaone.jpg')} class="image" />
-              <img src={require('../images/instatwo.jpg')} class="image" />
-              <img src={require('../images/insta-three.jpg')} class="image" />
+              <img
+                src={require('../images/instaone.jpg')}
+                class="image"
+                className="insta1"
+              />
+              <img
+                src={require('../images/instatwo.jpg')}
+                class="image"
+                className="insta2"
+              />
+              <img
+                src={require('../images/insta-three.jpg')}
+                class="image"
+                className="insta3"
+              />
             </div>
 
             <p>We're toxic-free but our emails are intoxicating.</p>

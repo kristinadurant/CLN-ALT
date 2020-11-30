@@ -19,21 +19,20 @@ const UserGuide = () => {
             that the product:
           </p>
           <ul className="userguide-paragraph user">
-            <img
-              src={require('../images/okcircle.svg')}
-              className="userguide-check"
-            />
-            <li>Avoids CLN+ALT's ingredients of concern</li>
-            <img
-              src={require('../images/okcircle.svg')}
-              className="userguide-check"
-            />
-            <li>Full transparency</li>
-            <img
-              src={require('../images/okcircle.svg')}
-              className="userguide-check"
-            />
-            <li>Good manufacturing practices</li>
+            <li className="userguide-check">
+              <img src={require('../images/okcircle.svg')} />
+              Avoids CLN+ALT's ingredients of concern
+            </li>
+
+            <li className="userguide-check">
+              <img src={require('../images/okcircle.svg')} />
+              Full transparency
+            </li>
+
+            <li className="userguide-check">
+              <img src={require('../images/okcircle.svg')} />
+              Good manufacturing practices
+            </li>
           </ul>
         </section>
         <section>

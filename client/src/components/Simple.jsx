@@ -41,7 +41,7 @@ const Simple = ({ deviceType }) => {
         return (
           <Image
             draggable={false}
-            style={{ width: '80%', height: '90%' }}
+            style={{ width: '99%', height: '90%' }}
             src={image}
           />
         );

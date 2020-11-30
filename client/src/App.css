@@ -333,8 +333,7 @@ footer ul a {
 .phone-columns {
   display: flex;
   align-items: center;
-  justify-content: center;
-  align-content: space-between;
+  justify-content: space-around;
 }
 
 .phone-1,
@@ -372,6 +371,10 @@ footer ul a {
   margin-right: 200px;
   margin-bottom: 2%;
 }
+.doc-title {
+  display: flex;
+  justify-content: center;
+}
 
 button.emailbutton-subscription {
   font-family: Poppins;
@@ -386,7 +389,7 @@ button.emailbutton-subscription {
   border-radius: 3px;
   height: 21px;
   width: 70px;
-  left: 860px;
+  left: 880px;
 }
 .wellness-text {
   font-family: Poppins;
@@ -417,7 +420,7 @@ button.emailbutton-subscription {
   font-size: 30px;
   line-height: 75px;
   color: #1f1f1f;
-  margin-right: 67%;
+  margin-right: 68%;
 }
 
 .home-title3 {
@@ -510,7 +513,6 @@ input.email-subscription {
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  margin-top: 3%;
 }
 
 .social-container {
@@ -551,6 +553,11 @@ input.email-subscription {
 }
 .image-item {
   padding: 20px 0 20px 20px;
+}
+
+.insta1,
+.insta2 {
+  margin-right: 6%;
 }
 
 /*=========================
@@ -1059,10 +1066,11 @@ li.ingredient p {
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  margin-bottom: 6%;
+  margin-bottom: 4%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .user-list {
