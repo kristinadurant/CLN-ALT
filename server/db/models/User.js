@@ -115,17 +115,6 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-userSchema.pre('deleteOne', async function (next) {
-  const user = this;
-  await Favorite.deleteMany({
-    user: user._conditions._id
-  });
-  await Review.deleteMany({
-    user: user._conditions._id
-  });
-  next();
-});
-
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

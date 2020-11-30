@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Meter = ({ ingredients, verified }) => {
+const Meter = ({ ingredients, length }) => {
   const [meterNumber, setMeterNumber] = useState(0);
 
   function meter(ingredients) {
@@ -20,9 +20,13 @@ const Meter = ({ ingredients, verified }) => {
     return html;
   }
   useEffect(() => {
-    if (ingredients) setMeterNumber(meter(ingredients));
+    if (length) {
+      setMeterNumber(length);
+    } else if (ingredients) {
+      setMeterNumber(meter(ingredients));
+    }
   }, [ingredients]);
-  console.log(meterNumber);
+
   return (
     <>
       {meterNumber > 0 && (
