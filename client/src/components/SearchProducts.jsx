@@ -6,7 +6,6 @@ import UpdateProduct from './UpdateProduct';
 
 const SearchProducts = () => {
   const { setLoading, loading } = useContext(AppContext);
-  console.log('hello');
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState([]);
   const [update, setUpdate] = useState(false);
