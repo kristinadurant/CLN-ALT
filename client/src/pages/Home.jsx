@@ -25,7 +25,7 @@ const Home = () => {
   console.log(verified);
 
   return (
-    <div>
+    <div id="homepage">
       <section id="intro">
         <div className="top-container">
           <img
@@ -90,7 +90,7 @@ const Home = () => {
               <div className="phone-text">
                 <img src={require('../images/iphone1.png')} alt="phone-icon" />
                 <div className="phone-text">
-                  <p>SEARCH</p>
+                  <p>SCAN</p>
                   <p> a product</p>
                 </div>
               </div>
