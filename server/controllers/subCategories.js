@@ -1,4 +1,4 @@
-const SubCategory = require('../db/models/SubCategory'),
+const SubCategory = require('../db/models/Subcategory'),
   mongoose = require('mongoose');
 
 //ANCHOR CREATE SubCategory

@@ -1,4 +1,4 @@
-const Product = require('../db/models/product'),
+const Product = require('../db/models/Product'),
   // ReviewModel = require('../db/models/Review'),
   // FavoriteModel = require('../db/models/Favorite'),
   mongoose = require('mongoose'),
