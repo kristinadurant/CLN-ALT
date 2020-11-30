@@ -13,7 +13,7 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api', formData);
+      const response = await axios.post('/api/users', formData);
       sessionStorage.setItem('user', response.data);
       setCurrentUser(response.data.user);
       setPopSignUp('success');

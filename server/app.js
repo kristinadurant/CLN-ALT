@@ -24,6 +24,11 @@ app.use('/api', openRoutes);
 //Middleware to parse through incoming cookies in the requests.
 app.use(cookieParser());
 
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
+}
+
 app.use(
   fileUpload({
     useTempFiles: true,
@@ -43,11 +48,6 @@ app.use('/api/favorites', favoriteRouter);
 
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
-
-if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
-  app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
-}
 
 if (process.env.NODE_ENV === 'production') {
   // Handle React routing, return all requests to React app
