@@ -25,7 +25,7 @@ const Home = () => {
   console.log(verified);
 
   return (
-    <div>
+    <div id="homepage">
       <section id="intro">
         <div className="top-container">
           <img

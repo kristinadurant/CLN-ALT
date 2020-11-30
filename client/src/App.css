@@ -13,13 +13,14 @@ a,
 button {
   cursor: pointer;
 }
-button,
+button {
+  background-color: #fff;
+}
 button:focus,
 button:active,
 input:focus,
 input:active {
   outline: none;
-  background-color: #fff;
 }
 li {
   list-style-type: none;
@@ -86,13 +87,15 @@ h6 {
   background-position: bottom left;
   background-size: 30%;
 }
-.sideBackground {
+.sideBackground,
+.homeback {
   background: url(./images/sidebackground.png);
   background-repeat: repeat-y;
   background-position: top right;
   background-size: 30%;
 }
-.topSideBackground {
+.topSideBackground,
+.liquid {
   background: url(./images/topsidebackground.png);
   background-repeat: repeat-y;
   background-position: top right;
@@ -100,6 +103,12 @@ h6 {
 }
 .noRepeat {
   background-repeat: no-repeat !important;
+}
+header + div:first-of-type {
+  margin-top: 10vw;
+}
+#homepage {
+  margin-top: 0 !important;
 }
 /*===================
     TO THE TOP
@@ -592,6 +601,7 @@ input.email-subscription {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 0 !important;
 }
 .module .exit {
   position: absolute;
@@ -792,13 +802,12 @@ input {
 }
 .productImage {
   text-align: center;
-  position: relative; /*remove*/
+  position: relative;
 }
 .productImage .verified {
-  position: initial !important;
-  width: 7rem !important;
-  bottom: 0; /*remove*/
-  left: 0; /*remove*/
+  /* width: 7rem; */
+  bottom: 0;
+  left: 0;
 }
 .productImage > div {
   display: flex;
@@ -846,16 +855,16 @@ input {
   margin-bottom: 5%;
 }
 .meterBar {
-  height: 2.5rem !important;
-  padding-top: 1.5rem !important;
-  border-radius: 1.5rem !important;
+  height: 2.5rem;
+  padding-top: 1.5rem;
+  border-radius: 1.5rem;
   margin: auto;
   border: 1px solid #000;
-  background-color: #fff !important;
+  background-color: #fff;
 }
 .meterBar div {
-  background-color: #dba09c !important;
-  border-radius: 1.5rem !important;
+  background-color: #dba09c;
+  border-radius: 1.5rem;
 }
 .meter > p {
   margin: auto;
@@ -863,15 +872,12 @@ input {
 .meter h2 {
   font-size: 1rem;
 }
-.productImage {
-  position: relative;
-}
-.productImage .verified {
+/* .productImage .verified {
   width: 50px;
   position: absolute;
   bottom: 0;
   left: 0;
-}
+} */
 .tags img {
   width: 80px;
   display: block;
@@ -927,7 +933,6 @@ input {
   color: #000000;
   margin-bottom: 4%;
 }
-/* tabs section */
 .tabs button {
   display: inline-block;
   width: 50%;
@@ -944,15 +949,15 @@ input {
 
 .tabs button {
   background-color: #ffff;
-  border: 2px solid #000 !important;
+  border: 2px solid #000;
   font-weight: 900;
 }
 .tabs button.active {
-  background-color: #000 !important;
+  background-color: #000;
   color: #fff;
 }
 li.list {
-  border-bottom: 1px solid #ded5d5 !important;
+  border-bottom: 1px solid #ded5d5;
   padding: 1rem 0;
   display: flex;
   align-items: center;
@@ -960,9 +965,8 @@ li.list {
 li.productsList {
   justify-content: space-between;
 }
-.productsList .leftWrapper {
-  display: flex;
-  align-items: center;
+.productsList .favoritesProduct {
+  width: 100%;
 }
 li.ingredient button {
   font-size: 1.5rem;
@@ -971,10 +975,10 @@ li.ingredient button {
 li.ingredient p {
   display: flex;
   align-items: center;
-  height: 3rem !important;
+  height: 3rem;
 }
 li.ingredient.closed div p:nth-of-type(n + 2) {
-  height: 0 !important;
+  height: 0;
 }
 li.ingredient strong {
   margin-right: 0.5rem;
@@ -1026,8 +1030,11 @@ i.fa-star.regular {
 .reviews li .listImage {
   border-radius: 100%;
 }
+.reviews li div:first-of-type img {
+  border-radius: 100%;
+}
 li .listImage {
-  margin: auto !important;
+  margin: auto;
   width: 4vw;
   height: 4vw;
   overflow: hidden;
@@ -1037,7 +1044,7 @@ li .listImage {
 li .listImage .productImage {
   max-height: 100%;
 }
-.reviews li .listWrapper {
+li .listWrapper {
   text-align: center;
   width: 8vw;
   margin-right: 3%;
@@ -1056,11 +1063,7 @@ li.ingredient button {
   height: 2rem;
   width: 2rem;
 }
-li.ingredient.closed div p:nth-of-type(n + 2) {
-  height: 0rem;
-}
 li.ingredient p {
-  height: 2rem;
   overflow: hidden;
   transition: height 0.5s;
 }
@@ -1173,12 +1176,17 @@ input[type='file'] {
 .noResults a {
   text-decoration: underline;
 }
-
+.favorites {
+  margin-bottom: 10%;
+}
 /*=========================
     ADMIN PAGE
 ============================*/
 #admin .tabs {
   margin-bottom: 5%;
+}
+#admin li.list {
+  justify-content: space-between;
 }
 #admin form {
   display: flex;

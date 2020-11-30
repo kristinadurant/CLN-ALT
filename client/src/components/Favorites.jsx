@@ -21,7 +21,7 @@ const Favorites = ({ favorites, fetchProfile }) => {
         <ul>
           {favorites?.map((favorite) => (
             <li key={favorite?._id} className="list productsList">
-              <div className="leftWrapper">
+              <div className="listWrapper">
                 <Link
                   to={`/products/${favorite?.product?._id}`}
                   className="listImage"
@@ -32,8 +32,8 @@ const Favorites = ({ favorites, fetchProfile }) => {
                     alt={favorite?.product?.title}
                   />
                 </Link>
-                <p>{favorite?.product?.title}</p>
               </div>
+              <p className="favoritesProduct">{favorite?.product?.title}</p>
               <button
                 className="button"
                 value={favorite?._id}
