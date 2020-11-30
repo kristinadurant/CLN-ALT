@@ -116,7 +116,7 @@ header + div:first-of-type {
 #toTheTop {
   border-radius: 100%;
   position: absolute;
-  bottom: 200px;
+  bottom: 150px;
   background-color: #fff;
   left: 48vw;
   width: 4vw;
@@ -782,11 +782,11 @@ input {
     PRODUCT PAGE
 ========================*/
 #product h4 {
-  font-size: 3rem;
+  font-size: 2.25rem;
   margin-bottom: 0.75rem;
 }
 #product h4 + p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 1.5rem;
 }
 .productContainer {
@@ -1074,9 +1074,8 @@ li.ingredient p {
   font-family: Poppins;
   font-style: normal;
   font-weight: 600;
-  font-size: 25px;
-  line-height: 37px;
-
+  font-size: 3rem;
+  margin-bottom: 3rem;
   color: #000000;
 }
 
@@ -1090,8 +1089,8 @@ li.ingredient p {
   margin-bottom: 4%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .user-list {
@@ -1099,9 +1098,13 @@ li.ingredient p {
 }
 
 .userguide-check {
-  display: inline;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
 }
-
+.userguide-check img {
+  margin-right: 0.5rem;
+}
 .what-does {
   font-family: Poppins;
   font-style: normal;
@@ -1109,6 +1112,7 @@ li.ingredient p {
   font-size: 20px;
   line-height: 30px;
   top: 367px;
+  margin-bottom: 0.5rem;
 }
 
 /*=========================
