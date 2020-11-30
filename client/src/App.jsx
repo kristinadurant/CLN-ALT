@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AppContextProvider } from './context/AppContext';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
 import './App.css';
 import Navbar from './components/Navbar';
 import PopUp from './components/PopUp';
@@ -50,7 +51,7 @@ const App = () => {
           />
           <Route exact path="/privacyPolicy" component={PrivacyPolicy} />
           <PrivateRoute exact path="/profile/:id" component={Profile} />
-          <PrivateRoute exact path="/admin/:id" component={Admin} />
+          <AdminRoute exact path="/admin/:id" component={Admin} />
         </Switch>
         <Footer />
         <ToTheTop />
