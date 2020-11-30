@@ -52,7 +52,7 @@ const Profile = () => {
             </a>
             <a
               className="block deleteAccount"
-              // onClick={(e) => setPopSignUp('resetPassword')}
+              onClick={(e) => setPopSignUp('deleteUser')}
             >
               Delete Account
             </a>
