@@ -56,13 +56,15 @@ input:active {
   background-position: bottom left;
   background-size: 30%;
 }
-.sideBackground {
+.sideBackground,
+.homeback {
   background: url(./images/sidebackground.png);
   background-repeat: repeat-y;
   background-position: top right;
   background-size: 30%;
 }
-.topSideBackground {
+.topSideBackground,
+.liquid {
   background: url(./images/topsidebackground.png);
   background-repeat: repeat-y;
   background-position: top right;
@@ -160,7 +162,6 @@ footer ul a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 10%;
 }
 #productsList ul li {
   width: 45%;

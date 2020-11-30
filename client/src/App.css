@@ -139,7 +139,7 @@ header nav ul li {
   margin-left: 140px;
   margin-right: 140px;
 }
-.nav-links {
+.nav-active {
   margin-right: 12%;
 }
 .navbar a {
@@ -198,6 +198,7 @@ header nav ul li {
 .profileimage {
   width: 27px;
   height: 28px;
+  margin-left: 12%;
 }
 
 .burger,
@@ -350,8 +351,7 @@ footer ul a {
 .phone-columns {
   display: flex;
   align-items: center;
-  justify-content: center;
-  align-content: space-between;
+  justify-content: space-around;
 }
 
 .phone-1,
@@ -385,9 +385,13 @@ footer ul a {
 }
 .doc-photos {
   display: flex;
+  justify-content: space-between;
+  margin-right: 200px;
+  margin-bottom: 2%;
+}
+.doc-title {
+  display: flex;
   justify-content: center;
-  align-items: center;
-  margin-right: 100px;
 }
 
 button.emailbutton-subscription {
@@ -403,7 +407,7 @@ button.emailbutton-subscription {
   border-radius: 3px;
   height: 21px;
   width: 70px;
-  left: 860px;
+  left: 880px;
 }
 .wellness-text {
   font-family: Poppins;
@@ -426,6 +430,7 @@ button.emailbutton-subscription {
   font-size: 30px;
   line-height: 75px;
   color: #1f1f1f;
+  font-weight: 600;
 }
 
 .home-title2 {
@@ -433,6 +438,7 @@ button.emailbutton-subscription {
   font-size: 30px;
   line-height: 75px;
   color: #1f1f1f;
+  margin-right: 68%;
 }
 
 .home-title3 {
@@ -468,11 +474,10 @@ input.email-subscription {
   font-style: normal;
   font-weight: bold;
   font-size: 25px;
-  line-height: 37px;
+  line-height: 3;
   margin-top: 20px;
   text-align: center;
   color: #ffffff;
-  vertical-align: middle;
 }
 
 .clnalt-ver {
@@ -491,10 +496,6 @@ input.email-subscription {
 .fourth-container {
   display: flex;
   justify-content: space-evenly;
-}
-
-#justVerified {
-  margin-right: 10%;
 }
 
 .imageBox2 {
@@ -530,7 +531,6 @@ input.email-subscription {
   display: flex;
   flex-direction: column;
   margin-left: 10%;
-  margin-top: 10%;
 }
 
 .social-container {
@@ -566,6 +566,18 @@ input.email-subscription {
   line-height: 45px;
   text-align: center;
 }
+#__next {
+  padding: 20px;
+}
+.image-item {
+  padding: 20px 0 20px 20px;
+}
+
+.insta1,
+.insta2 {
+  margin-right: 6%;
+}
+
 /*=========================
     MODULE
 ============================*/
@@ -1072,7 +1084,11 @@ li.ingredient p {
   font-size: 16px;
   line-height: 24px;
   color: #000000;
-  margin-bottom: 6%;
+  margin-bottom: 4%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-list {
@@ -1282,4 +1298,115 @@ NAVBAR RESPONSIVE VIEW
     margin-top: 194px;
     left: 0px;
   }
+}
+
+/*===================
+USERGUIDE TABLE
+====================*/
+
+table {
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  white-space: normal;
+  line-height: normal;
+  font-weight: normal;
+  font-size: medium;
+  font-style: normal;
+  color: -internal-quirk-inherit;
+  text-align: start;
+  border-spacing: 2px;
+  border-color: grey;
+  font-variant: normal;
+}
+table.health {
+  width: 100%;
+  margin: 30px 0;
+  padding: 0;
+}
+table.health thead strong {
+  color: #000;
+  display: block;
+  font-family: 'Karla', sans-serif;
+  font-size: 17px;
+  font-weight: bold;
+}
+table.health thead th {
+  background: #dba09c;
+  color: rgb(102, 102, 102);
+  text-align: center;
+  padding: 10px 0 10px 0;
+  font-family: 'Karla', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+table.health tr td:first-child {
+  width: 167px;
+  padding-left: 10px;
+}
+table.health td {
+  padding: 25px 0;
+  vertical-align: middle;
+  font-family: 'Karla', sans-serif;
+  font-size: 17px;
+  text-align: left;
+  font-weight: bold;
+}
+td {
+  display: table-cell;
+  vertical-align: inherit;
+}
+table.health td p {
+  font-size: 16px;
+  font-family: 'Karla', sans-serif;
+  font-style: italic;
+  font-weight: normal;
+}
+.methodology p {
+  margin: 10px 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: #333333;
+  font-family: 'Karla', sans-serif;
+  line-height: 30px;
+}
+table.health tr td:first-child + td + td {
+  width: 93px;
+  border-left: 1px solid #bee9ee;
+  text-align: center;
+}
+table.health tr td:first-child + td + td {
+  width: 93px;
+  border-left: 1px solid #bee9ee;
+  text-align: center;
+}
+table.health .amarillo {
+  color: #b9a70c;
+}
+table.rating {
+  width: 100%;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+table.health .rojo {
+  color: #c53300;
+}
+table.health tr td:first-child + td + td {
+  width: 93px;
+  border-left: 1px solid #bee9ee;
+  text-align: center;
+}
+table.health tr td:first-child + td + td + td + td {
+  width: 90px;
+  border-left: 1px solid #bee9ee;
+  text-align: center;
+}
+table.health tr td:first-child + td + td + td {
+  width: 90px;
+  border-left: 1px solid #bee9ee;
+  text-align: center;
+}
+table.health tr td:first-child + td {
+  width: 260px;
+  padding-left: 10px;
 }
