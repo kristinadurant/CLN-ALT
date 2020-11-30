@@ -28,11 +28,12 @@ const Home = () => {
     <div id="homepage">
       <section id="intro">
         <div className="top-container">
-          <img
+          {/* <img
             src={require('../images/homebackground.png')}
             alt="lotion-image"
             className="lotion"
-          />
+          /> */}
+          <img src={require('../images/wave.png')} className="photo-curve" />
           <img
             src={require('../images/think.svg')}
             alt="think-title"
@@ -44,7 +45,7 @@ const Home = () => {
             className="clean"
           />
           <p className="p1">
-            Scan a personal care product and get its ingredients, and let us
+            Search a personal care product and get its ingredients, and let us
             direct you to cleaner alternatives!
           </p>
           <Link to="/products" className="discover">
@@ -52,11 +53,6 @@ const Home = () => {
           </Link>
         </div>
       </section>
-
-      <div>
-        <img src={require('../images/wave.png')} className="photo-curve" />
-      </div>
-
       <div className="homeback">
         <section id="insturctions" className="inner">
           <div className="second-container">
@@ -90,7 +86,7 @@ const Home = () => {
               <div className="phone-text">
                 <img src={require('../images/iphone1.png')} alt="phone-icon" />
                 <div className="phone-text">
-                  <p>SCAN</p>
+                  <p>SEARCH</p>
                   <p> a product</p>
                 </div>
               </div>
