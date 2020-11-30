@@ -47,7 +47,7 @@ const UserGuide = () => {
           </p>
         </section>
         <section>
-          <Meter />
+          <Meter length={70} />
           <p className="what-does">CLN+ALT's Rating Score</p>
           <p className="userguide-paragraph">
             The ingredient hazard score, from 1-10, reflects known and suspected

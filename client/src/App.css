@@ -887,7 +887,7 @@ input {
   width: 70%;
   height: 30px;
   padding-top: 16px;
-  background-color: rgb(221, 210, 212);
+  background-color: #fff;
   border-radius: 1rem;
   position: relative;
   overflow: hidden;
@@ -909,7 +909,7 @@ input {
   bottom: 0;
   position: absolute;
   animation: 1s ease-out 0s 1 slideInFromLeft;
-  background-color: rgb(212, 35, 35);
+  background-color: #dba09c;
   max-width: 100%;
 }
 .meterBar div p {
