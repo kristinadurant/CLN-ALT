@@ -30,12 +30,14 @@ const Log = () => {
         name="email"
         type="email"
         placeholder="Email"
+        required
       />
       <input
         onChange={handleChange}
         name="password"
         type="password"
         placeholder="Password"
+        required
       />
       <button className="button bgBlack" type="submit">
         Log In

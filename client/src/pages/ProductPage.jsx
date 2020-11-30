@@ -22,6 +22,18 @@ const ProductPage = () => {
       });
   }, [id, setProduct]);
 
+  const fetchProduct = () => {
+    axios
+      .get(`/api/products/${id}`)
+      .then((response) => {
+        setProduct(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  console.log(product);
+
   return (
     <div id="product" className="inner">
       <h4>{product.title}</h4>
@@ -45,9 +57,7 @@ const ProductPage = () => {
           })}
         </div>
       </div>
-      {!product.verified && (
-        <Meter ingredients={product.ingredients} verified={product.verified} />
-      )}
+      <Meter ingredients={product.ingredients} verified={product?.verified} />
       <div className="tabs">
         <button
           className={tab1 && 'active'}
@@ -74,7 +84,11 @@ const ProductPage = () => {
       </div>
       <div className="reviews" style={{ display: tab1 && 'none' }}>
         {product?.reviews && (
-          <Reviews reviews={product.reviews} productId={id} />
+          <Reviews
+            fetchProduct={fetchProduct}
+            reviews={product.reviews}
+            productId={id}
+          />
         )}
       </div>
     </div>

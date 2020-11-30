@@ -1,4 +1,4 @@
-const User = require('../db/models/user'),
+const User = require('../db/models/User'),
   cloudinary = require('cloudinary').v2,
   {
     sendWelcomeEmail,
@@ -181,9 +181,12 @@ exports.logoutAllDevices = async (req, res) => {
 // ***********************************************//
 
 exports.deleteUser = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    await req.user.remove();
-    sendCancellationEmail(req.user.email, req.user.name);
+    const user = await User.findByCredentials(email, password);
+    await user.remove();
+    sendCancellationEmail(email);
     res.clearCookie('jwt');
     res.json({ message: 'user deleted' });
   } catch (error) {

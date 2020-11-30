@@ -26,7 +26,7 @@ const AddProductImage = ({ product }) => {
           'Content-Type': 'multipart/form-data'
         }
       });
-      setProductData({ ...productData, image: updatedProduct.data.secure_url })
+      setProductData({ ...productData, image: updatedProduct.data.secure_url });
       history.push(`/products/${product._id}`);
     } catch (error) {
       console.log(error.message);
@@ -46,7 +46,12 @@ const AddProductImage = ({ product }) => {
         />
       </div>
       <form onSubmit={handleSubmit}>
-        <input type="file" accept="image/*" onChange={handleImageSelect} />
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageSelect}
+          required
+        />
         <button className="button bgBlack" type="submit">
           Save Image
         </button>

@@ -101,7 +101,25 @@ h6 {
 .noRepeat {
   background-repeat: no-repeat !important;
 }
-
+/*===================
+    TO THE TOP
+====================*/
+#toTheTop {
+  border-radius: 100%;
+  position: absolute;
+  bottom: 200px;
+  background-color: #fff;
+  left: 48vw;
+  width: 4vw;
+  height: 4vw;
+  text-align: center;
+  line-height: 4vw;
+  font-size: 2rem;
+  background-image: linear-gradient(180deg, #e4e1da, #eae0cf 50%, #dcd1bf 90%);
+}
+#toTheTop i {
+  color: #fff;
+}
 /*===================
     NAVBAR
 ====================*/

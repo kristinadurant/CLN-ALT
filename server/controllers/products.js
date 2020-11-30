@@ -1,6 +1,5 @@
+
 const Product = require('../db/models/product'),
-  // ReviewModel = require('../db/models/Review'),
-  // FavoriteModel = require('../db/models/Favorite'),
   mongoose = require('mongoose'),
   cloudinary = require('cloudinary').v2;
 

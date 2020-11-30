@@ -59,6 +59,7 @@ productSchema.virtual('reviews', {
   foreignField: 'product'
 });
 
+
 productSchema.virtual('favorites', {
   ref: 'Favorite',
   localField: '_id',
