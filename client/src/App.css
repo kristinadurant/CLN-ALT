@@ -245,12 +245,14 @@ footer .inner {
   display: flex;
   align-items: center;
 }
-footer .social a {
-  margin-right: 2vw;
-}
 footer .social {
   border-right: 2px solid #b6aa93;
   width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+footer .social img {
+  vertical-align: middle;
 }
 footer ul {
   background-color: transparent !important;
@@ -320,10 +322,14 @@ section#banner {
   align-items: center;
   justify-content: space-around;
 }
-#categorySection ul {
+.categoryList {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+.categoryList p {
+  font-weight: 700;
+  text-transform: capitalize;
 }
 #categorySection li {
   width: 30%;
@@ -331,7 +337,7 @@ section#banner {
   margin-bottom: 5%;
   position: relative;
 }
-#categorySection li a {
+.categoryList li a {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -521,17 +527,10 @@ input {
 #productsList h6 + p {
   margin-bottom: 5%;
 }
-#productsList .categoryList {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
 #productsList .categoryList li {
+  position: relative;
   width: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 3% 0 2%;
+  padding-top: 15%;
 }
 #productsList .categoryList li.active {
   background: linear-gradient(
@@ -541,24 +540,18 @@ input {
     rgba(236, 233, 225, 1) 100%
   );
 }
-#productsList .categoryList li a {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  text-align: center;
-}
 #productsList .categoryList li p {
-  font-weight: 900;
-  text-transform: capitalize;
   margin-top: 0.5rem;
 }
 #subCategories {
   margin-bottom: 6%;
 }
 #subCategories .button {
-  margin-right: 2%;
   padding: 0.3rem 1rem;
+  display: inline-block;
   width: auto;
+  margin-bottom: 2%;
+  margin-right: 2%;
 }
 #subCategories .button.active {
   border: none;
@@ -579,12 +572,11 @@ input {
 #productsList .productImage div div {
   display: none;
 }
-#productsList ul li > a {
-  width: 50%;
-  height: 100%;
-}
 #productsList ul li > a .imageBox {
   height: 100%;
+}
+#productsList .products li > a {
+  width: 50%;
 }
 #productsList .productImage img {
   max-width: 10vw;
@@ -603,10 +595,9 @@ input {
 }
 #productsList .productInfo p {
   margin-bottom: 1rem;
+  display: none;
 }
 #productsList .productInfo h4 {
-  text-transform: uppercase;
-  font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 .productButtons .star {

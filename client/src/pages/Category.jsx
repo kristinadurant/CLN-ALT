@@ -88,7 +88,7 @@ const Category = () => {
           ))}
       </div>
 
-      <ul>
+      <ul className="products">
         {filteredProducts.map((product) => (
           <li key={product._id}>
             <Product product={product} user={currentUser} />

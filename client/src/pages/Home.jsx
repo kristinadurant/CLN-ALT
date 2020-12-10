@@ -74,7 +74,7 @@ const Home = () => {
       <section id="categorySection" className="topSideBackground">
         <div className="inner">
           <h6>Browse by Category</h6>
-          <ul>
+          <ul className="categoryList">
             {categories.map((cat) => (
               <li key={cat._id} className="imageBox">
                 <Link to={`/products/category/${cat._id}`}>
