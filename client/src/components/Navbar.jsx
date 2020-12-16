@@ -1,72 +1,50 @@
-import React, { useContext, useState } from 'react';
-import { Link, NavLink, useHistory, useLocation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
+import SearchBar from './SearchBar';
 
 const Navbar = () => {
-  const { setSearch, setPopSignUp, currentUser } = useContext(AppContext);
-  const [navactive, setNavactive] = useState('false');
-  //User clicks burger change className of nav-links to active
-  //On nav-links make ternary instead of passing className, pass it a conditional statement
-  const history = useHistory();
-  const location = useLocation();
-
-  const handleSearch = (e) => {
-    if (location.pathname !== '/products') {
-      history.push('/products');
-    }
-    setSearch(e.target.value);
-  };
-  const handleToggle = () => {
-    setNavactive(!navactive);
-  };
+  const { setPopSignUp, currentUser } = useContext(AppContext);
 
   return (
     <header>
-      <nav className="navbar">
-        <button className="hamburgerexit exit">&#10005;</button>
-        <div className="burger" onClick={handleToggle}>
-          <div className="line1"></div>
-          <div className="line2"></div>
-          <div className="line3"></div>
-        </div>
-
-        <ul className={navactive ? 'nav-active' : 'nav-links'}>
-          <li>
-            <Link to="/">
-              <img src={require('../images/Logo.svg')} className="logo" />
-            </Link>
-          </li>
-          <li>
-            <Link to="/products">Products</Link>
-          </li>
-          <li>
-            <Link to="/userGuide">User Guide</Link>
-          </li>
-          <li>
-            <Link to="/bannedIngredients">Banned Ingredients</Link>
-          </li>
-        </ul>
-
+      <div className="inner">
+        <button
+          className="burger noBorder"
+          onClick={(e) => setPopSignUp('mobileNav')}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav>
+          <ul className="nav-links">
+            <li>
+              <Link to="/">
+                <img src={require('../images/Logo.svg')} className="logo" />
+              </Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
+            <li>
+              <Link to="/userGuide">User Guide</Link>
+            </li>
+            <li>
+              <Link to="/bannedIngredients">Banned Ingredients</Link>
+            </li>
+          </ul>
+        </nav>
         <div className="right-nav">
-          <form action="action_page.php">
-            <input
-              className="searchbar"
-              onChange={handleSearch}
-              type="text"
-              placeholder="Search personal care products..."
-            />
-            <button type="button" className="searchnav-button">
-              SEARCH
-            </button>
-          </form>
-
-          <img
-            src={require('../images/profile.svg')}
+          <SearchBar />
+          <button
+            className="noBorder profile"
             onClick={(e) => setPopSignUp(currentUser ? 'logOut' : 'popOptions')}
-            className="profileimage"
-          />
+          >
+            <img src={require('../images/profile.svg')} />
+          </button>
         </div>
-      </nav>
+      </div>
     </header>
   );
 };

@@ -139,93 +139,76 @@ header + div:first-of-type {
 /*===================
     NAVBAR
 ====================*/
-header nav {
+header .inner {
   display: flex;
-  max-width: 1280px;
-  margin: auto;
-  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+header .burger {
+  width: 2rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: space-around;
+  display: none;
+}
+header .burger span {
+  border: 2px solid #2a2727;
+  width: 100%;
+  display: block;
+  border-radius: 10px;
 }
 header nav ul {
   display: flex;
+  align-items: center;
 }
 header nav ul li {
-  padding: 0 10px;
+  padding-right: 20px;
 }
-.navbar {
-  height: 70px;
+header nav ul li:first-of-type {
+  padding-right: 30px;
+}
+header nav {
   display: flex;
   justify-content: space-between;
 }
-.nav-active {
-  margin-right: 12%;
-}
-.navbar a {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  margin-top: 20px;
-  color: #4e4e4e;
-}
 
-.navbar ul li {
-  margin-top: 25px;
-  margin-left: 30px;
-  margin-right: 3px;
-}
-
-.right-nav {
+header .right-nav {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 20px;
+  width: 40%;
 }
-.right-nav form {
+form.search {
   display: flex;
   align-items: center;
   border-bottom: 3px solid black;
+  width: 80%;
 }
-
-.searchnav-button {
-  font-family: Poppins;
-  font-style: normal;
+form.search input {
+  padding: 0.5rem;
+  width: 100%;
+}
+form.search button {
   font-weight: 600;
   font-size: 10px;
-  line-height: 15px;
-  color: #ffffff;
-  background-color: #1f1f1f;
   margin-left: 5px;
   border-radius: 3px;
-  height: 21px;
-  width: 70px;
-  border-radius: 3px;
+  padding: 0.2rem 7% !important;
+  border: none !important;
+  width: auto !important;
 }
 
 .searchbar {
   border: none;
-  width: 270px;
-  font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 15px;
 }
-
-.profileimage {
-  width: 27px;
-  height: 28px;
-  margin-left: 12%;
-}
-
-.burger,
-.hamburgerexit {
-  display: none;
-}
-
-.burger div {
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  margin: 5px;
+header button.profile {
+  margin-left: 5%;
+  width: 2rem;
+  line-height: 1;
 }
 
 /*==================
@@ -1246,6 +1229,38 @@ table.health tr td:first-child + td {
 @media only screen and (max-width: 1080px) {
   #categorySection li img {
     transform: scale(1);
+  }
+  header .burger {
+    display: flex;
+  }
+  header .nav-links li:nth-of-type(n + 2) {
+    display: none;
+  }
+  header .right-nav {
+    width: auto;
+  }
+  header .right-nav form {
+    display: none;
+  }
+  header nav ul li:first-of-type {
+    padding-right: 0;
+  }
+  .module .mobileNav.inner {
+    width: 90%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    text-align: left;
+  }
+  form.search {
+    width: 100%;
+    margin-bottom: 10%;
+  }
+  .module .mobileNav a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 0.5rem 0;
   }
 }
 

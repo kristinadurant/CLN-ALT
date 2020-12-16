@@ -7,6 +7,7 @@ import UpdatePassword from './UpdatePassword';
 import SignUp from './SignUp';
 import LogOut from './LogOut';
 import DeleteUser from './DeleteUser';
+import MobileNav from './MobileNav';
 
 const PopUp = () => {
   const { popSignUp, setPopSignUp, currentUser } = useContext(AppContext);
@@ -61,6 +62,7 @@ const PopUp = () => {
           {popSignUp === 'updatePassword' && <UpdatePassword />}
           {popSignUp === 'logOut' && <LogOut />}
           {popSignUp === 'deleteUser' && <DeleteUser />}
+          {popSignUp === 'mobileNav' && <MobileNav />}
         </div>
       )}
     </>
